@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/04/24 17:42:12 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/04/24 18:19:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main(void)
 {
-	t_ins	fdf;
+	t_env	e;
 
-	fdf.win_wi = WIDTH;
-	fdf.win_he = HEIGHT;
-	ft_init_window(&fdf);
-	mlx_hook(fdf.win_ptr, 2, 1L << 0, ft_close_hook, NULL);
+	ft_init_t_env(&e);
+	ft_init_window(&e);
+	mlx_string_put(e.mlx, e.win, 800, 600, 240, "OUI");
+	mlx_key_hook(e.win, key_hook, &e);
 	return (0);
 }
