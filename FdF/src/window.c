@@ -1,14 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile.c                                            :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/04/25 12:22:37 by qbanet           ###   ########.fr       */
+/*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
+/*   Updated: 2023/04/25 12:15:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void	ft_init_window(t_env *e)
+{
+	e->mlx = mlx_init();
+	if (e->mlx == NULL)
+		exit(EXIT_FAILURE);
+	e->win = mlx_new_window(e->mlx, e->width, e->height, "Fil de Fer Aka FdF");
+	if (e->win == NULL)
+		exit(EXIT_FAILURE);
+	e->img = mlx_new_image(e->mlx, e->width, e->height);
+}
+
+void	ft_close_window(t_env *e)
+{
+	mlx_destroy_image(e->mlx, e->img);
+	mlx_destroy_window(e->mlx, e->win);
+	mlx_destroy_display(e->mlx);
+}

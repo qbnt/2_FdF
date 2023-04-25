@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/04/24 18:15:32 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/04/25 12:36:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+# define SQUAR_SIZE 100
+
+# define RED 0xFF0000
+
+# define ESC 65307
 
 typedef struct s_env
 {
@@ -28,10 +33,24 @@ typedef struct s_env
 	int		height;
 }	t_env;
 
+typedef struct s_squar
+{
+	int	x;
+	int	y;
+}	t_squar;
+
+/*init.c*/
 void	ft_init_t_env(t_env *e);
+void	ft_init_t_squar(t_squar *squar);
+
+/*window.c*/
 void	ft_init_window(t_env *e);
 void	ft_close_window(t_env *e);
-int		ft_close_hook(int keycode, void *context);
+
+/*key.c*/
 int		key_hook(int keycode, t_env *e);
+
+/*utile.c*/
+
 
 #endif
