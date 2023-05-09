@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/04/13 15:53:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:04:58 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include<unistd.h>
 # include<stdarg.h>
 # include<signal.h>
+# include <fcntl.h>
 
 /********************************** STRUCTS ***********************************/
 
@@ -35,6 +36,7 @@ typedef unsigned long long	t_ull;
 typedef long long			t_ll;
 typedef unsigned long		t_ul;
 typedef long				t_l;
+typedef int					t_bool;
 
 /*********************************** DEFINES **********************************/
 

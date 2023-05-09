@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/04/25 16:44:03 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:13:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include "mlx.h"
+
+# define ERROR_ARG 1
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -26,6 +28,11 @@
 # define ESC 65307
 
 /*******STRUCT*******/
+
+typedef struct s_3d
+{
+	t_env	e;
+}	t_3d;
 
 typedef struct s_env
 {
@@ -52,6 +59,9 @@ void	ft_close_window(t_env *e);
 
 /*key.c*/
 int		key_hook(int keycode, t_env *e);
+
+/*error.c*/
+int	ft_error(int error);
 
 /*file.c*/
 
