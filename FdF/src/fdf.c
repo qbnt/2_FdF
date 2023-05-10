@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/09 15:17:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/10 09:43:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	main(int argc, char **argv)
 	char	*s;
 
 	if (argc != 2)
-		return(ft_error(ERROR_ARG));
-	s = &argv[1];
+		ft_error(ERROR_ARG);
+	s = argv[1];
 	read_map(&obj, s);
 	ft_init_t_env(&obj.e);
 	ft_init_window(&obj.e);
-	mlx_key_hook(obj.e.win, &key_hook, &e);
+	mlx_key_hook(obj.e.win, &key_hook, &obj.e);
 	mlx_loop(obj.e.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/09 15:04:58 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/10 10:50:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 # include <fcntl.h>
 
 /********************************** STRUCTS ***********************************/
+
+typedef struct s_gnl
+{
+	int				fd;
+	char			*text;
+	char			*tempo;
+	struct s_gnl	*next;
+}	t_gnl;
 
 typedef struct s_list
 {
@@ -134,13 +142,19 @@ int			ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+size_t		ft_strcpy(char *dest, const char *src)
+
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *str, size_t size);
+
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
+
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
+char		*ft_strncpy(char *dest, char *src, unsigned int n);
+
 int			ft_atoi(const char *str);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -179,6 +193,7 @@ size_t		ft_strlen_gnl(char *s);
 char		*ft_check_gnl(char *str, int c);
 char		*ft_strjoin_gnl(char *s1, char *s2);
 char		*get_next_line(int fd);
+int			ft_gnl(int fd, char **line);
 
 /*********** MATH ***********/
 

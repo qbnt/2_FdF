@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/10 09:44:57 by qbanet           ###   ########.fr       */
+/*   Created: 2023/05/10 10:38:04 by qbanet            #+#    #+#             */
+/*   Updated: 2023/05/10 10:44:20 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+# include "libft.h"
 
-
-
-int	read_map(t_3d *obj, char *s)
+size_t	ft_strcpy(char *dest, const char *src)
 {
-	int		fd;
-	char	*buf;
+	size_t	i;
 
-	fd = open(s, O_RDONLY);
-	if (fd == -1)
-		ft_error(ERROR_OPEN);
-	while ()
+	i = 0;
+	while (src[i])
 	{
-
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (ft_strlen(dest));
 }
