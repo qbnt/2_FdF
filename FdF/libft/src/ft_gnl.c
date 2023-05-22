@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/22 15:12:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/22 16:43:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static t_gnl	*ft_create_list(int fd)
 {
-	t_gnl	*list;
-	list = NULL;
+	t_gnl	*list = NULL;
 	if (!list)
 	{
 		list=(t_gnl*)malloc(sizeof(*list));
@@ -78,7 +77,7 @@ static int	ft_check(char *save, char **line)
 	return (0);
 }
 
-int	ft_gnl(int fd, char **line)
+int	ft_gnl(int fd, char *line)
 {
 	char			*buf;
 	static t_gnl	*save = NULL;
@@ -97,11 +96,11 @@ int	ft_gnl(int fd, char **line)
 		if (rt == -1)
 			return (-1);
 		if (rt == 0)
-			return (ft_check(temp->text, line));
+			return (ft_check(temp->text, &line));
 		buf[rt] = '\0';
 		temp->text = ft_strjoin(temp->tempo, buf);
 		free(temp->tempo);
 		temp->tempo = temp->text;
 	}
-	return(ft_check(temp->text, line));
+	return(ft_check(temp->text, &line));
 }
