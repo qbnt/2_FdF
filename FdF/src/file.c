@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		ft_count(char *s, t_3d *obj)
+static int		ft_count(char *s, t_3d *obj)
 {
 	char	*line;
 	int		fd;
@@ -35,7 +35,7 @@ int		ft_count(char *s, t_3d *obj)
 	return (0);
 }
 
-int		ft_pars_map(int fd, t_3d *obj)
+static int		ft_pars_map(int fd, t_3d *obj)
 {
 	char	*line;
 	char	**split_line;
