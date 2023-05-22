@@ -12,9 +12,20 @@
 
 #include "libft.h"
 
-int	ft_max(int a, int b)
+int	ft_max(int *tab, unsigned int len)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	unsigned int	i;
+	int				max;
+
+	if (len == 0)
+		return (0);
+	i = 1;
+	max = *tab;
+	while (i != len)
+	{
+		if (max < *(tab + i))
+			max = *(tab + i);
+		i++;
+	}
+	return (max);
 }

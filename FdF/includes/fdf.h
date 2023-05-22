@@ -53,10 +53,13 @@ typedef struct s_point
 
 typedef struct s_map
 {
-	char **map;
-	int x_max;
-	int y_max;
-	int z_max;
+	char	**map;
+	int		x;
+	int		y;
+	int		nb_colon;
+	int		nb_line;
+	int		max;
+	int		pad;
 } t_map;
 
 typedef struct s_3d

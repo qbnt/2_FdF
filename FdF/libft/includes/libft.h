@@ -198,7 +198,7 @@ int			ft_gnl(int fd, char *line);
 
 /*********** MATH ***********/
 
-int			ft_max(int a, int b);
+int	ft_max(int *tab, unsigned int len);
 long long	ft_pow(long long nb, long long p);
 
 #endif
