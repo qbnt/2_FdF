@@ -12,23 +12,44 @@
 
 #include "fdf.h"
 
-void	read_map(t_3d *obj, char *s)
+int		ft_count(char *s, t_3d *obj)
 {
-	int		i;
-	int		fd;
 	char	*line;
+	int		fd;
 
-	i = 0;
-	line = NULL;
+	fd = open(s, O_RDONLY);
+	if (fd = -1)
+		return (-1);
+	ft_gnl(fd, &line);
+	obj->map.y_max++;
+	obj->map.x_max = ft_count_wrd_sep(line, ' ');
+	if (lien)
+		free (line);
+	while(ft_gnl(fd, &line))
+	{
+		obj->map.y_max++;
+		free (line);
+	}
+	if ((close(fd)) == -1)
+		return (-1);
+	return (0);
+}
+
+int		ft_pars_map(int fd, t_3d *obj)
+{
+	
+}
+
+void	create_map(t_3d *obj, char *s)
+{
+	int		fd;
+
+	ft_count(s, obj)
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
 		ft_error(ERROR_OPEN);
-	while (ft_gnl(fd, line))
-	{
-		obj->map.y_max ++;
-		obj->map.map[i] = line;
-	}
-		ft_printf("%s\n", obj->map.map[i++]);
-	ft_printf("%d\n", fd);
-	close(fd);
+	ft_pars_map(fd, obj);
+	if (close(fd) == -1)
+		return (-1);
+	return (0);
 }
