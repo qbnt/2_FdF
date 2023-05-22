@@ -12,30 +12,28 @@
 
 #include "libft.h"
 
-static t_gnl	*ft_create_list(int fd)
-{
-	t_gnl	*list = NULL;
-	if (!list)
-	{
-		list=(t_gnl*)malloc(sizeof(*list));
-		if (!list)
-			return (NULL);
-	}
-	list->fd = fd;
-	list->next = NULL;
-	list->tempo = ft_calloc(1, 0);
-	list->text = NULL;
-	return (list);
-}
-
 static void	ft_list_add_last(t_gnl **save, t_gnl *elem)
 {
 	t_gnl	*list;
 
 	list = *save;
-	while (list->next != NULL)
+	while (list->next)
 		list = list->next;
 	list->next = elem;
+}
+
+static t_gnl	*ft_create_list(int fd)
+{
+	t_gnl	*list;
+
+	list=(t_gnl*)malloc(sizeof(*list));
+	if (!list)
+		return (NULL);
+	list->fd = fd;
+	list->tempo = ft_calloc(sizeof(*(list)), 1);
+	list->next = NULL;
+	list->text = NULL;
+	return (list);
 }
 
 t_gnl	*ft_check_fd(t_gnl *save, int fd)
@@ -67,17 +65,23 @@ static int	ft_check(char *save, char **line)
 	if (!save)
 		return (0);
 	end = ft_strchr(save, '\n');
-	if (end != NULL)
+	if (end)
 	{
 		*end = '\0';
 		*line = ft_strdup(save);
 		ft_strncpy(save, &end[1], ft_strlen(&end[1]) + 1);
 		return (1);
 	}
+	else if (ft_strlen(save) > 0)
+	{
+		*line = ft_strdup(save);
+		*save = 0;
+		return (1);
+	}
 	return (0);
 }
 
-int	ft_gnl(int fd, char *line)
+int	ft_gnl(int fd, char **line)
 {
 	char			*buf;
 	static t_gnl	*save = NULL;
