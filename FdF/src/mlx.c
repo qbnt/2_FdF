@@ -20,7 +20,6 @@ void	ft_init_window(t_env *e)
 	e->win = mlx_new_window(e->mlx, e->width, e->height, "Fil de Fer Aka FdF");
 	if (e->win == NULL)
 		exit(EXIT_FAILURE);
-	e->img = mlx_new_image(e->mlx, e->width, e->height);
 }
 
 void	ft_close_window(t_env *e)
@@ -28,4 +27,11 @@ void	ft_close_window(t_env *e)
 	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);
 	mlx_destroy_display(e->mlx);
+}
+
+int		ft_mlx(t_3d *obj)
+{
+	ft_init_window(&obj->e);
+	mlx_key_hook(&obj->e.win, &key_hook, &obj->e);
+	mlx_loop(&obj->e.mlx);
 }

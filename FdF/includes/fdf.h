@@ -77,9 +77,10 @@ void ft_init_t_env(t_env *e);
 void ft_init_t_map(t_map *map);
 void ft_init_t_point(t_point *point);
 
-/*window.c*/
+/*mlx.c*/
 void ft_init_window(t_env *e);
 void ft_close_window(t_env *e);
+int	ft_mlx(t_3d *obj);
 
 /*key.c*/
 int key_hook(int keycode, t_env *e);
