@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/10 10:50:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:14:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,8 @@ int			ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
-size_t		ft_strcpy(char *dest, const char *src)
-
+size_t		ft_strcpy(char *dest, const char *src);
+char		*ft_strncpy(char *dest, char *src, unsigned int n);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *str, size_t size);
 

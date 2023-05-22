@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/10 10:46:35 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:12:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static t_gnl	*ft_create_list(int fd)
 {
 	t_gnl	*list;
+	list = NULL;
 	if (!list)
 	{
 		list=(t_gnl*)malloc(sizeof(*list));
