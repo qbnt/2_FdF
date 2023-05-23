@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 10:07:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 16:21:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_3d	obj;
 	char	*s;

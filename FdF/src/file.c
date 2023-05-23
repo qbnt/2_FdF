@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 11:12:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 16:21:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		ft_count(char *s, t_map *map)
+static int	ft_count(char *s, t_map *map)
 {
 	char	*line;
 	int		fd;
@@ -26,7 +26,7 @@ static int		ft_count(char *s, t_map *map)
 	map->nb_colon = ft_count_wrd_sep(line, ' ');
 	if (line)
 		free (line);
-	while(ft_gnl(fd, &line))
+	while (ft_gnl(fd, &line))
 	{
 		map->nb_line++;
 		free (line);
@@ -36,7 +36,7 @@ static int		ft_count(char *s, t_map *map)
 	return (0);
 }
 
-static int		ft_pars_map(int fd, t_map *map)
+static int	ft_pars_map(int fd, t_map *map)
 {
 
 }
