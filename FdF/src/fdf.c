@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/22 16:48:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 10:07:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		ft_error(ERROR_ARG);
 	s = argv[1];
 	ft_init_t_3d(&obj);
-	create_map(&obj, s);
+	create_map(&obj.map, s);
 	ft_mlx(&obj);
 	return (0);
 }

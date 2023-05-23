@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:47:16 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/22 14:43:26 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 09:12:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ void ft_init_t_env(t_env *e)
 void ft_init_t_map(t_map *map)
 {
 	map->map = NULL;
-	map->x_max = 0;
-	map->y_max = 0;
-	map->z_max = 0;
+	map->nb_colon = 0;
+	map->nb_line = 0;
+	map->x = 0;
+	map->y = 0;
+	map->max = 0;
+	map->pad = 0;
 }
 
 void ft_init_t_point(t_point *point)

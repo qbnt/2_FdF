@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:04:16 by qbanet            #+#    #+#              #
-#    Updated: 2023/05/22 15:15:29 by qbanet           ###   ########.fr        #
+#    Updated: 2023/05/23 09:25:20 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,9 @@ SRCS = 	ft_atoi.c	\
 	ft_toupper.c	\
 	get_next_line_utils.c	\
 	get_next_line.c	\
-	ft_gnl.c
+	ft_gnl.c	\
+	ft_max.c	\
+	ft_count_wrd_sep.c
 
 SRC = $(addprefix $(SRC_DIR)/,$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

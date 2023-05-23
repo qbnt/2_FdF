@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/22 16:35:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 09:24:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(char const *s, char c);
 char		*ft_itoa(int n);
-int			ft_count_words_sep(char const *s, char c);
+int			ft_count_wrd_sep(char const *s, char c);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_convert_base(t_ll num, const char *base_set, int base);
@@ -194,11 +194,11 @@ size_t		ft_strlen_gnl(char *s);
 char		*ft_check_gnl(char *str, int c);
 char		*ft_strjoin_gnl(char *s1, char *s2);
 char		*get_next_line(int fd);
-int			ft_gnl(int fd, char *line);
+int			ft_gnl(int fd, char **line);
 
 /*********** MATH ***********/
 
-int	ft_max(int *tab, unsigned int len);
+int			ft_max(int *tab, unsigned int len);
 long long	ft_pow(long long nb, long long p);
 
 #endif

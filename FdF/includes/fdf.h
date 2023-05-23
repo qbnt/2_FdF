@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/22 15:10:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/05/23 10:15:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int key_hook(int keycode, t_env *e);
 int ft_error(int error);
 
 /*file.c*/
-void read_map(t_3d *obj, char *s);
+void create_map(t_map *map, char *s);
 
 #endif
