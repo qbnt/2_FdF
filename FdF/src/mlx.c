@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 16:23:08 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 12:41:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_init_window(t_env *e)
 	e->mlx = mlx_init();
 	if (e->mlx == NULL)
 		exit(EXIT_FAILURE);
-	e->win = mlx_new_window(e->mlx, e->width, e->height, "Fil de Fer Aka FdF");
+	e->win = mlx_new_window(e->mlx, WIDTH, HEIGHT, "Fil de Fer Aka FdF");
 	if (e->win == NULL)
 		exit(EXIT_FAILURE);
 }

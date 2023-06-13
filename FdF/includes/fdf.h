@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 16:44:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 12:41:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define ERROR_OPEN 2
 # define ERROR_CLOSE 3
 # define ERROR_MAP 4
+# define ERROR_FORMAT 5
 
 /*Tailles*/
 # define WIDTH 1920
@@ -73,12 +74,6 @@ typedef struct s_3d
 
 /******* Fichiers *******/
 
-/*init.c*/
-void	ft_init_t_env(t_env *e);
-void	ft_init_t_map(t_map *map);
-void	ft_init_t_point(t_point *point);
-void	ft_init_t_3d(t_3d *obj);
-
 /*mlx.c*/
 void	ft_init_window(t_env *e);
 void	ft_close_window(t_env *e);
@@ -92,5 +87,6 @@ int		ft_error(int error);
 
 /*file.c*/
 int		create_map(t_map *map, char *s);
+int	ft_form(char *s);
 
 #endif

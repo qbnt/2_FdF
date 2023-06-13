@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:43:58 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 16:48:03 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 10:56:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	ft_error(int error)
 		ft_printf("Error during closing.\n");
 	if (error == ERROR_MAP)
 		ft_printf("Error during computing map.\n");
+	if (error == ERROR_FORMAT)
+		ft_printf("Error, wrong map format.\n");
 	exit(EXIT_FAILURE);
 }
