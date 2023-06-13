@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:43:58 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/13 10:56:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:42:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_error(int error)
 {
 	if (error == ERROR_ARG)
-		ft_printf("Invalid number of arguments.\nUsage : ./fdf <filename>\n");
+		ft_printf("Invalid number of arguments.\n\nUsage : ./fdf <filename>\n");
 	if (error == ERROR_OPEN)
 		ft_printf("Error during opening.\n");
 	if (error == ERROR_CLOSE)

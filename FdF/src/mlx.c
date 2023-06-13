@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/13 12:41:12 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:48:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_init_window(t_env *e)
 
 void	ft_close_window(t_env *e)
 {
-	mlx_destroy_image(e->mlx, e->img);
+//	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);
 	mlx_destroy_display(e->mlx);
 }
@@ -32,7 +32,7 @@ void	ft_close_window(t_env *e)
 int	ft_mlx(t_3d *obj)
 {
 	ft_init_window(&obj->e);
-	mlx_key_hook(&obj->e.win, &key_hook, &obj->e);
-	mlx_loop(&obj->e.mlx);
+	mlx_key_hook(obj->e.win, &key_hook, &obj->e);
+	mlx_loop(obj->e.mlx);
 	return (0);
 }
