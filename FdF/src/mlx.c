@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/13 14:48:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:53:07 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_init_window(t_env *e)
 
 void	ft_close_window(t_env *e)
 {
-//	mlx_destroy_image(e->mlx, e->img);
+	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);
 	mlx_destroy_display(e->mlx);
 }
