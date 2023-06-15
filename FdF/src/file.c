@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/13 12:28:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/15 16:28:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	ft_count(char *s, t_map *map)
 		free (line);
 	while (ft_gnl(fd, &line))
 	{
+		if (map->nb_colon != ft_count_wrd_sep(line, ' '))
+			return (-1);
 		map->nb_line++;
 		free (line);
 	}
@@ -79,7 +81,7 @@ int	create_map(t_map *map, char *s)
 	if (fd == -1)
 		return (ft_error(ERROR_OPEN));
 	if (ft_pars_map(fd, map) == -1)
-		return (ERROR_MAP);
+		return (ft_error(ERROR_MAP));
 	if (close(fd) == -1)
 		return (ft_error(ERROR_CLOSE));
 	ft_printf("Map Set !\n");
