@@ -24,7 +24,7 @@ MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11
 INCLUDES = -I includes -I $(LIBFT_DIR)/includes -I $(MINILIBX_DIR)
 
 SRC_DIR = src
-SRC_FILES = main.c mlx.c key.c utile.c file.c error.c
+SRC_FILES = $(whildcard *.c)
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj
