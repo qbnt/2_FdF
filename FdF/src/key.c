@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 int	key_hook(int keycode, t_env *e)
 {
 	ft_printf("Touche appuyée: %d\n", keycode);
 	if (keycode == ESC)
 	{
-		ft_close_window(e);
+		ft_close_mlx(e);
 		exit(0);
 	}
 	return (0);

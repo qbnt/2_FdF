@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 void	ft_init_window(t_env *e)
 {
@@ -22,7 +22,7 @@ void	ft_init_window(t_env *e)
 		exit(EXIT_FAILURE);
 }
 
-void	ft_close_window(t_env *e)
+void	ft_close_mlx(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);

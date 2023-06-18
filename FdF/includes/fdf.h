@@ -76,7 +76,7 @@ typedef struct s_3d
 
 /*mlx.c*/
 void	ft_init_window(t_env *e);
-void	ft_close_window(t_env *e);
+void	ft_close_mlx(t_env *e);
 int		ft_mlx(t_3d *obj);
 
 /*key.c*/
@@ -87,6 +87,5 @@ int		ft_error(int error);
 
 /*file.c*/
 int		create_map(t_map *map, char *s);
-int	ft_form(char *s);
 
 #endif

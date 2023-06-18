@@ -26,11 +26,11 @@ static t_gnl	*ft_create_list(int fd)
 {
 	t_gnl	*list;
 
-	list=(t_gnl*)malloc(sizeof(*list));
+	list = (t_gnl*)malloc(sizeof(*list));
 	if (!list)
 		return (NULL);
 	list->fd = fd;
-	list->tempo = ft_calloc(sizeof(*(list)), 1);
+	list->tempo = ft_calloc(1, sizeof(*char));
 	list->next = NULL;
 	list->text = NULL;
 	return (list);
@@ -67,7 +67,7 @@ static int	ft_check(char *save, char **line)
 	end = ft_strchr(save, '\n');
 	if (end)
 	{
-		*end = '\0';
+		*end = 0;
 		*line = ft_strdup(save);
 		ft_strncpy(save, &end[1], ft_strlen(&end[1]) + 1);
 		return (1);
@@ -88,7 +88,7 @@ int	ft_gnl(int fd, char **line)
 	t_gnl			*temp;
 	int				rt;
 
-	buf = ft_calloc(1, BUFFER_SIZE);
+	buf = ft_calloc(BUFFER_SIZE, sizeof(*char));
 	if (!save)
 		save = ft_create_list(fd);
 	if (fd == -1 || line == NULL || BUFFER_SIZE <= 0)

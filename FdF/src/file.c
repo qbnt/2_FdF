@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 static int	ft_count(char *s, t_map *map)
 {
@@ -59,7 +59,7 @@ static int	ft_pars_map(int fd, t_map *map)
 	return (0);
 }
 
-int	ft_form(char *s)
+static int	ft_form(char *s)
 {
 	s = ft_strrchr(s, '.');
 	if (ft_strlen(s) != 4)
