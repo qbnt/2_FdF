@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:04:16 by qbanet            #+#    #+#              #
-#    Updated: 2023/05/23 09:25:20 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/18 21:26:44 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,20 @@ INCLUDES = -I./includes
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCS = $(whildcard *.c)
+SRCS = 	ft_atoi.c ft_itoa.c ft_memcmp.c ft_putnbr_fd.c ft_strncmp.c\
+		ft_bzero.c ft_lstadd_back.c ft_memcpy.c ft_putstr_fd.c ft_strncpy.c\
+		ft_calloc.c ft_lstadd_front.c ft_memmove.c ft_split.c ft_strnstr.c\
+		ft_convert_base.c ft_lstclear.c ft_memset.c ft_strchr.c ft_strrchr.c\
+		ft_count_wrd_sep.c ft_lstiter.c ft_printf.c ft_strdup.c ft_substr.c\
+		ft_convert_base_unsign.c ft_lstdelone.c ft_pow.c ft_strcpy.c\
+		ft_strtrim.c ft_gnl.c ft_lstlast.c ft_printf_utils_adr.c ft_striteri.c\
+		ft_tolower.c ft_isalnum.c ft_lstmap.c ft_printf_utils.c ft_strjoin.c\
+		ft_toupper.c ft_isalpha.c ft_lstnew.c ft_printf_utils_hexa.c\
+		ft_strlcat.c get_next_line.c ft_isascii.c ft_lstsize.c\
+		ft_printf_utils_unsign.c ft_strlcpy.c get_next_line_utils.c\
+		ft_isdigit.c ft_max.c ft_putchar_fd.c ft_strlen.c ft_isprint.c\
+		ft_memchr.c ft_putendl_fd.c ft_strmapi.c\
+
 SRC = $(addprefix $(SRC_DIR)/,$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 

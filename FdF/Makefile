@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/15 16:16:10 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/18 21:14:48 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MINILIBX_DIR = minilibx-linux
+MINILIBX_DIR = minilibx
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
 MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11
 
 INCLUDES = -I includes -I $(LIBFT_DIR)/includes -I $(MINILIBX_DIR)
 
 SRC_DIR = src
-SRC_FILES = $(whildcard *.c)
+SRC_FILES = main.c error.c file.c key.c mlx.c utile.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj
