@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:43:58 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 12:51:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 15:02:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,4 @@ int	ft_error(int error, t_3d *obj)
 		ft_free_tab(obj->map.map, obj->map.nb_line);
 	}
 	exit(EXIT_FAILURE);
-}
-
-void	ft_free_tab(int **map, int nb_line)
-{
-	int	i;
-
-	i = 0;
-	while(i < nb_line)
-	{
-		free(map[i]);
-		i ++;
-	}
-	free(map);
 }

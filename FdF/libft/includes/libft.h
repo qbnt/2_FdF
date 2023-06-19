@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/18 21:27:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 14:45:10 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef int					t_bool;
 
 /*********** BUFFER ***********/
 
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 420
 
 /*********** BOOL ***********/
 

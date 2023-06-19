@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 12:49:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 14:56:14 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,7 @@ static int	ft_pars_map(int fd, t_map *map)
 
 	line = NULL;
 	i = 0;
-	split_line = (int **)ft_calloc((map->nb_line) + 1, sizeof(int *));
-	while (i < map->nb_line)
-	{
-		split_line[i] = (int *)ft_calloc(map->nb_colon, sizeof(int));
-		i++;
-	}
-	i = 0;
+	split_line = (int **)ft_calloc((map->nb_line), sizeof(int *));
 	if (!split_line)
 		return (-1);
 	while (ft_gnl(fd, &line))
@@ -80,6 +74,8 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_MAP, NULL));
 	if (close(fd) == -1)
 		return (ft_error(ERROR_CLOSE, NULL));
+	ft_printf("line : %d, colon : %d\n", map->nb_line, map->nb_colon);
+	ft_print_tab(map->map, map->nb_line, map->nb_colon);
 	ft_printf("Map Set !\n");
 	return (0);
 }

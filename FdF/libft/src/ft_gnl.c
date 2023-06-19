@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 12:24:40 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 15:34:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,20 @@ int	ft_gnl(int fd, char **line)
 	{
 		rt = read(fd, buf, BUFFER_SIZE);
 		if (rt == -1)
+		{
+			free(buf);
 			return (-1);
+		}
 		if (rt == 0)
+		{
+			free(buf);
 			return (ft_check(temp->text, line));
+		}
 		buf[rt] = '\0';
 		temp->text = ft_strjoin(temp->tempo, buf);
 		free(temp->tempo);
 		temp->tempo = temp->text;
 	}
+	free(buf);
 	return(ft_check(temp->text, line));
 }
