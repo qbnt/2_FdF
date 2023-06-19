@@ -6,18 +6,20 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/18 21:16:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 12:36:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	key_hook(int keycode, t_env *e)
+int	key_hook(int keycode, t_3d *obj)
 {
 	ft_printf("Touche appuyée: %d\n", keycode);
 	if (keycode == ESC)
 	{
-		ft_close_mlx(e);
+		ft_close_mlx(&obj->e);
+		ft_free_tab(obj->map.map, obj->map.nb_line);
+		free(obj);
 		exit(0);
 	}
 	return (0);

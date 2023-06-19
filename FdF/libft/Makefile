@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:04:16 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/18 21:26:44 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/19 10:08:02 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ AR = ar
 ARFLAGS = -crs
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm
 RMFLAG = -rf

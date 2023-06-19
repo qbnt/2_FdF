@@ -6,13 +6,13 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/18 21:14:48 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/19 10:56:46 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -42,7 +42,8 @@ ROCKET = 🚀︎
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(MINILIBX)
+$(NAME): $(OBJ) $(MINILIBX)
+	@$(MAKE) -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MINILIBX_LINK) -o $(NAME)
 	@echo "$(GREEN)$(ROCKET) Compilation terminée avec succès ! $(ROCKET)$(RESET)"
 
@@ -50,9 +51,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(YELLOW)$(CHECK) $(notdir $@) compilé$(RESET)"
-
-$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
 
 $(MINILIBX):
 	@$(MAKE) -C $(MINILIBX_DIR)

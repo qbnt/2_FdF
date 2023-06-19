@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/18 21:28:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 12:24:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_gnl(int fd, char **line)
 	t_gnl			*temp;
 	int				rt;
 
-	buf = ft_calloc(BUFFER_SIZE, sizeof(char *));
+	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!save)
 		save = ft_create_list(fd);
 	if (fd == -1 || line == NULL || BUFFER_SIZE <= 0)

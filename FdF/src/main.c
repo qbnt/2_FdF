@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/18 21:16:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 12:51:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	char	*s;
 
 	if (argc != 2)
-		ft_error(ERROR_ARG);
+		ft_error(ERROR_ARG, NULL);
 	s = argv[1];
 	obj = ft_calloc(1, sizeof(t_3d));
 	create_map(&obj->map, s);
