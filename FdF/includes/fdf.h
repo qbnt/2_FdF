@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 15:02:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 20:35:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_env
 	void	*mlx;
 	void	*win;
 	void	*img;
+	int		*data;
 	int		width;
 	int		height;
 }	t_env;

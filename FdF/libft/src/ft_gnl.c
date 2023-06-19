@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 15:34:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 21:08:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ static int	ft_check(char *save, char **line)
 	else if (ft_strlen(save) > 0)
 	{
 		*line = ft_strdup(save);
-		*save = 0;
 		return (1);
 	}
 	return (0);
@@ -113,5 +112,6 @@ int	ft_gnl(int fd, char **line)
 		temp->tempo = temp->text;
 	}
 	free(buf);
+	ft_printf("%s\n", save->tempo);
 	return(ft_check(temp->text, line));
 }

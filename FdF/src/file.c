@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 14:56:14 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/19 19:57:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_MAP, NULL));
 	if (close(fd) == -1)
 		return (ft_error(ERROR_CLOSE, NULL));
-	ft_printf("line : %d, colon : %d\n", map->nb_line, map->nb_colon);
+	ft_printf("line : %d, colon : %d\n\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	ft_printf("Map Set !\n");
+	ft_printf("\nMap Set !\n");
 	return (0);
 }
