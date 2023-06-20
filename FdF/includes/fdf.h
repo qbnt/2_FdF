@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 10:28:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:29:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ typedef struct s_env
 	int		height;
 }	t_env;
 
+typedef struct s_sprite
+{
+	void		*ptr;
+	char		*pixels;
+	int			bpp;
+	int			size;
+	int			endian;
+	int			x;
+	int			y;
+}	t_sprite;
+
 typedef struct s_map
 {
 	int			**map;
@@ -64,8 +75,9 @@ typedef struct s_map
 
 typedef struct s_3d
 {
-	t_env	e;
-	t_map	map;
+	t_sprite	sprite;
+	t_env		e;
+	t_map		map;
 }	t_3d;
 
 /******* Fichiers *******/

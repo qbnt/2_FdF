@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 09:28:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:36:52 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ int	ft_mlx(t_3d *obj)
 {
 	ft_init_window(obj);
 	mlx_key_hook(obj->e.win, &key_hook, obj);
+	obj->sprite.ptr = mlx_xpm_file_to_image(obj->e.mlx, "loading.xpm",
+			&obj->sprite.x, &obj->sprite.y);
+	obj->sprite.pixels = mlx_get_data_addr(obj->sprite.ptr, &obj->sprite.bpp,
+			&obj->sprite.size, &obj->sprite.endian);
+	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->sprite.ptr, 0, 0);
 	mlx_loop(obj->e.mlx);
 	return (0);
 }
