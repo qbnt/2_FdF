@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 20:28:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 09:27:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_free_tab(int **map, int nb_line)
 	int	i;
 
 	i = 0;
-	while(i < nb_line)
+	while (i < nb_line)
 	{
 		free(map[i]);
 		i ++;

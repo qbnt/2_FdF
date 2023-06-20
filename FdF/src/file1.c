@@ -1,27 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   file1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 10:38:04 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 13:25:54 by qbanet           ###   ########.fr       */
+/*   Created: 2023/06/20 10:26:44 by qbanet            #+#    #+#             */
+/*   Updated: 2023/06/20 10:27:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-size_t	ft_strcpy(char *dest, const char *src)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (ft_strlen(dest));
-}

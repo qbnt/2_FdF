@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 20:35:05 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 10:28:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ typedef struct s_env
 
 typedef struct s_map
 {
-	int		**map;
-	int		x;
-	int		y;
-	int		nb_colon;
-	int		nb_line;
-	int		max;
-	int		pad;
+	int			**map;
+	long long	**color_map;
+	int			x;
+	int			y;
+	int			nb_colon;
+	int			nb_line;
+	int			max;
+	int			pad;
 }	t_map;
 
 typedef struct s_3d

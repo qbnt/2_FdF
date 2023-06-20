@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/19 10:56:46 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/20 10:26:22 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11
 INCLUDES = -I includes -I $(LIBFT_DIR)/includes -I $(MINILIBX_DIR)
 
 SRC_DIR = src
-SRC_FILES = main.c error.c file.c key.c mlx.c utile.c
+SRC_FILES = main.c error.c file0.c file1.c key.c mlx.c utile.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj
