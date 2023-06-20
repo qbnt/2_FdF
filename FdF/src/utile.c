@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 13:36:13 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 21:52:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,19 @@ int	ft_form(char *s)
 	return (-1);
 }
 
-int	*ft_inted_line(char *line, int nm_colon)
-{
-	char	**splited_line;
-	int		*inted_line;
-	int		i;
-	int		j;
-
-	splited_line = ft_split(line, ' ');
-	inted_line = ft_calloc(nm_colon, sizeof(int));
-	i = 0;
-	while (splited_line[i])
-	{
-		inted_line[i] = ft_atoi(splited_line[i]);
-		i ++;
-	}
-	j = 0;
-	while (splited_line[j])
-		free(splited_line[j ++]);
-	free(splited_line);
-	return (inted_line);
-}
-
 void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 {
 	int		i;
-	int		y;
+	int		j;
 
 	i = 0;
 	while (i < nb_line)
 	{
-		y = 0;
-		while (y < nb_colon)
+		j = 0;
+		while (j < nb_colon)
 		{
-			ft_printf("%d|", tab[i][y]);
-			y ++;
+			ft_printf("%d|", tab[i][j]);
+			j ++;
 		}
 		ft_printf("\n");
 		i ++;
