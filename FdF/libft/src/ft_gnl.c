@@ -6,15 +6,15 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:56:05 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 21:08:23 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 09:11:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_list_add_last(t_gnl **save, t_gnl *elem)
+static void ft_list_add_last(t_gnl **save, t_gnl *elem)
 {
-	t_gnl	*list;
+	t_gnl *list;
 
 	list = *save;
 	while (list->next)
@@ -22,11 +22,11 @@ static void	ft_list_add_last(t_gnl **save, t_gnl *elem)
 	list->next = elem;
 }
 
-static t_gnl	*ft_create_list(int fd)
+static t_gnl *ft_create_list(int fd)
 {
-	t_gnl	*list;
+	t_gnl *list;
 
-	list = (t_gnl*)malloc(sizeof(*list));
+	list = (t_gnl *)malloc(sizeof(*list));
 	if (!list)
 		return (NULL);
 	list->fd = fd;
@@ -36,7 +36,7 @@ static t_gnl	*ft_create_list(int fd)
 	return (list);
 }
 
-t_gnl	*ft_check_fd(t_gnl *save, int fd)
+t_gnl *ft_check_fd(t_gnl *save, int fd)
 {
 	t_gnl *tmp;
 	t_gnl *d_list;
@@ -58,9 +58,9 @@ t_gnl	*ft_check_fd(t_gnl *save, int fd)
 	return (NULL);
 }
 
-static int	ft_check(char *save, char **line)
+static int ft_check(char *save, char **line)
 {
-	char	*end;
+	char *end;
 
 	if (!save)
 		return (0);
@@ -80,18 +80,38 @@ static int	ft_check(char *save, char **line)
 	return (0);
 }
 
-int	ft_gnl(int fd, char **line)
+t_gnl *ft_free_gnl(t_gnl *lst)
 {
-	char			*buf;
-	static t_gnl	*save = NULL;
-	t_gnl			*temp;
-	int				rt;
+	t_gnl *next;
 
+	while (lst)
+	{
+		//		if (lst->text)
+		//			free(lst->text);
+		free(lst->tempo);
+		next = lst->next;
+		free(lst);
+		lst = next;
+	}
+	return (NULL);
+}
+
+int ft_gnl(int fd, char **line, int n)
+{
+	char *buf;
+	static t_gnl *save = NULL;
+	t_gnl *temp;
+	int rt;
+
+	if (n)
+		save = ft_free_gnl(save);
+	if (n)
+		return (0);
 	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!save)
 		save = ft_create_list(fd);
 	if (fd == -1 || line == NULL || BUFFER_SIZE <= 0)
-		return(-1);
+		return (-1);
 	temp = ft_check_fd(save, fd);
 	while (!(ft_strchr(temp->tempo, '\n')))
 	{
@@ -112,6 +132,5 @@ int	ft_gnl(int fd, char **line)
 		temp->tempo = temp->text;
 	}
 	free(buf);
-	ft_printf("%s\n", save->tempo);
-	return(ft_check(temp->text, line));
+	return (ft_check(temp->text, line));
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 14:45:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 08:23:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,7 @@ size_t		ft_strlen_gnl(char *s);
 char		*ft_check_gnl(char *str, int c);
 char		*ft_strjoin_gnl(char *s1, char *s2);
 char		*get_next_line(int fd);
-int			ft_gnl(int fd, char **line);
+int			ft_gnl(int fd, char **line, int n);
 
 /*********** MATH ***********/
 

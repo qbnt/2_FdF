@@ -6,62 +6,63 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 19:57:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/20 09:08:21 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	ft_count(char *s, t_map *map)
+static int ft_count(char *s, t_map *map)
 {
-	char	*line;
-	int		fd;
+	char *line;
+	int fd;
 
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
 		return (-1);
 	line = NULL;
-	ft_gnl(fd, &line);
+	ft_gnl(fd, &line, 0);
 	map->nb_line++;
 	map->nb_colon = ft_count_wrd_sep(line, ' ');
 	if (line)
-		free (line);
-	while (ft_gnl(fd, &line))
+		free(line);
+	while (ft_gnl(fd, &line, 0))
 	{
 		if (map->nb_colon != ft_count_wrd_sep(line, ' '))
 			return (-1);
 		map->nb_line++;
-		free (line);
+		free(line);
 	}
+	ft_gnl(fd, &line, 1);
 	if ((close(fd)) == -1)
 		return (-1);
 	return (0);
 }
 
-static int	ft_pars_map(int fd, t_map *map)
+static int ft_pars_map(int fd, t_map *map)
 {
-	char	*line;
-	int		**split_line;
-	int		i;
+	char *line;
+	int **split_line;
+	int i;
 
 	line = NULL;
 	i = 0;
 	split_line = (int **)ft_calloc((map->nb_line), sizeof(int *));
 	if (!split_line)
 		return (-1);
-	while (ft_gnl(fd, &line))
+	while (ft_gnl(fd, &line, 0))
 	{
 		split_line[i++] = ft_inted_line(line, map->nb_colon);
-		free (line);
+		free(line);
 	}
+	ft_gnl(fd, &line, 1);
 	map->map = split_line;
 	return (0);
 }
 
-
-int	create_map(t_map *map, char *s)
+int create_map(t_map *map, char *s)
 {
-	int		fd;
+	int fd;
 
 	if (ft_form(s) == -1)
 		return (ft_error(ERROR_FORMAT, NULL));
