@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 21:52:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 07:37:51 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,25 @@ void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 		while (j < nb_colon)
 		{
 			ft_printf("%d|", tab[i][j]);
+			j ++;
+		}
+		ft_printf("\n");
+		i ++;
+	}
+}
+
+void	ft_print_color(char ***tab, int nb_line, int nb_colon)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < nb_line)
+	{
+		j = 0;
+		while (j < nb_colon)
+		{
+			ft_printf("%s|", tab[i][j]);
 			j ++;
 		}
 		ft_printf("\n");

@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/20 10:26:22 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/21 07:47:18 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,11 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@rm -f $(NAME)
 	@echo "$(GREEN)$(CHECK) Nettoyage complet terminé$(RESET)"
+
+save: fclean
+	git add .
+	git commit -m "make save"
+	git push
 
 re: fclean all
 

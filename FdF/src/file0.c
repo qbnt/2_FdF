@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 21:51:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 07:45:07 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_color(char *node)
 	return (ft_strdup(str));
 }
 
-int	*ft_compute_line(char *line, int nm_colon, char **mappc)
+int	*ft_compute_line(char *line, int nm_colon, char ***mappc, int j)
 {
 	char	**splited_line;
 	char	**color_line;
@@ -62,6 +62,8 @@ int	*ft_compute_line(char *line, int nm_colon, char **mappc)
 	{
 		if (ft_strchr(splited_line[i], ','))
 			color_line[i] = ft_color(splited_line[i]);
+		else
+			color_line[i] = "0";
 		inted_line[i] = ft_atoi(splited_line[i]);
 		i ++;
 	}
@@ -69,8 +71,8 @@ int	*ft_compute_line(char *line, int nm_colon, char **mappc)
 	while (splited_line[i])
 		free(splited_line[i ++]);
 	free(splited_line);
-	mappc+=0;
-	mappc = color_line;
+	mappc += 0;
+	mappc[j] = color_line;
 	return (inted_line);
 }
 
@@ -84,17 +86,18 @@ static int	ft_pars_map(int fd, t_map *map)
 	i = 0;
 	line = NULL;
 	mappi = (int **)ft_calloc((map->nb_line), sizeof(int *));
-	mappc = (char ***)ft_calloc(map->nb_line, sizeof(char **));
+	mappc = (char ***)malloc(map->nb_line * sizeof(char **));
 	if (!mappi || !mappc)
 		return (-1);
 	while (ft_gnl(fd, &line, 0))
 	{
-		mappi[i] = ft_compute_line(line, map->nb_colon, *(mappc + i));
+		mappi[i] = ft_compute_line(line, map->nb_colon, mappc, i);
 		free(line);
 		i ++;
 	}
 	ft_gnl(fd, &line, 1);
 	map->map = mappi;
+	map->color_map = mappc;
 	return (0);
 }
 
@@ -113,8 +116,13 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_MAP, NULL));
 	if (close(fd) == -1)
 		return (ft_error(ERROR_CLOSE, NULL));
-	ft_printf("line : %d, colon : %d\n\n", map->nb_line, map->nb_colon);
+	ft_printf("line : %d, colon : %d\n\nMap :\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	ft_printf("\nMap Set !\n");
+	if (map->color_map)
+	{
+		ft_printf("\n\nColor map :\n");
+		ft_print_color(map->color_map, map->nb_line, map->nb_colon);
+	}
+	ft_printf("\n\nMap Set !\n");
 	return (0);
 }

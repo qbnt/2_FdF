@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 21:51:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 07:32:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_sprite
 typedef struct s_map
 {
 	int			**map;
-	long long	**color_map;
+	char		***color_map;
 	int			x;
 	int			y;
 	int			nb_colon;
@@ -96,11 +96,12 @@ int		ft_error(int error, t_3d *obj);
 
 /*file0.c*/
 int		create_map(t_map *map, char *s);
-int	*ft_compute_line(char *line, int nm_colon, char **mappc);
+int		*ft_compute_line(char *line, int nm_colon, char ***mappc, int j);
 char	*ft_color(char *node);
 
 /*utile.c*/
 int		ft_form(char *s);
 void	ft_print_tab(int **tab, int nb_line, int nb_colon);
+void	ft_print_color(char ***tab, int nb_line, int nb_colon);
 
 #endif
