@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:43:58 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/19 15:02:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 07:58:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_error(int error, t_3d *obj)
 	if (error == ERROR_MLX_CREA)
 	{
 		ft_printf("Error during the mlx init.\n");
-		ft_free_tab(obj->map.map, obj->map.nb_line);
+		ft_free_map(obj->map.map, obj->map.nb_line);
 	}
 	exit(EXIT_FAILURE);
 }

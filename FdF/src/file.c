@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file0.c                                            :+:      :+:    :+:   */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 07:45:07 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 08:09:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_color(char *node)
 	return (ft_strdup(str));
 }
 
-int	*ft_compute_line(char *line, int nm_colon, char ***mappc, int j)
+int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
 {
 	char	**splited_line;
 	char	**color_line;
@@ -55,13 +55,16 @@ int	*ft_compute_line(char *line, int nm_colon, char ***mappc, int j)
 	int		i;
 
 	splited_line = ft_split(line, ' ');
-	inted_line = (int *)ft_calloc(nm_colon, sizeof(int));
-	color_line = (char **)ft_calloc(nm_colon, sizeof(char *));
+	inted_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
+	color_line = (char **)ft_calloc(map->nb_colon, sizeof(char *));
 	i = 0;
 	while (splited_line[i])
 	{
 		if (ft_strchr(splited_line[i], ','))
+		{
+			map->color = 1;
 			color_line[i] = ft_color(splited_line[i]);
+		}
 		else
 			color_line[i] = "0";
 		inted_line[i] = ft_atoi(splited_line[i]);
@@ -85,13 +88,14 @@ static int	ft_pars_map(int fd, t_map *map)
 
 	i = 0;
 	line = NULL;
+	map->color = 0;
 	mappi = (int **)ft_calloc((map->nb_line), sizeof(int *));
 	mappc = (char ***)malloc(map->nb_line * sizeof(char **));
 	if (!mappi || !mappc)
 		return (-1);
 	while (ft_gnl(fd, &line, 0))
 	{
-		mappi[i] = ft_compute_line(line, map->nb_colon, mappc, i);
+		mappi[i] = ft_compute_line(line, map, mappc, i);
 		free(line);
 		i ++;
 	}
@@ -118,7 +122,7 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_CLOSE, NULL));
 	ft_printf("line : %d, colon : %d\n\nMap :\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	if (map->color_map)
+	if (map->color)
 	{
 		ft_printf("\n\nColor map :\n");
 		ft_print_color(map->color_map, map->nb_line, map->nb_colon);

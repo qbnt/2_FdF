@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 07:32:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 08:09:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_map
 {
 	int			**map;
 	char		***color_map;
+	t_bool		color;
 	int			x;
 	int			y;
 	int			nb_colon;
@@ -89,14 +90,15 @@ int		ft_mlx(t_3d *obj);
 
 /*key.c*/
 int		key_hook(int keycode, t_3d *obj);
-void	ft_free_tab(int **map, int nb_line);
+void	ft_free_map(int **map, int nb_line);
+void	ft_free_color(char ***color, int nb_line);
 
 /*error.c*/
 int		ft_error(int error, t_3d *obj);
 
 /*file0.c*/
 int		create_map(t_map *map, char *s);
-int		*ft_compute_line(char *line, int nm_colon, char ***mappc, int j);
+int		*ft_compute_line(char *line, t_map *map, char ***mappc, int j);
 char	*ft_color(char *node);
 
 /*utile.c*/
