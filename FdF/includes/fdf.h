@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 08:09:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:38:50 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,11 @@ int		ft_error(int error, t_3d *obj);
 /*file0.c*/
 int		create_map(t_map *map, char *s);
 int		*ft_compute_line(char *line, t_map *map, char ***mappc, int j);
-char	*ft_color(char *node);
 
 /*utile.c*/
 int		ft_form(char *s);
 void	ft_print_tab(int **tab, int nb_line, int nb_colon);
 void	ft_print_color(char ***tab, int nb_line, int nb_colon);
+char	*ft_color(char *node);
 
 #endif

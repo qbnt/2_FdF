@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 08:09:12 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:38:35 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ static int	ft_count(char *s, t_map *map)
 	if ((close(fd)) == -1)
 		return (-1);
 	return (0);
-}
-
-char	*ft_color(char *node)
-{
-	char	*str;
-
-	str = ft_strchr(node, ',') + 1;
-	return (ft_strdup(str));
 }
 
 int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)

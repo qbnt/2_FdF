@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 07:37:51 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:38:27 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,12 @@ void	ft_print_color(char ***tab, int nb_line, int nb_colon)
 		ft_printf("\n");
 		i ++;
 	}
+}
+
+char	*ft_color(char *node)
+{
+	char	*str;
+
+	str = ft_strchr(node, ',') + 1;
+	return (ft_strdup(str));
 }
