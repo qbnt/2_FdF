@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 11:53:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:54:10 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # define ERROR_MAP 4
 # define ERROR_FORMAT 5
 # define ERROR_MLX_CREA 6
-# define ERROR_MLX_FREE 7
 
 /*Tailles*/
 # define WIDTH 1920
