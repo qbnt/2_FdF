@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 11:38:35 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/22 17:23:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,11 @@ static int	ft_count(char *s, t_map *map)
 	return (0);
 }
 
-int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
+static void	ft_convert(t_map *map, char**splited_line, char **color_line,
+		int *inted_line)
 {
-	char	**splited_line;
-	char	**color_line;
-	int		*inted_line;
-	int		i;
+	int	i;
 
-	splited_line = ft_split(line, ' ');
-	inted_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
-	color_line = (char **)ft_calloc(map->nb_colon, sizeof(char *));
 	i = 0;
 	while (splited_line[i])
 	{
@@ -62,6 +57,19 @@ int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
 		inted_line[i] = ft_atoi(splited_line[i]);
 		i ++;
 	}
+}
+
+int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
+{
+	char	**splited_line;
+	char	**color_line;
+	int		*inted_line;
+	int		i;
+
+	splited_line = ft_split(line, ' ');
+	inted_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
+	color_line = (char **)ft_calloc(map->nb_colon, sizeof(char *));
+	ft_convert(map, splited_line, color_line, inted_line);
 	i = 0;
 	while (splited_line[i])
 		free(splited_line[i ++]);
