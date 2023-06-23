@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/20 13:50:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/23 17:22:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,12 +131,12 @@ int			ft_printhexa(int n, const char format);
 
 void		*ft_memset(void *s, int c, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
-void		*ft_realloc(void *ptr, size_t size);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
 int			ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
+int			ft_free_tab(void ***tab, int nb_line, int nb_colon);
 
 /*********** FT_STR ***********/
 

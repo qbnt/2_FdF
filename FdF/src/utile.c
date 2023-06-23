@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/21 11:38:27 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/23 17:37:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_form(char *s)
 {
 	s = ft_strrchr(s, '.');
+	if (!s)
+		return (-1);
 	if (ft_strlen(s) != 4)
 		return (-1);
 	if (ft_strncmp(s, ".fdf", 4) == 0)
