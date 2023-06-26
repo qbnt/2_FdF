@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/23 17:37:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 17:53:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 	}
 }
 
-void	ft_print_color(char ***tab, int nb_line, int nb_colon)
+void	ft_print_color(int **tab, int nb_line, int nb_colon)
 {
 	int		i;
 	int		j;
@@ -54,7 +54,7 @@ void	ft_print_color(char ***tab, int nb_line, int nb_colon)
 		j = 0;
 		while (j < nb_colon)
 		{
-			ft_printf("%s|", tab[i][j]);
+			ft_printf("%d|", tab[i][j]);
 			j ++;
 		}
 		ft_printf("\n");
@@ -62,10 +62,12 @@ void	ft_print_color(char ***tab, int nb_line, int nb_colon)
 	}
 }
 
-char	*ft_color(char *node)
+int	ft_color(char *node)
 {
 	char	*str;
+	int		res;
 
-	str = ft_strchr(node, ',') + 1;
-	return (ft_strdup(str));
+	str = ft_strchr(node, 'x') + 1;
+	res = ft_atoi_base(str, "0123456789ABCDEF");
+	return (res);
 }

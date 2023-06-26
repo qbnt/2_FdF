@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/23 17:22:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 17:52:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ int			ft_free_tab(void ***tab, int nb_line, int nb_colon);
 
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+int			ft_isspace(int c);
 size_t		ft_strcpy(char *dest, const char *src);
 char		*ft_strncpy(char *dest, char *src, unsigned int n);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
@@ -156,6 +157,7 @@ char		*ft_strnstr(const char *big, const char *little, size_t len);
 char		*ft_strncpy(char *dest, char *src, unsigned int n);
 
 int			ft_atoi(const char *str);
+int			ft_atoi_base(char *str, char *base);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

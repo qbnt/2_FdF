@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 14:48:20 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 17:42:18 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_count(char *s, t_map *map)
 	return (0);
 }
 
-static void	ft_convert(t_map *map, char**splited_line, char **color_line,
+static void	ft_convert(t_map *map, char**splited_line, int *color_line,
 		int *inted_line)
 {
 	int	i;
@@ -53,22 +53,22 @@ static void	ft_convert(t_map *map, char**splited_line, char **color_line,
 			color_line[i] = ft_color(splited_line[i]);
 		}
 		else
-			color_line[i] = ft_strdup("0x000000\0");
+			color_line[i] = 0;
 		inted_line[i] = ft_atoi(splited_line[i]);
 		i ++;
 	}
 }
 
-int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
+int	*ft_compute_line(char *line, t_map *map, int **mappc, int j)
 {
 	char	**splited_line;
-	char	**color_line;
+	int		*color_line;
 	int		*inted_line;
 	int		i;
 
 	splited_line = ft_split(line, ' ');
 	inted_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
-	color_line = (char **)ft_calloc(map->nb_colon, sizeof(char *));
+	color_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
 	ft_convert(map, splited_line, color_line, inted_line);
 	i = 0;
 	while (splited_line[i])
@@ -82,7 +82,7 @@ int	*ft_compute_line(char *line, t_map *map, char ***mappc, int j)
 static int	ft_pars_map(int fd, t_map *map)
 {
 	char		*line;
-	char		***mappc;
+	int			**mappc;
 	int			**mappi;
 	int			i;
 
@@ -90,7 +90,7 @@ static int	ft_pars_map(int fd, t_map *map)
 	line = NULL;
 	map->color = 0;
 	mappi = (int **)ft_calloc((map->nb_line), sizeof(int *));
-	mappc = (char ***)malloc(map->nb_line * sizeof(char **));
+	mappc = (int **)malloc(map->nb_line * sizeof(int *));
 	if (!mappi || !mappc)
 		return (-1);
 	while (ft_gnl(fd, &line, 0))
