@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 14:29:59 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 15:10:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int		ft_mlx(t_3d *obj);
 /*key.c*/
 int		key_hook(int keycode, t_3d *obj);
 void	ft_free_map(int **map, int nb_line);
-void	ft_free_color(char ***color, int nb_line);
+void	ft_free_color(char ***color, int nb_line, int nb_col);
 
 /*error.c*/
 int		ft_error(int error, t_3d *obj);
