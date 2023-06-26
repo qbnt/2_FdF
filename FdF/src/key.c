@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/23 17:49:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 11:57:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,17 @@ void	ft_free_map(int **map, int nb_line)
 void	ft_free_color(char ***color, int nb_line)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (i < nb_line)
 	{
+		j = 0;
+		while (j < nb_line)
+		{
+			free(color[i][j]);
+			j ++;
+		}
 		free(color[i]);
 		i ++;
 	}
