@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 10:56:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:48:20 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_convert(t_map *map, char**splited_line, char **color_line,
 			color_line[i] = ft_color(splited_line[i]);
 		}
 		else
-			color_line[i] = "0";
+			color_line[i] = ft_strdup("0x000000\0");
 		inted_line[i] = ft_atoi(splited_line[i]);
 		i ++;
 	}
@@ -122,11 +122,11 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_CLOSE, NULL));
 	ft_printf("line : %d, colon : %d\n\nMap :\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	if (map->color)
-	{
+//	if (map->color)
+//	{
 		ft_printf("\n\nColor map :\n");
 		ft_print_color(map->color_map, map->nb_line, map->nb_colon);
-	}
+//	}
 	ft_printf("\n\nMap Set !\n");
 	return (0);
 }

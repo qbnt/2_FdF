@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 11:57:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:50:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	key_hook(int keycode, t_3d *obj)
 	ft_printf("Touche appuyée: %d\n", keycode);
 	if (keycode == ESC)
 	{
-		ft_close_mlx(&obj->e);
+		ft_close_mlx(&obj->e, obj);
 		ft_free_map(obj->map.map, obj->map.nb_line);
 		ft_free_color(obj->map.color_map, obj->map.nb_line);
 		free(obj);
@@ -48,7 +48,7 @@ void	ft_free_color(char ***color, int nb_line)
 	while (i < nb_line)
 	{
 		j = 0;
-		while (j < nb_line)
+		while (j < 11)
 		{
 			free(color[i][j]);
 			j ++;
