@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 09:47:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 11:01:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,11 @@ int	create_map(t_map *map, char *s, t_3d *obj)
 		return (ft_error(ERROR_INTRA_MAP, obj));
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
-		return (ft_error(ERROR_OPEN, NULL));
+		return (ft_error(ERROR_OPEN, obj));
 	if (ft_pars_map(fd, map) == -1)
-		return (ft_error(ERROR_MAP, NULL));
+		return (ft_error(ERROR_MAP, obj));
 	if (close(fd) == -1)
-		return (ft_error(ERROR_CLOSE, NULL));
+		return (ft_error(ERROR_CLOSE, obj));
 	ft_printf("line : %d, colon : %d\n\nMap :\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
 	if (map->color)
