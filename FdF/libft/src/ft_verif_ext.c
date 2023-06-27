@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pix.c                                       :+:      :+:    :+:   */
+/*   ft_verif_ext.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 12:02:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 19:45:53 by qbanet           ###   ########.fr       */
+/*   Created: 2023/06/27 14:02:14 by qbanet            #+#    #+#             */
+/*   Updated: 2023/06/27 14:02:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"fdf.h"
+#include"libft.h"
 
-void	ft_put_pix(t_3d *obj, int x, int y, int color)
+t_bool	ft_verif_ext(const char *s, const char *ext)
 {
-	char	*dst;
+	size_t	ext_len;
 
-	dst = obj->image.ptr + (y * obj->image.size + x * (obj->image.bpp / 8));
-	*(unsigned int *)dst = color;
+	ext_len = ft_strlen(ext);
+	if (ft_strncmp(ext, ft_strrchr(s, '.'), ext_len)
+		|| ft_strlen(ft_strrchr(s, '.')) == ext_len)
+		return (1);
+	return (0);
 }

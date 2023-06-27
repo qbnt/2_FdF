@@ -6,11 +6,34 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 14:30:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 19:52:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	ft_set_img(t_3d *obj)
+{
+	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->loading.ptr,
+		(WIDTH - obj->loading.x) / 2, (HEIGHT - obj->loading.y) / 2);
+	ft_put_pix(obj, WIDTH / 2, HEIGHT / 2, 0x00FF0000);
+	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->image.ptr, 0, 0);
+	return (0);
+}
+
+int	ft_init_image(t_3d *obj)
+{
+	obj->image.ptr = mlx_new_image(obj->e.mlx, WIDTH, HEIGHT);
+	if (obj->image.ptr == NULL)
+		return (ft_error(ERROR_MLX_CREA, obj));
+	obj->image.pixels = mlx_get_data_addr(obj->image.ptr, &obj->image.bpp,
+			&obj->image.size, &obj->image.endian);
+	obj->loading.ptr = mlx_xpm_file_to_image(obj->e.mlx, "loading.xpm",
+			&obj->loading.x, &obj->loading.y);
+	obj->loading.pixels = mlx_get_data_addr(obj->loading.ptr, &obj->loading.bpp,
+			&obj->loading.size, &obj->loading.endian);
+	return (0);
+}
 
 int	ft_init_window(t_3d *obj)
 {
@@ -21,16 +44,13 @@ int	ft_init_window(t_3d *obj)
 			"Fil de Fer Aka FdF");
 	if (obj->e.win == NULL)
 		return (ft_error(ERROR_MLX_CREA, obj));
-	obj->e.img = mlx_new_image(obj->e.mlx, WIDTH, HEIGHT);
-	if (obj->e.img == NULL)
-		return (ft_error(ERROR_MLX_CREA, obj));
 	return (0);
 }
 
 void	ft_close_mlx(t_env *e, t_3d *obj)
 {
-	mlx_destroy_image(e->mlx, e->img);
-	mlx_destroy_image(e->mlx, obj->sprite.ptr);
+	mlx_destroy_image(e->mlx, obj->image.ptr);
+	mlx_destroy_image(e->mlx, obj->loading.ptr);
 	mlx_destroy_window(e->mlx, e->win);
 	mlx_destroy_display(e->mlx);
 	free(e->mlx);
@@ -39,13 +59,9 @@ void	ft_close_mlx(t_env *e, t_3d *obj)
 int	ft_mlx(t_3d *obj)
 {
 	ft_init_window(obj);
+	ft_init_image(obj);
 	mlx_key_hook(obj->e.win, &key_hook, obj);
-	obj->sprite.ptr = mlx_xpm_file_to_image(obj->e.mlx, "loading.xpm",
-			&obj->sprite.x, &obj->sprite.y);
-	obj->sprite.pixels = mlx_get_data_addr(obj->sprite.ptr, &obj->sprite.bpp,
-			&obj->sprite.size, &obj->sprite.endian);
-	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->sprite.ptr,
-		(WIDTH - obj->sprite.x) / 2, (HEIGHT - obj->sprite.y) / 2);
+	ft_set_img(obj);
 	mlx_loop(obj->e.mlx);
 	return (0);
 }

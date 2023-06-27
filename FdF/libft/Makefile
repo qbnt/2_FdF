@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:04:16 by qbanet            #+#    #+#              #
-#    Updated: 2023/06/26 17:34:11 by qbanet           ###   ########.fr        #
+#    Updated: 2023/06/27 14:02:52 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS = 	ft_atoi.c ft_itoa.c ft_memcmp.c ft_putnbr_fd.c ft_strncmp.c\
 		ft_printf_utils_unsign.c ft_strlcpy.c get_next_line_utils.c\
 		ft_isdigit.c ft_max.c ft_putchar_fd.c ft_strlen.c ft_isprint.c\
 		ft_memchr.c ft_putendl_fd.c ft_strmapi.c ft_gnl_u.c ft_atoi_base.c\
-		ft_isspace.c\
+		ft_isspace.c ft_verif_ext.c\
 
 SRC = $(addprefix $(SRC_DIR)/,$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

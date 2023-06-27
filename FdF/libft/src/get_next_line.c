@@ -6,11 +6,12 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:22:10 by quentinba         #+#    #+#             */
-/*   Updated: 2023/05/09 15:26:59 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 17:10:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 static char	*ft_clean_line(char *str, size_t i)
 {

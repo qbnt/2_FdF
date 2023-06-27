@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 12:10:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 19:41:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_env
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
 	int		*data;
 	int		bpp;
 	int		width;
@@ -78,7 +77,8 @@ typedef struct s_map
 
 typedef struct s_3d
 {
-	t_sprite	sprite;
+	t_sprite	loading;
+	t_sprite	image;
 	t_env		e;
 	t_map		map;
 }	t_3d;
@@ -102,8 +102,11 @@ int		ft_error(int error, t_3d *obj);
 int		create_map(t_map *map, char *s, t_3d *obj);
 int		*ft_compute_line(char *line, t_map *map, int **mappc, int j);
 
+/*file1.c*/
+t_bool	ft_verif_ext(const char *s, const char *ext);
+
 /*draw.c*/
-void	ft_put_pix(t_3d *obj, int x, int y);
+void	ft_put_pix(t_3d *obj, int x, int y, int color);
 void	ft_draw(void);
 
 /*utile.c*/

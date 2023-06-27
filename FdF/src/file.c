@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 11:01:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 17:11:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	create_map(t_map *map, char *s, t_3d *obj)
 {
 	int	fd;
 
-	if (ft_form(s) == -1)
+	if (ft_verif_ext(s, ".fdf") == 0)
 		return (ft_error(ERROR_FORMAT, obj));
 	if (ft_count(s, map, 0) == -1)
 		return (ft_error(ERROR_INTRA_MAP, obj));
