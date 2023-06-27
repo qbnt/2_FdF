@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 17:42:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 10:01:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define ERROR_MAP 4
 # define ERROR_FORMAT 5
 # define ERROR_MLX_CREA 6
+# define ERROR_INTRA_MAP 7
 
 /*Tailles*/
 # define WIDTH 800
@@ -96,9 +97,12 @@ void	ft_free_color(char ***color, int nb_line, int nb_col);
 /*error.c*/
 int		ft_error(int error, t_3d *obj);
 
-/*file0.c*/
-int		create_map(t_map *map, char *s);
+/*file.c*/
+int		create_map(t_map *map, char *s, t_3d *obj);
 int		*ft_compute_line(char *line, t_map *map, int **mappc, int j);
+
+/*draw.c*/
+void	ft_draw(void);
 
 /*utile.c*/
 int		ft_form(char *s);

@@ -6,16 +6,15 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 17:42:18 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 09:47:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	ft_count(char *s, t_map *map)
+static int	ft_count(char *s, t_map *map, int fd)
 {
 	char	*line;
-	int		fd;
 
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
@@ -29,7 +28,10 @@ static int	ft_count(char *s, t_map *map)
 	while (ft_gnl(fd, &line, 0))
 	{
 		if (map->nb_colon != ft_count_wrd_sep(line, ' '))
-			return (-1);
+		{
+			ft_gnl(fd, &line, 1);
+			return (free(line), -1);
+		}
 		map->nb_line++;
 		free(line);
 	}
@@ -105,14 +107,14 @@ static int	ft_pars_map(int fd, t_map *map)
 	return (0);
 }
 
-int	create_map(t_map *map, char *s)
+int	create_map(t_map *map, char *s, t_3d *obj)
 {
 	int	fd;
 
 	if (ft_form(s) == -1)
-		return (ft_error(ERROR_FORMAT, NULL));
-	if (ft_count(s, map) == -1)
-		return (ft_error(ERROR_ARG, NULL));
+		return (ft_error(ERROR_FORMAT, obj));
+	if (ft_count(s, map, 0) == -1)
+		return (ft_error(ERROR_INTRA_MAP, obj));
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
 		return (ft_error(ERROR_OPEN, NULL));
@@ -122,11 +124,11 @@ int	create_map(t_map *map, char *s)
 		return (ft_error(ERROR_CLOSE, NULL));
 	ft_printf("line : %d, colon : %d\n\nMap :\n", map->nb_line, map->nb_colon);
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-//	if (map->color)
-//	{
+	if (map->color)
+	{
 		ft_printf("\n\nColor map :\n");
 		ft_print_color(map->color_map, map->nb_line, map->nb_colon);
-//	}
+	}
 	ft_printf("\n\nMap Set !\n");
 	return (0);
 }
