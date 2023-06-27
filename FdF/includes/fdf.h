@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 10:01:05 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/27 12:10:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_env
 	void	*win;
 	void	*img;
 	int		*data;
+	int		bpp;
 	int		width;
 	int		height;
 }	t_env;
@@ -102,6 +103,7 @@ int		create_map(t_map *map, char *s, t_3d *obj);
 int		*ft_compute_line(char *line, t_map *map, int **mappc, int j);
 
 /*draw.c*/
+void	ft_put_pix(t_3d *obj, int x, int y);
 void	ft_draw(void);
 
 /*utile.c*/
