@@ -6,20 +6,11 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 19:52:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/06/28 18:09:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int	ft_set_img(t_3d *obj)
-{
-	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->loading.ptr,
-		(WIDTH - obj->loading.x) / 2, (HEIGHT - obj->loading.y) / 2);
-	ft_put_pix(obj, WIDTH / 2, HEIGHT / 2, 0x00FF0000);
-	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->image.ptr, 0, 0);
-	return (0);
-}
 
 int	ft_init_image(t_3d *obj)
 {
@@ -61,7 +52,6 @@ int	ft_mlx(t_3d *obj)
 	ft_init_window(obj);
 	ft_init_image(obj);
 	mlx_key_hook(obj->e.win, &key_hook, obj);
-	ft_set_img(obj);
 	mlx_loop(obj->e.mlx);
 	return (0);
 }
