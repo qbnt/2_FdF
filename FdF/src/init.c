@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:00:09 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/06 12:01:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/06 12:21:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ static void	ft_space(t_3d *obj)
 
 void	ft_init(t_3d *obj)
 {
-	ft_space(obj);
+//	ft_space(obj);
 }
