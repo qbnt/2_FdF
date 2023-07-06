@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 19:41:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/06 12:17:30 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,30 @@ typedef struct s_map
 	int			pad;
 }	t_map;
 
+typedef struct s_point
+{
+	int			x;
+	int			y;
+	int			x1;
+	int			y1;
+	int			x2;
+	int			y2;
+	int			spc;
+}	t_point;
+
 typedef struct s_3d
 {
 	t_sprite	loading;
 	t_sprite	image;
 	t_env		e;
 	t_map		map;
+	t_point		point;
 }	t_3d;
 
 /******* Fichiers *******/
+
+/*init.c*/
+void	ft_init(t_3d *obj)
 
 /*mlx.c*/
 int		ft_init_window(t_3d *obj);
@@ -92,8 +107,7 @@ int		ft_mlx(t_3d *obj);
 
 /*key.c*/
 int		key_hook(int keycode, t_3d *obj);
-void	ft_free_map(int **map, int nb_line);
-void	ft_free_color(char ***color, int nb_line, int nb_col);
+int		ft_expose_hook(t_3d *obj);
 
 /*error.c*/
 int		ft_error(int error, t_3d *obj);
@@ -106,13 +120,20 @@ int		*ft_compute_line(char *line, t_map *map, int **mappc, int j);
 t_bool	ft_verif_ext(const char *s, const char *ext);
 
 /*draw.c*/
-void	ft_put_pix(t_3d *obj, int x, int y, int color);
-void	ft_draw(void);
+void	ft_draw(t_3d *obj);
+
+/*point.c*/
+void	ft_place_colon_point_one(t_3d *obj);
+void	ft_place_colon_point_two(t_3d *obj);
+
+/*ft_bresenham.c*/
+void	ft_bresenham(t_3d *obj);
 
 /*utile.c*/
 int		ft_form(char *s);
 void	ft_print_tab(int **tab, int nb_line, int nb_colon);
 void	ft_print_color(int **tab, int nb_line, int nb_colon);
 int		ft_color(char *node);
+void	ft_free_map(int **map, int nb_line);
 
 #endif

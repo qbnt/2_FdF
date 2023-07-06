@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:52:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/26 17:53:01 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/05 11:50:49 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,17 @@ int	ft_color(char *node)
 	str = ft_strchr(node, 'x') + 1;
 	res = ft_atoi_base(str, "0123456789ABCDEF");
 	return (res);
+}
+
+void	ft_free_map(int **map, int nb_line)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_line)
+	{
+		free(map[i]);
+		i ++;
+	}
+	free(map);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/27 17:11:38 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/06 12:13:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ static void	ft_convert(t_map *map, char**splited_line, int *color_line,
 		else
 			color_line[i] = 0;
 		inted_line[i] = ft_atoi(splited_line[i]);
+		map->max = ft_max(map->map[i], map->nb_line);
+		if (map->max > map->pad)
+			map->pad = map->max;
 		i ++;
 	}
 }

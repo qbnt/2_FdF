@@ -6,25 +6,12 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:32 by qbanet            #+#    #+#             */
-/*   Updated: 2023/06/28 18:09:39 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/06 11:59:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int	ft_init_image(t_3d *obj)
-{
-	obj->image.ptr = mlx_new_image(obj->e.mlx, WIDTH, HEIGHT);
-	if (obj->image.ptr == NULL)
-		return (ft_error(ERROR_MLX_CREA, obj));
-	obj->image.pixels = mlx_get_data_addr(obj->image.ptr, &obj->image.bpp,
-			&obj->image.size, &obj->image.endian);
-	obj->loading.ptr = mlx_xpm_file_to_image(obj->e.mlx, "loading.xpm",
-			&obj->loading.x, &obj->loading.y);
-	obj->loading.pixels = mlx_get_data_addr(obj->loading.ptr, &obj->loading.bpp,
-			&obj->loading.size, &obj->loading.endian);
-	return (0);
-}
+#include <stdio.h>
 
 int	ft_init_window(t_3d *obj)
 {
@@ -49,9 +36,10 @@ void	ft_close_mlx(t_env *e, t_3d *obj)
 
 int	ft_mlx(t_3d *obj)
 {
+	ft_init(obj);
 	ft_init_window(obj);
-	ft_init_image(obj);
 	mlx_key_hook(obj->e.win, &key_hook, obj);
+	printf("oui oui oui\n");
 	mlx_loop(obj->e.mlx);
 	return (0);
 }
