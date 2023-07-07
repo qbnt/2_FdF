@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/06 12:17:30 by parallels        ###   ########.fr       */
+/*   Updated: 2023/07/07 15:46:43 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,26 @@
 /*Tailles*/
 # define WIDTH 800
 # define HEIGHT 600
-# define SQUAR_SIZE 500
 
 /*Couleurs*/
 # define RED 0xFF0000
 # define GREEN 0x00FF00
+# define BLUE 0x0000FF
 
 /*Touches*/
 # define ESC 65307
+
+/*Positions tableau*/
+# define Z1PL (obj->map.map[obj->map.y][obj->map.x])
+# define Z2PL (obj->map.map[obj->map.y][obj->map.x + 1])
+
+# define Z1PC (obj->map.map[obj->map.y][obj->map.x])
+# define Z2PC (obj->map.map[obj->map.y + 1][obj->map.x])
+
+# define Z1IL (obj->map.map[obj->map.y][obj->map.x])
+# define Z2IL (obj->map.map[obj->map.y][obj->map.x + 1])
+
+# define Z1IC ()
 
 /******* STRUCT *******/
 
@@ -84,7 +96,18 @@ typedef struct s_point
 	int			x2;
 	int			y2;
 	int			spc;
+	int			cte;
+	int			cte1;
+	int			cte2;
+	int			pos;
 }	t_point;
+
+typedef struct s_colot
+{
+	int			red;
+	int			green;
+	int			blue;
+}	t_color;
 
 typedef struct s_3d
 {
@@ -93,6 +116,7 @@ typedef struct s_3d
 	t_env		e;
 	t_map		map;
 	t_point		point;
+	t_color		color;
 }	t_3d;
 
 /******* Fichiers *******/
