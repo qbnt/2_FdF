@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/07 15:46:43 by parallels        ###   ########.fr       */
+/*   Updated: 2023/07/12 08:07:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include "mlx.h"
 
 /******* DEFINE *******/
+
+/*Pixel put*/
+# define PIX (obj->image.pixels)
+# define RED (obj->color.red)
+# define GRE (obj->color.green)
+# define BLU (obj->color.blue)
 
 /*Code erreur*/
 # define ERROR_ARG 1
@@ -32,9 +38,7 @@
 # define HEIGHT 600
 
 /*Couleurs*/
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
+
 
 /*Touches*/
 # define ESC 65307
@@ -49,7 +53,8 @@
 # define Z1IL (obj->map.map[obj->map.y][obj->map.x])
 # define Z2IL (obj->map.map[obj->map.y][obj->map.x + 1])
 
-# define Z1IC ()
+# define Z1IC (obj->map.map[obj->map.y][obj->map.x])
+# define Z2IC (obj->map.map[obj->map.y + 1][obj->map.x])
 
 /******* STRUCT *******/
 
@@ -85,6 +90,7 @@ typedef struct s_map
 	int			nb_line;
 	int			max;
 	int			pad;
+	int			proj;
 }	t_map;
 
 typedef struct s_point
@@ -100,6 +106,12 @@ typedef struct s_point
 	int			cte1;
 	int			cte2;
 	int			pos;
+	int			sx;
+	int			sy;
+	int			dx;
+	int			dy;
+	int			err;
+	int			e2;
 }	t_point;
 
 typedef struct s_colot
@@ -109,6 +121,12 @@ typedef struct s_colot
 	int			blue;
 }	t_color;
 
+typedef struct s_mov
+{
+	int			d_u;
+	int			l_r;
+}	t_mov;
+
 typedef struct s_3d
 {
 	t_sprite	loading;
@@ -117,12 +135,13 @@ typedef struct s_3d
 	t_map		map;
 	t_point		point;
 	t_color		color;
+	t_mov		mov;
 }	t_3d;
 
 /******* Fichiers *******/
 
 /*init.c*/
-void	ft_init(t_3d *obj)
+void	ft_init(t_3d *obj);
 
 /*mlx.c*/
 int		ft_init_window(t_3d *obj);
@@ -149,9 +168,14 @@ void	ft_draw(t_3d *obj);
 /*point.c*/
 void	ft_place_colon_point_one(t_3d *obj);
 void	ft_place_colon_point_two(t_3d *obj);
+void	ft_place_line_point_one(t_3d *obj);
+void	ft_place_line_point_two(t_3d *obj);
 
 /*ft_bresenham.c*/
 void	ft_bresenham(t_3d *obj);
+
+/*ft_pixel_put.c*/
+void	ft_pixel_put(t_3d *obj, int x, int y);
 
 /*utile.c*/
 int		ft_form(char *s);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:00:09 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/07 15:33:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/12 08:05:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,25 @@
 
 static void	ft_space(t_3d *obj)
 {
-	
+	if (obj->map.nb_colon <= 20)
+		obj->point.spc = 25;
+	else if (obj->map.nb_colon >= 20 && obj->map.nb_colon <= 50)
+		obj->point.spc = 20;
+	else if (obj->map.nb_colon >= 50 && obj->map.nb_colon <= 100)
+		obj->point.spc = 15;
+	else if (obj->map.nb_colon >= 100 && obj->map.nb_colon <= 200)
+		obj->point.spc = 5;
+	else
+		obj->point.spc = 1;
 }
 
 void	ft_init(t_3d *obj)
 {
 	ft_space(obj);
-	fdf->point.cte = fdf->map.pad / 200.00;
-	fdf->point.cte1 = 0.5;
-	fdf->point.cte2 = 0.5;
-	fdf->point.pos = 1;
-	fdf->mov.l_r = fdf->win_length / 4;
-	fdf->mov.d_u = fdf->win_width / 4;
+	obj->point.cte = obj->map.pad / 200.00;
+	obj->point.cte1 = 0.5;
+	obj->point.cte2 = 0.5;
+	obj->point.pos = 1;
+	obj->mov.l_r = obj->e.height / 4;
+	obj->mov.d_u = obj->e.width / 4;
 }
