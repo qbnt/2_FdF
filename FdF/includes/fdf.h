@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/12 08:07:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/19 12:13:55 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@
 
 /*Touches*/
 # define ESC 65307
+# define R 114
+# define G 103
+# define B 98
+# define UP 65362
+# define DOWN 65364
+# define RIGHT 65361
+# define LEFT 65363
 
 /*Positions tableau*/
 # define Z1PL (obj->map.map[obj->map.y][obj->map.x])
@@ -129,7 +136,6 @@ typedef struct s_mov
 
 typedef struct s_3d
 {
-	t_sprite	loading;
 	t_sprite	image;
 	t_env		e;
 	t_map		map;
@@ -151,6 +157,12 @@ int		ft_mlx(t_3d *obj);
 /*key.c*/
 int		key_hook(int keycode, t_3d *obj);
 int		ft_expose_hook(t_3d *obj);
+
+/*ft_key_color.c*/
+void	ft_key_color(t_3d *obj, int keycode);
+
+/*ft_key_move.c*/
+void	ft_key_move(t_3d *obj, int keycode);
 
 /*error.c*/
 int		ft_error(int error, t_3d *obj);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/12 08:17:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/19 11:46:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ static void	ft_convert(t_map *map, char**splited_line, int *color_line,
 		else
 			color_line[i] = 0;
 		inted_line[i] = ft_atoi(splited_line[i]);
-		ft_printf("%d\n", map->max);
-		map->max = ft_max(map->map[i], map->nb_colon);
-		ft_printf("%d\n", map->max);
+		map->max = ft_max(inted_line, map->nb_colon);
 		if (map->max > map->pad)
 			map->pad = map->max;
 		i ++;
