@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 09:49:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 10:21:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	key_hook(int keycode, t_3d *obj)
 		ft_key_zoom(obj, keycode);
 	if (keycode == M || keycode == L)
 		ft_key_alt(obj, keycode);
+	if (keycode == Z)
+		ft_init(obj);
 	ft_expose_hook(obj);
 	return (0);
 }

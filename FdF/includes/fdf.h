@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 09:43:34 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 10:20:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define O 111
 # define P 112
 # define R 114
+# define Z 122
 # define G 103
 # define B 98
 # define UP 65362

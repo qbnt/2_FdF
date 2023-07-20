@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:00:09 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/12 08:05:48 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 10:04:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ static void	ft_space(t_3d *obj)
 void	ft_init(t_3d *obj)
 {
 	ft_space(obj);
+	if (!obj->map.color)
+	{
+		obj->color.red = 255;
+		obj->color.green = 255;
+		obj->color.blue = 255;
+	}
 	obj->point.cte = obj->map.pad / 200.00;
 	obj->point.cte1 = 0.5;
 	obj->point.cte2 = 0.5;

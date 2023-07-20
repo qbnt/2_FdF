@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:33:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 10:01:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 10:45:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static void	ft_test(t_3d *obj)
 void	ft_bresenham(t_3d *obj)
 {
 	ft_test(obj);
+	ft_printf("x1 = %d, x2 = %d\n", obj->point.x1, obj->point.x2);
+	ft_printf("y1 = %d, y2 = %d\n", obj->point.y1, obj->point.y2);
 	while (1)
 	{
 		ft_pixel_put(obj, obj->mov.l_r + obj->point.x1,
