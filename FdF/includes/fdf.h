@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 17:29:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:55:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_3d
 
 /*init.c*/
 void	ft_init(t_3d *obj);
+void	ft_window(t_3d *obj);
 
 /*mlx.c*/
 int		ft_init_window(t_3d *obj);

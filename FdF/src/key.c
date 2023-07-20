@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 17:26:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:58:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ int	key_hook(int keycode, t_3d *obj)
 	ft_printf("Touche appuyée: %d\n", keycode);
 	if (keycode == ESC)
 		exit(EXIT_SUCCESS);
-	if (keycode == R || keycode == G || keycode == B)
+	else if (keycode == R || keycode == G || keycode == B)
 		ft_key_color(obj, keycode);
-	if (keycode == UP || keycode == DOWN || keycode == RIGHT || keycode == LEFT)
+	else if (keycode == UP || keycode == DOWN || keycode == RIGHT
+		|| keycode == LEFT)
 		ft_key_move(obj, keycode);
-	if (keycode == P)
+	else if (keycode == P)
 		ft_key_proj(obj);
-	if (keycode == I || keycode == O)
+	else if (keycode == I || keycode == O)
 		ft_key_zoom(obj, keycode);
-	if (keycode == M || keycode == L)
+	else if (keycode == M || keycode == L)
 		ft_key_alt(obj, keycode);
-	if (keycode == Z)
+	else if (keycode == Z)
 		ft_init(obj);
 	ft_expose_hook(obj);
 	return (0);

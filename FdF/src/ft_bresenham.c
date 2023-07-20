@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:33:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 13:37:04 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 18:34:24 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_bresenham(t_3d *obj)
 	ft_test(obj);
 	while (1)
 	{
+		ft_printf("x1 = %d et y1 = %d\n", obj->point.x1, obj->point.y1);
+		ft_printf("x2 = %d et y2 = %d\n\n", obj->point.x2, obj->point.y2);
 		ft_pixel_put(obj, obj->mov.l_r + obj->point.x1,
 			obj->mov.d_u + obj->point.y1);
 
@@ -55,5 +57,6 @@ void	ft_bresenham(t_3d *obj)
 			obj->point.err += obj->point.dx;
 			obj->point.y1 += obj->point.sy;
 		}
+		usleep(1000000);
 	}
 }
