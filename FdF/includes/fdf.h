@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 10:20:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 12:55:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include <math.h>
 
 /******* DEFINE *******/
 
@@ -114,10 +115,10 @@ typedef struct s_point
 	int			y1;
 	int			x2;
 	int			y2;
-	int			spc;
-	int			cte;
-	int			cte1;
-	int			cte2;
+	double		spc;
+	double		cte;
+	double		cte1;
+	double		cte2;
 	int			pos;
 	int			sx;
 	int			sy;
@@ -178,7 +179,7 @@ int		ft_error(int error, t_3d *obj);
 
 /*file.c*/
 int		create_map(t_map *map, char *s, t_3d *obj);
-int		*ft_compute_line(char *line, t_map *map, int **mappc, int j);
+int		*ft_compute_line(char *line, t_map *map, int **mappc);
 
 /*file1.c*/
 t_bool	ft_verif_ext(const char *s, const char *ext);

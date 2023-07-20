@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:28:54 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/19 11:46:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 10:57:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,22 @@ static void	ft_convert(t_map *map, char**splited_line, int *color_line,
 	}
 }
 
-int	*ft_compute_line(char *line, t_map *map, int **mappc, int j)
+int	*ft_compute_line(char *line, t_map *map, int **mappc)
 {
 	char	**splited_line;
 	int		*color_line;
 	int		*inted_line;
-	int		i;
 
 	splited_line = ft_split(line, ' ');
 	inted_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
 	color_line = (int *)ft_calloc(map->nb_colon, sizeof(int));
 	ft_convert(map, splited_line, color_line, inted_line);
-	i = 0;
-	while (splited_line[i])
-		free(splited_line[i ++]);
+	map->y = 0;
+	while (splited_line[map->y])
+		free(splited_line[map->y ++]);
 	free(splited_line);
 	mappc += 0;
-	mappc[j] = color_line;
+	mappc[map->x] = color_line;
 	return (inted_line);
 }
 
@@ -89,9 +88,8 @@ static int	ft_pars_map(int fd, t_map *map)
 	char		*line;
 	int			**mappc;
 	int			**mappi;
-	int			i;
 
-	i = 0;
+	map->x = 0;
 	line = NULL;
 	map->color = 0;
 	mappi = (int **)ft_calloc((map->nb_line), sizeof(int *));
@@ -100,9 +98,9 @@ static int	ft_pars_map(int fd, t_map *map)
 		return (-1);
 	while (ft_gnl(fd, &line, 0))
 	{
-		mappi[i] = ft_compute_line(line, map, mappc, i);
+		mappi[map->x] = ft_compute_line(line, map, mappc);
 		free(line);
-		i ++;
+		map->x ++;
 	}
 	ft_gnl(fd, &line, 1);
 	map->map = mappi;
