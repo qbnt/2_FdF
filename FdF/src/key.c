@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:56:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 10:21:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:26:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@ int	key_hook(int keycode, t_3d *obj)
 {
 	ft_printf("Touche appuyée: %d\n", keycode);
 	if (keycode == ESC)
-	{
-		ft_close_mlx(&obj->e, obj);
-		ft_free_map(obj->map.map, obj->map.nb_line);
-		ft_free_map(obj->map.color_map, obj->map.nb_line);
-		free(obj);
 		exit(EXIT_SUCCESS);
-	}
 	if (keycode == R || keycode == G || keycode == B)
 		ft_key_color(obj, keycode);
 	if (keycode == UP || keycode == DOWN || keycode == RIGHT || keycode == LEFT)
@@ -41,11 +35,12 @@ int	key_hook(int keycode, t_3d *obj)
 
 int	ft_expose_hook(t_3d *obj)
 {
-	obj->image.ptr = mlx_new_image(obj->e.mlx, WIDTH, HEIGHT);
-	obj->image.pixels = mlx_get_data_addr(obj->image.ptr, &obj->image.bpp,
-			&obj->image.size, &obj->image.endian);
+	obj->img_ptr = mlx_new_image(obj->mlx_ptr, obj->win_width,
+			obj->win_length);
+	obj->data = mlx_get_data_addr(obj->img_ptr, &obj->bpp,
+			&obj->size_line, &obj->endian);
 	ft_draw(obj);
-	mlx_put_image_to_window(obj->e.mlx, obj->e.win, obj->image.ptr, 0, 0);
-	mlx_destroy_image(obj->e.mlx, obj->image.ptr);
+	mlx_put_image_to_window(obj->mlx_ptr, obj->win_ptr, obj->img_ptr, 0, 0);
+	mlx_destroy_image(obj->mlx_ptr, obj->img_ptr);
 	return (0);
 }

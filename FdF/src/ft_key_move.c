@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:09:16 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 09:46:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:30:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	ft_key_zoom(t_3d *obj, int keycode)
 
 void	ft_key_proj(t_3d *obj)
 {
-	if (obj->map.proj == 0)
-		obj->map.proj = 1;
-	else if (obj->map.proj == 1)
-		obj->map.proj = 0;
+	if (obj->proj == 0)
+		obj->proj = 1;
+	else if (obj->proj == 1)
+		obj->proj = 0;
 }

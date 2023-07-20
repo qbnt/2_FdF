@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 07:41:03 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/12 07:53:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:28:45 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_pixel_put(t_3d *obj, int x, int y)
 {
-	if (x > 0 && y > 0 && x < obj->e.height && y < obj->e.width)
+	if (x > 0 && y > 0 && x < obj->win_length && y < obj->win_width)
 	{
-		PIX[(x * (obj->e.bpp / 8)) + (y * obj->image.size)] = RED;
-		PIX[(x * (obj->e.bpp / 8)) + (y * obj->image.size) + 1] = GRE;
-		PIX[(x * (obj->e.bpp / 8)) + (y * obj->image.size) + 2] = BLU;
+		PIX[(x * (obj->bpp / 8)) + (y * obj->size_line)] = RED;
+		PIX[(x * (obj->bpp / 8)) + (y * obj->size_line) + 1] = GRE;
+		PIX[(x * (obj->bpp / 8)) + (y * obj->size_line) + 2] = BLU;
 	}
 }

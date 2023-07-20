@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:00:39 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 13:36:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:27:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_place_colon_point_one(t_3d *obj)
 {
-	if (obj->map.proj == 1)
+	if (obj->proj == 1)
 	{
 		obj->point.x1
 			= obj->point.x + (obj->point.cte * (obj->map.pad * Z1PC));
@@ -33,7 +33,7 @@ void	ft_place_colon_point_one(t_3d *obj)
 
 void	ft_place_colon_point_two(t_3d *obj)
 {
-	if (obj->map.proj == 1)
+	if (obj->proj == 1)
 	{
 		obj->point.x2 = obj->point.x + (obj->point.cte * (obj->map.pad * Z2PC));
 		obj->point.y2
@@ -52,7 +52,7 @@ void	ft_place_colon_point_two(t_3d *obj)
 
 void	ft_place_line_point_one(t_3d *obj)
 {
-	if (obj->map.proj == 1)
+	if (obj->proj == 1)
 	{
 		obj->point.x1 = obj->point.x + (obj->point.cte * (obj->map.pad * Z1PL));
 		obj->point.y1
@@ -70,7 +70,7 @@ void	ft_place_line_point_one(t_3d *obj)
 
 void	ft_place_line_point_two(t_3d *obj)
 {
-	if (obj->map.proj == 1)
+	if (obj->proj == 1)
 	{
 		obj->point.x2 = obj->point.x + (obj->point.cte * (obj->map.pad * Z2PL));
 		obj->point.y2

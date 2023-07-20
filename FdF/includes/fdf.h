@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 12:55:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 17:29:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 /******* DEFINE *******/
 
 /*Pixel put*/
-# define PIX (obj->image.pixels)
+# define PIX (obj->data)
 # define RED (obj->color.red)
 # define GRE (obj->color.green)
 # define BLU (obj->color.blue)
@@ -72,27 +72,6 @@
 
 /******* STRUCT *******/
 
-typedef struct s_env
-{
-	void	*mlx;
-	void	*win;
-	int		*data;
-	int		bpp;
-	int		width;
-	int		height;
-}	t_env;
-
-typedef struct s_sprite
-{
-	void		*ptr;
-	char		*pixels;
-	int			bpp;
-	int			size;
-	int			endian;
-	int			x;
-	int			y;
-}	t_sprite;
-
 typedef struct s_map
 {
 	int			**map;
@@ -104,7 +83,6 @@ typedef struct s_map
 	int			nb_line;
 	int			max;
 	int			pad;
-	int			proj;
 }	t_map;
 
 typedef struct s_point
@@ -143,8 +121,17 @@ typedef struct s_mov
 
 typedef struct s_3d
 {
-	t_sprite	image;
-	t_env		e;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	char		*data;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			win_width;
+	int			win_length;
+	int			keycode;
+	int			proj;
 	t_map		map;
 	t_point		point;
 	t_color		color;
@@ -158,7 +145,6 @@ void	ft_init(t_3d *obj);
 
 /*mlx.c*/
 int		ft_init_window(t_3d *obj);
-void	ft_close_mlx(t_env *e, t_3d *obj);
 int		ft_mlx(t_3d *obj);
 
 /*key.c*/
