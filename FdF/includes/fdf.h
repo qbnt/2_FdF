@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:47:14 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/19 12:13:55 by parallels        ###   ########.fr       */
+/*   Updated: 2023/07/20 09:43:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@
 
 /*Touches*/
 # define ESC 65307
+# define I 105
+# define L 108
+# define M 109
+# define O 111
+# define P 112
 # define R 114
 # define G 103
 # define B 98
@@ -163,6 +168,9 @@ void	ft_key_color(t_3d *obj, int keycode);
 
 /*ft_key_move.c*/
 void	ft_key_move(t_3d *obj, int keycode);
+void	ft_key_zoom(t_3d *obj, int keycode);
+void	ft_key_alt(t_3d *obj, int keycode);
+void	ft_key_proj(t_3d *obj);
 
 /*error.c*/
 int		ft_error(int error, t_3d *obj);

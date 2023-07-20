@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:08:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/07 15:09:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/20 09:52:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ static void	ft_draw_line(t_3d *obj)
 void	ft_draw(t_3d *obj)
 {
 	ft_draw_colon(obj);
+	ft_printf("oui\n");
 	ft_draw_line(obj);
+	ft_printf("oui\n");
 }
