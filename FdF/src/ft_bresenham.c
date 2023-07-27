@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:33:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/20 18:34:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/27 10:05:14 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static void	ft_test(t_3d *obj)
 {
 	obj->point.dx = (abs(obj->point.x2 - obj->point.x1));
 	obj->point.dy = (abs(obj->point.y2 - obj->point.y1));
-	/**************************************************************************/
-	if (obj->point.x1 < obj->point.x2)
+
+	if (obj->point.x1 <= obj->point.x2)
 		obj->point.sx = 1;
 	else
 		obj->point.sx = -1;
-	if (obj->point.y1 < obj->point.y2)
+	if (obj->point.y1 <= obj->point.y2)
 		obj->point.sy = 1;
 	else
 		obj->point.sy = -1;
