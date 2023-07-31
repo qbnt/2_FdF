@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/31 16:04:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/07/31 16:11:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	map_mem(t_map *map)
 static void	comput_map(t_map *map, char **split_line, int i)
 {
 	if (ft_strchr(split_line[i], ','))
-		ft_color(map, ft_strchr(split_line, ',') + 1);
+		ft_color(map, ft_strchr(split_line[i], ',') + 1);
 	else
 		map->color_map[map->x][map->y]
 			= ft_bzero(map->color_map[map->x][map->y], sizeof(t_color));
