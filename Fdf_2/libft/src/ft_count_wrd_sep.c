@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:53:01 by qbanet            #+#    #+#             */
-/*   Updated: 2023/05/23 09:14:18 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/01 14:19:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	ft_count_wrd_sep(char const *s, char c)
 	while (*s != '\0')
 	{
 		if (sep == 1 && *s == c)
+		{
 			sep = 0;
-		if (sep == 0 && *s != c)
+		}
+		if (sep == 0 && *s != c && *s != '\n')
 		{
 			sep = 1;
 			count++;

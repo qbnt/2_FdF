@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/31 16:08:27 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/01 15:51:58 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 void	create_map(t_map *map, char *s);
 
 /*utile.c*/
-void	ft_color(t_map *map, char *line, int i);
+void	ft_print_tab_2d(int **tab);
+int		color(int cas, char *c_color);
 
 #endif

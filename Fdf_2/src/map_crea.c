@@ -6,21 +6,23 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/07/31 16:11:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/01 16:00:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
 void	mesure_map(t_map *map, int fd);
-void	copy_map(t_map *map, int fd);
-
+void	save_map(t_map *map, int fd);
+void	set_value(t_map *map, char *line);
+void	set_color(t_map *map, char **elems);
 /***********************************************************/
 
 void	create_map(t_map *map, char *s)
 {
 	mesure_map(map, open(s, O_RDONLY));
-	copy_map(map, open(s, O_RDONLY));
+	map->map = ft_calloc(map->nb_line, sizeof(int *));
+	save_map(map, open(s, O_RDONLY));
 }
 
 void	mesure_map(t_map *map, int fd)
@@ -39,46 +41,57 @@ void	mesure_map(t_map *map, int fd)
 		map->nb_line ++;
 		free(str);
 	}
+	close(fd);
 }
 
-static void	map_mem(t_map *map)
+void	save_map(t_map *map, int fd)
 {
-	map->map = ft_calloc((map->nb_colon * map->nb_line), sizeof(int **));
-	map->color_map = ft_calloc((map->nb_colon * map->nb_line),
-			sizeof(t_color **));
+	char	*line;
+
+	while (1)
+	{
+		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		set_value(map, line);
+		free(line);
+	}
+	close(fd);
 }
 
-static void	comput_map(t_map *map, char **split_line, int i)
+void	set_value(t_map *map, char *str)
 {
-	if (ft_strchr(split_line[i], ','))
-		ft_color(map, ft_strchr(split_line[i], ',') + 1);
-	else
-		map->color_map[map->x][map->y]
-			= ft_bzero(map->color_map[map->x][map->y], sizeof(t_color));
-}
-
-void	copy_map(t_map *map, int fd)
-{
-	char	*str;
-	char	**split_line;
+	char	**elems;
 	int		i;
 
 	i = 0;
-	map_mem(map);
-	while (1)
+	elems = ft_split(str, ' ');
+	while (elems[i])
 	{
-		str = get_next_line(fd);
-		if (!str)
-			break ;
-		split_line = ft_split(str, ' ');
-		while (split_line[i])
-		{
-			comput_map(map, split_line, i ++);
-			map->map[map->x][map->y] = ft_atoi(split_line[i++]);
-			map->y ++;
-		}
-		map->x ++;
-		free(split_line);
-		free(str);
+		map->map[map->x][map->y] = ft_atoi(elems[i]);
+		map->y ++;
+		i ++;
+	}
+	set_color(map, elems);
+	free(elems);
+	map->x ++;
+}
+
+void	set_color(t_map *map, char **elems)
+{
+	int	i;
+
+	i = 0;
+	map->def_color = 0xFFFFFF;
+	map->y = 0;
+	while (elems[i])
+	{
+		if (ft_strchr(elems[i], ','))
+			map->color_map[map->x][map->y] = color(0, elems[i]);
+		else
+			color(1, "FFFFFF");
+		free(elems[i]);
+		i ++;
 	}
 }
