@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/01 16:01:20 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/02 13:56:07 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	color(int cas, char *c_color)
 
 	if (cas == 1)
 		c_color = ft_strchr(c_color, ',') + 3;
-	color = ft_atoi_base(c_color, "0123456789ABCDEF");
+	color = ft_atoi_base(c_color, 16);
 	return (color);
 }
 
