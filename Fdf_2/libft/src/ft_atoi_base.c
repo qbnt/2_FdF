@@ -6,56 +6,98 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:12:43 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/02 13:58:35 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 13:35:53 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-char	to_lower(char c)
+int	get_base_length(char *base)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
-	return (c);
+	int	base_length;
+	int	j;
+
+	base_length = 0;
+	while (base[base_length])
+	{
+		if (base[base_length] == '-' || base[base_length] == '+')
+			return (0);
+		j = base_length + 1;
+		while (base[j])
+		{
+			if (base[base_length] == base[j])
+				return (0);
+			++j;
+		}
+		++base_length;
+	}
+	if (base_length < 2)
+		return (0);
+	return (base_length);
 }
 
-int	get_digit(char c, int digits_in_base)
+int	check_errors(char *str, char *base)
 {
-	int	max_digit;
+	int	i;
+	int	j;
+	int	start;
 
-	if (digits_in_base <= 10)
-		max_digit = digits_in_base + '0';
-	else
-		max_digit = digits_in_base - 10 + 'a';	
-	if (c >= '0' && c <= '9' && c <= max_digit)
-		return (c - '0');
-	else if (c >= 'a' && c <= 'f' && c <= max_digit)
-		return (10 + c - 'a');
-	else
-		return (-1);
+	start = 0;
+	while (str[start] != '\0' && (str[start] == ' ' || str[start] == '\t'
+			|| str[start] == '\r' || str[start] == '\n' || str[start] == '\v'
+			|| str[start] == '\f'))
+		start++;
+	i = start;
+	while (str[i])
+	{
+		j = 0;
+		while (base[j] && (str[i] != base[j]
+				|| (str[i] == '-' || str[i] == '+')))
+			++j;
+		if (str[i] != base[j] && str[i] != '-' && str[i] != '+')
+			return (0);
+		i++;
+	}
+	if (i == 0)
+		return (0);
+	return (1);
 }
 
-int	ft_atoi_base(const char *str, int str_base)
+int	get_nb(char c, char *base)
 {
-	int	result;
-	int	sign;
-	int	digit;
+	int	i;
 
-	result = 0;
-	sign = 1;
-	if (*str == '-')
-	{
-		sign = -1;
-		++str;
-	}
+	i = 0;
+	while (base[i] && base[i] != c)
+		i++;
+	return (i);
+}
 
-	digit = get_digit(to_lower(*str), str_base);
-	while (digit >= 0)
+int	ft_atoi_base(char *str, char *base)
+{
+	int	s;
+	int	i;
+	int	res;
+	int	negative;
+	int	base_length;
+
+	base_length = get_base_length(base);
+	if (!(base_length) || !check_errors(str, base))
+		return (0);
+	s = 0;
+	while (str[s] != '\0' && (str[s] == ' ' || str[s] == '\t' || str[s] == '\r'
+			|| str[s] == '\n' || str[s] == '\v' || str[s] == '\f'))
+		s++;
+	i = s - 1;
+	res = 0;
+	negative = 1;
+	while (str[++i] && (((str[i] == '-' || str[i] == '+') && i == s)
+			|| (str[i] != '-' && str[i] != '+')))
 	{
-		result = result * str_base;
-		result = result + (digit * sign);
-		++str;
+		if (str[i] == '-')
+			negative = -1;
+		else if (str[i] != '+')
+			res = (res * base_length) + (get_nb(str[i], base));
 	}
-	ft_printf("%d\n", result);
-	return (result);
+	return (res * negative);
 }

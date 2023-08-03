@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/02 13:49:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 13:34:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,20 @@
 void	mesure_map(t_map *map, int fd);
 void	save_map(t_map *map, int fd);
 void	set_value(t_map *map, char *line);
-void	set_color(t_map *map, char **elems);
 
 /***********************************************************/
 
 void	create_map(t_map *map, char *s)
 {
-	ft_printf("Infos sur la map :\n");
-
+	ft_printf("Mesures de la map : ");
 	mesure_map(map, open(s, O_RDONLY));
-	ft_printf("\nLigne = %d et Colonne = %d\n\n", map->nb_line, map->nb_colon);
-
-	map->map = ft_calloc(map->nb_line, sizeof(int *));
-
-	save_map(map, open(s, O_RDONLY));
+	ft_printf("Ligne = %d / Colonne = %d\n\n", map->nb_line, map->nb_colon);
 	ft_printf("Visuel de la map :\n");
-	ft_print_tab_2d(map->map);
-
-	ft_printf("Visuel de la map couleur :\n");
-	ft_print_tab_2d(map->color_map);
+	save_map(map, open(s, O_RDONLY));
+	ft_print_tab(map->map, map->nb_line, map->nb_colon);
+	ft_printf("\nVisuel de la map couleur :\n");
+	ft_print_tab(map->color_map, map->nb_line, map->nb_colon);
+	ft_printf("\n");
 }
 
 void	mesure_map(t_map *map, int fd)
@@ -59,12 +54,15 @@ void	save_map(t_map *map, int fd)
 {
 	char	*line;
 
+	map->map = ft_calloc(map->nb_line, sizeof(int *));
+	map->color_map = ft_calloc(map->nb_line, sizeof(int *));
 	while (1)
 	{
-		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
+		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
 		set_value(map, line);
 		free(line);
 	}
@@ -77,32 +75,20 @@ void	set_value(t_map *map, char *str)
 	int		i;
 
 	i = 0;
+	map->y = 0;
 	elems = ft_split(str, ' ');
-	while (elems[i])
+	while (i < map->nb_colon)
 	{
 		map->map[map->x][map->y] = ft_atoi(elems[i]);
+		if (!ft_strchr(elems[i], ','))
+			map->color_map[map->x][map->y] = color(1, "FFFFFF");
+		else
+			map->color_map[map->x][map->y] = color(0, elems[i]);
+		free(elems[i]);
 		map->y ++;
 		i ++;
 	}
-//	set_color(map, elems);
-//	free(elems);
+	free(elems[i]);
+	free(elems);
 	map->x ++;
-}
-
-void	set_color(t_map *map, char **elems)
-{
-	int	i;
-
-	i = 0;
-	map->def_color = 0xFFFFFF;
-	map->y = 0;
-	while (elems[i])
-	{
-		if (ft_strchr(elems[i], ','))
-			map->color_map[map->x][map->y] = color(0, elems[i]);
-		else
-			color(1, "FFFFFF");
-		free(elems[i]);
-		i ++;
-	}
 }

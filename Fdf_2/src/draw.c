@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile.c                                            :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 12:52:40 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/03 13:35:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include"fdf.h"
 
-int	color(int cas, char *elem)
+/******************************************************************************/
+
+void	ft_draw(t_fdf *fdf)
 {
-	int	color;
-
-	if (cas == 0)
-		elem = ft_strchr(elem, ',') + 3;
-	color = ft_atoi_base(elem, "0123456789ABCDEF");
-	return (color);
-}
-
-void	ft_print_tab(int **tab, int nb_line, int nb_colon)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < nb_line)
-	{
-		j = 0;
-		while (j < nb_colon)
-		{
-			ft_printf("%d|", tab[i][j]);
-			j ++;
-		}
-		ft_printf("\n");
-		i ++;
-	}
+	fdf += 0;
+	ft_printf("ft_draw\n");
 }

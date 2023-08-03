@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/01 15:52:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 13:03:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_fdf
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			win_width;
-	int			win_lenght;
+	int			win_length;
 	int			proj;
 	t_map		map;
 	t_img		img;

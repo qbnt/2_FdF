@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/02 13:55:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 13:36:19 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *str, size_t size);
 t_bool		ft_verif_ext(const char *s, const char *ext);
 
-
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
@@ -159,7 +158,7 @@ char		*ft_strnstr(const char *big, const char *little, size_t len);
 char		*ft_strncpy(char *dest, char *src, unsigned int n);
 
 int			ft_atoi(const char *str);
-int			ft_atoi_base(const char *str, int base);
+int			ft_atoi_base(char *str, char *base);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

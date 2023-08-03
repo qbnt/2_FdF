@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/02 13:45:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 13:20:07 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,23 @@
 void	system_init(t_fdf *fdf)
 {
 	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->win_width, fdf->win_lenght,
+	ft_window(fdf);
+	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->win_width, fdf->win_length,
 			"Fil De Fer - qbanet");
-	fdf->img.ptr = mlx_new_image(fdf->mlx_ptr, fdf->win_width, fdf->win_lenght);
-	fdf->img.data = mlx_get_data_addr(fdf->mlx_ptr, &fdf->img.bpp,
-			&fdf->img.size, &fdf->img.endian);
 }
 
 int	main(int argc, char **argv)
 {
-	t_fdf	fdf;
+	t_fdf	*fdf;
 	char	*s;
 
 	s = argv[1];
-	ft_bzero(&fdf, sizeof(t_fdf));
+	fdf = ft_calloc(1, sizeof(t_fdf));
 	if (argc != 2)
 		exit(EXIT_FAILURE);
-	create_map(&fdf.map, s);
-	ft_print_tab_2d(fdf.map.map);
-//	system_init(&fdf);
-//	mlx_loop(fdf.mlx_ptr);
+	create_map(&fdf->map, s);
+	system_init(fdf);
+	mlx_key_hook(fdf->win_ptr, &key_hook, fdf);
+	ft_expose_hook(fdf);
+	mlx_loop(fdf->mlx_ptr);
 }
