@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 13:31:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 17:06:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int		ft_expose_hook(t_fdf *fdf);
 
 /*key_move.c*/
 void	ft_key_move(t_fdf *fdf, int keycode);
+void	ft_key_zoom(t_fdf *fdf, int keycode);
+void	ft_key_rot(t_fdf *fdf, int keycode);
 
 /*draw.c*/
 void	ft_draw(t_fdf *fdf);

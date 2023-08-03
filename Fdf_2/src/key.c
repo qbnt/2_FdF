@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 13:32:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/03 17:05:45 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int	key_hook(int keycode, t_fdf *fdf)
 	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT || keycode == KEY_UP
 		|| keycode == KEY_DOWN)
 		ft_key_move(fdf, keycode);
+	else if (keycode == KEY_W || keycode == KEY_S)
+		ft_key_zoom(fdf, keycode);
+	else if (keycode == KEY_A || keycode == KEY_D)
+		ft_key_rot(fdf, keycode);
 	else
 		ft_printf("Touche inconnue: %d\n", keycode);
 	ft_expose_hook(fdf);
