@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 13:03:23 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/08 15:52:49 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ typedef struct s_color
 
 typedef struct s_map
 {
-	int			**map;
-	int			**color_map;
-	t_bool		color;
-	int			def_color;
-	int			nb_line;
-	int			nb_colon;
-	int			pad;
-	int			max;
-	int			min;
-	int			x;
-	int			y;
+	unsigned long long	**map;
+	unsigned long long	**color_map;
+	t_bool				color;
+	int					def_color;
+	int					nb_line;
+	int					nb_colon;
+	int					pad;
+	int					max;
+	int					min;
+	int					x;
+	int					y;
 }	t_map;
 
 typedef struct s_img
@@ -50,6 +50,10 @@ typedef struct s_point
 {
 	int			x;
 	int			y;
+	int			x1;
+	int			y1;
+	int			x2;
+	int			y2;
 	int			err;
 	int			err2;
 }	t_point;

@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile.c                                            :+:      :+:    :+:   */
+/*   point.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 17:13:10 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/07 14:27:08 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/07 18:22:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	color(int cas, char *elem)
+void	ft_place_point_zero(t_fdf *fdf)
 {
-	int	color;
-
-	if (cas == 0)
-		elem = ft_strchr(elem, ',') + 3;
-	color = ft_atoi_base(elem, "0123456789ABCDEF");
-	return (color);
+	fdf += 0;
+	ft_printf("ft_place_point_zero\n");
 }
 
-void	ft_print_tab(unsigned long long **tab, int nb_line, int nb_colon)
+void	ft_place_next_point(t_fdf *fdf)
 {
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < nb_line)
-	{
-		j = 0;
-		while (j < nb_colon)
-		{
-			ft_printf("%d|", tab[i][j]);
-			j ++;
-		}
-		ft_printf("\n");
-		i ++;
-	}
+	fdf += 0;
+	ft_printf("ft_place_next_point\n");
 }
