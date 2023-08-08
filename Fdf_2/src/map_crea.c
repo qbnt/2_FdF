@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 17:07:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/08 22:09:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	mesure_map(t_map *map, int fd)
 		str = get_next_line(fd);
 		if (!str)
 			break ;
-		if (!map->nb_colon)
+		if (ft_count_wrd_sep(str, ' ') > map->nb_colon)
 			map->nb_colon = ft_count_wrd_sep(str, ' ');
 		map->nb_line ++;
 		free(str);
@@ -80,7 +80,6 @@ void	set_value(t_map *map, char *str)
 	elems = ft_split(str, ' ');
 	while (i < map->nb_colon)
 	{
-		ft_printf("i = %d, x = %d, y = %d\n", i, map->x, map->y);
 		map->map[map->x][map->y] = ft_atoi(elems[i]);
 		if (!ft_strchr(elems[i], ','))
 			map->color_map[map->x][map->y] = color(1, "FFFFFF");
@@ -91,5 +90,5 @@ void	set_value(t_map *map, char *str)
 		i ++;
 	}
 	free(elems[i]);
-	free(elems);
+//	free(elems);
 }
