@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 22:09:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 08:30:10 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	set_value(t_map *map, char *line);
 
 void	create_map(t_map *map, char *s)
 {
-	ft_printf("Mesures de la map : ");
 	mesure_map(map, open(s, O_RDONLY));
+	ft_printf("Mesures de la map : ");
 	ft_printf("Ligne = %d / Colonne = %d\n\n", map->nb_line, map->nb_colon);
-	ft_printf("Visuel de la map :\n");
 	save_map(map, open(s, O_RDONLY));
+	ft_printf("Visuel de la map :\n");
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
 	ft_printf("\nVisuel de la map couleur :\n");
 	ft_print_tab(map->color_map, map->nb_line, map->nb_colon);
@@ -56,7 +56,7 @@ void	save_map(t_map *map, int fd)
 
 	map->map = ft_calloc(map->nb_line, sizeof(int *));
 	map->color_map = ft_calloc(map->nb_line, sizeof(int *));
-	while (1)
+	while (map->x < map->nb_line)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -68,27 +68,25 @@ void	save_map(t_map *map, int fd)
 		map->x ++;
 	}
 	close(fd);
+	map->x = 0;
 }
 
 void	set_value(t_map *map, char *str)
 {
 	char	**elems;
-	int		i;
 
-	i = 0;
-	map->y = 0;
 	elems = ft_split(str, ' ');
-	while (i < map->nb_colon)
+	while (map->y < map->nb_colon)
 	{
-		map->map[map->x][map->y] = ft_atoi(elems[i]);
-		if (!ft_strchr(elems[i], ','))
+		map->map[map->x][map->y] = ft_atoi(elems[map->y]);
+		if (!ft_strchr(elems[map->y], ','))
 			map->color_map[map->x][map->y] = color(1, "FFFFFF");
 		else
-			map->color_map[map->x][map->y] = color(0, elems[i]);
-		free(elems[i]);
+			map->color_map[map->x][map->y] = color(0, elems[map->y]);
+		free(elems[map->y]);
 		map->y ++;
-		i ++;
 	}
-	free(elems[i]);
-//	free(elems);
+	free(elems[map->y]);
+	free(elems);
+	map->y = 0;
 }
