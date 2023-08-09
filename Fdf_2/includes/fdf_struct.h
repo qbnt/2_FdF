@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 12:24:12 by parallels        ###   ########.fr       */
+/*   Updated: 2023/08/09 17:31:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_map
 {
 	long long			**map;
 	long long			**color_map;
-	t_bool				color;
 	int					nb_line;
 	int					nb_colon;
 	int					pad;
@@ -43,6 +42,7 @@ typedef struct s_img
 	int			bpp;
 	int			size;
 	int			endian;
+	int			i;
 }	t_img;
 
 typedef struct s_point
@@ -53,8 +53,7 @@ typedef struct s_point
 	int			y1;
 	int			x2;
 	int			y2;
-	int			err;
-	int			err2;
+	int			spc;
 }	t_point;
 
 typedef struct s_fdf

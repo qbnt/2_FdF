@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 12:24:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 16:48:19 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ void	set_value(t_map *map, char *str)
 		if (!ft_strchr(elems[map->y], ','))
 			map->color_map[map->x][map->y] = color(1, "FFFFFF");
 		else
-		{
 			map->color_map[map->x][map->y] = color(0, elems[map->y]);
-			map->color = TRUE;
-		}
 		free(elems[map->y]);
 		map->y ++;
 	}

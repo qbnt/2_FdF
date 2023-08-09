@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/02 13:47:05 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 17:48:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@
 # define KEY_ESC    65307
 
 /*Colors*/
-# define CO_WHITE	0xffffff
+# define CO_WHITE	0xFFFFFF
 # define CO_GREY	0x303030
-# define CO_RED		0xff0000
-# define CO_GREEN	0x00ff00
-# define CO_BLUE	0x0000ff
-# define CO_YELLOW	0xffff00
-# define CO_CYAN	0x00ffff
-# define CO_PINK	0xff00ff
-# define CO_ORANGY	0xffa500
-# define CO_BLUEY	0x0492c2
+# define CO_RED		0xFF0000
+# define CO_GREEN	0x00FF00
+# define CO_BLUE	0x0000FF
+# define CO_YELLOW	0xFFFF00
+# define CO_CYAN	0x00FFFF
+# define CO_PINK	0xFF00FF
+# define CO_ORANGY	0xFFA500
+# define CO_BLUEY	0x0492C2
 #endif
