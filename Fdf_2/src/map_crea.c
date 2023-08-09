@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 08:30:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 12:24:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,22 @@ void	save_map(t_map *map, int fd)
 {
 	char	*line;
 
-	map->map = ft_calloc(map->nb_line, sizeof(int *));
-	map->color_map = ft_calloc(map->nb_line, sizeof(int *));
+	map->map = ft_calloc(map->nb_line, sizeof(long long *));
+	map->color_map = ft_calloc(map->nb_line, sizeof(long long *));
 	while (map->x < map->nb_line)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
-		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
+		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(t_ll));
+		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(t_ll));
 		set_value(map, line);
 		free(line);
 		map->x ++;
 	}
-	close(fd);
+	map->pad = map->max - map->min;
 	map->x = 0;
+	close(fd);
 }
 
 void	set_value(t_map *map, char *str)
@@ -82,10 +83,17 @@ void	set_value(t_map *map, char *str)
 		if (!ft_strchr(elems[map->y], ','))
 			map->color_map[map->x][map->y] = color(1, "FFFFFF");
 		else
+		{
 			map->color_map[map->x][map->y] = color(0, elems[map->y]);
+			map->color = TRUE;
+		}
 		free(elems[map->y]);
 		map->y ++;
 	}
+	if (ft_max(map->map[map->x], map->nb_colon) > map->max)
+		map->max = ft_max(map->map[map->x], map->nb_colon);
+	if (ft_min(map->map[map->x], map->nb_colon) > map->min)
+		map->min = ft_min(map->map[map->x], map->nb_colon);
 	free(elems[map->y]);
 	free(elems);
 	map->y = 0;

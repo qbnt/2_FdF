@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 12:17:24 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 10:22:56 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/09 12:21:04 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/09 12:21:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(long long n, int fd)
-{	
-	if (n < 0)
+int	ft_min(long long *tab, unsigned int len)
+{
+	unsigned int	i;
+	long long		min;
+
+	if (len == 0)
+		return (0);
+	i = 1;
+	min = *tab;
+	while (i != len)
 	{
-		if (n == -2147483648)
-			write (fd, "-2147483648", 11);
-		else
-		{
-			n = n * -1;
-			ft_putchar_fd('-', fd);
-		}
+		if (min > *(tab + i))
+			min = *(tab + i);
+		i++;
 	}
-	if (n >= 0 && n <= 9)
-		ft_putchar_fd(n + 48, fd);
-	if (n > 9)
-	{
-		if (n == 0)
-			return ;
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + 48, fd);
-	}	
+	return (min);
 }

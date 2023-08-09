@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:46:19 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 21:52:48 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 09:39:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*ptr;
-	size_t	tmp;
+	void	*ret;
+	size_t	test;
 
-	tmp = nmemb * size;
-	if (nmemb == 0 || size == 0)
-		return (malloc(0));
-	if (tmp / size != nmemb || tmp / nmemb != size)
+	if (size != 0 && nmemb != 0)
+	{
+		test = size * nmemb;
+		if ((test / nmemb != size) || (test / size != nmemb))
+			return (NULL);
+	}
+	ret = (void *)malloc(size * nmemb);
+	if (!ret)
 		return (NULL);
-	ptr = malloc(tmp);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, (tmp));
-	return (ptr);
+	ft_bzero(ret, size * nmemb);
+	return (ret);
 }

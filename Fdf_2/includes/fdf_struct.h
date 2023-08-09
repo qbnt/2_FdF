@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 20:35:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 12:24:12 by parallels        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ typedef struct s_color
 
 typedef struct s_map
 {
-	unsigned long long	**map;
-	unsigned long long	**color_map;
+	long long			**map;
+	long long			**color_map;
 	t_bool				color;
-	int					def_color;
 	int					nb_line;
 	int					nb_colon;
 	int					pad;

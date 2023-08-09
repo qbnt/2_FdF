@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:28:30 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/03 17:06:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 11:46:22 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ void	ft_key_rot(t_fdf *fdf, int keycode)
 {
 	fdf += 0;
 	ft_printf("rot -> %d\n", keycode);
+}
+
+void	ft_key_proj(t_fdf *fdf, int keycode)
+{
+	fdf += 0;
+	ft_printf("proj -> %d\n", keycode);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 21:52:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 12:22:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ char		*ft_convert_base_unsign(t_ull num, const char *base_set, int base);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
-void		ft_putnbr_fd(int n, int fd);
+void		ft_putnbr_fd(long long n, int fd);
 
 /*********** FT_LST ***********/
 
@@ -204,7 +204,8 @@ t_gnl		*ft_create_list(int fd);
 
 /*********** MATH ***********/
 
-int			ft_max(int *tab, unsigned int len);
+int			ft_max(long long *tab, unsigned int len);
+int	ft_min(long long *tab, unsigned int len);
 long double	ft_pow(long double nb, long double p);
 
 #endif

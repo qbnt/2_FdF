@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 20:35:07 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 11:13:08 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit(EXIT_FAILURE);
 	create_map(&fdf->map, s);
-//	system_init(fdf);
-//	mlx_key_hook(fdf->win_ptr, &key_hook, fdf);
-//	ft_expose_hook(fdf);
-//	mlx_loop(fdf->mlx_ptr);
+	system_init(fdf);
+	mlx_key_hook(fdf->win_ptr, &key_hook, fdf);
+	ft_expose_hook(fdf);
+	mlx_loop(fdf->mlx_ptr);
 }

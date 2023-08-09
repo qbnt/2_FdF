@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/08 20:35:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/09 11:46:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	create_map(t_map *map, char *s);
 
 /*utile.c*/
 int		color(int cas, char *c_color);
-void	ft_print_tab(unsigned long long **tab, int nb_line, int nb_colon);
+void	ft_print_tab(long long **tab, int nb_line, int nb_colon);
 
 /*init.c*/
 void	ft_window(t_fdf *fdf);
@@ -37,6 +37,7 @@ int		ft_expose_hook(t_fdf *fdf);
 void	ft_key_move(t_fdf *fdf, int keycode);
 void	ft_key_zoom(t_fdf *fdf, int keycode);
 void	ft_key_rot(t_fdf *fdf, int keycode);
+void	ft_key_proj(t_fdf *fdf, int keycode);
 
 /*draw.c*/
 void	ft_draw(t_fdf *fdf);
