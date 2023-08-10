@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 14:22:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 16:58:51 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include "libft.h"
 
-typedef struct s_color
+typedef struct s_index
 {
-	int			red;
-	int			green;
-	int			blue;
-}	t_color;
+	int			x;
+	int			y;
+}	t_index;
 
 typedef struct s_map
 {
@@ -66,7 +65,6 @@ typedef struct s_fdf
 	t_map		map;
 	t_img		img;
 	t_point		point;
-	t_color		color;
 }	t_fdf;
 
 #endif

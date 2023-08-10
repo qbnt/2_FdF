@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 14:47:14 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 17:15:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_expose_hook(t_fdf *fdf)
 	fdf->img.ptr = mlx_new_image(fdf->mlx_ptr, fdf->win_width, fdf->win_length);
 	fdf->img.data = mlx_get_data_addr(fdf->img.ptr, &fdf->img.bpp,
 			&fdf->img.size, &fdf->img.endian);
-	ft_draw(fdf);
+//	ft_draw(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.ptr, 0, 0);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
 	return (0);

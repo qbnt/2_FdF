@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 14:30:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 17:15:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	system_init(t_fdf *fdf)
 {
 	fdf->mlx_ptr = mlx_init();
-	ft_window(fdf);
+	fdf->win_width = 1280;
+	fdf->win_length = 720;
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->win_width, fdf->win_length,
 			"Fil De Fer - qbanet");
 	fdf->point.spc = 50;
@@ -28,8 +29,16 @@ int	main(int argc, char **argv)
 
 	s = argv[1];
 	fdf = ft_calloc(1, sizeof(t_fdf));
-	if (argc != 2)
+	if (open(s, O_RDONLY) == -1)
+	{
+		free(fdf);
 		exit(EXIT_FAILURE);
+	}
+	if (argc != 2)
+	{
+		free(fdf);
+		exit(EXIT_FAILURE);
+	}
 	create_map(&fdf->map, s);
 	system_init(fdf);
 	mlx_key_hook(fdf->win_ptr, &key_hook, fdf);

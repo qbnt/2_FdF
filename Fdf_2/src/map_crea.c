@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 15:53:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 17:14:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	create_map(t_map *map, char *s)
 	save_map(map, open(s, O_RDONLY));
 	ft_printf("Visuel de la map :\n");
 	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	ft_printf("\nVisuel de la map couleur :\n");
-	ft_print_tab(map->color_map, map->nb_line, map->nb_colon);
 	ft_printf("\n");
 }
 
@@ -36,7 +34,9 @@ void	mesure_map(t_map *map, int fd)
 	char	*str;
 
 	if (fd == -1)
+	{
 		exit(EXIT_FAILURE);
+	}
 	while (1)
 	{
 		str = get_next_line(fd);
@@ -56,7 +56,7 @@ void	save_map(t_map *map, int fd)
 
 	map->map = ft_calloc(map->nb_line, sizeof(int *));
 	map->color_map = ft_calloc(map->nb_line, sizeof(int *));
-	while (map->x < map->nb_line)
+	while (1)
 	{
 		line = get_next_line(fd);
 		if (line == 0)
