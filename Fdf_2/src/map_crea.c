@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 16:48:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 15:53:53 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ void	save_map(t_map *map, int fd)
 {
 	char	*line;
 
-	map->map = ft_calloc(map->nb_line, sizeof(long long *));
-	map->color_map = ft_calloc(map->nb_line, sizeof(long long *));
+	map->map = ft_calloc(map->nb_line, sizeof(int *));
+	map->color_map = ft_calloc(map->nb_line, sizeof(int *));
 	while (map->x < map->nb_line)
 	{
 		line = get_next_line(fd);
-		if (!line)
+		if (line == 0)
 			break ;
-		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(t_ll));
-		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(t_ll));
+		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
+		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
 		set_value(map, line);
 		free(line);
 		map->x ++;

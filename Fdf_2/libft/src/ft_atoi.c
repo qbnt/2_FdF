@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 09:41:48 by qbanet            #+#    #+#             */
-/*   Updated: 2023/02/05 10:11:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 15:36:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 
 	sign = 1;
 	nbr = 0;
-	while ((*str >= 7 && *str <= 13) || *str == 32)
+	while ((*str >= '\a' && *str <= '\r') || *str == ' ')
 		str++;
 	if (*str == '-')
 	{

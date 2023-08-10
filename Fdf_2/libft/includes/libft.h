@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:51:00 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 12:22:01 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 15:15:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,8 +204,8 @@ t_gnl		*ft_create_list(int fd);
 
 /*********** MATH ***********/
 
-int			ft_max(long long *tab, unsigned int len);
-int	ft_min(long long *tab, unsigned int len);
+int			ft_max(int *tab, unsigned int len);
+int			ft_min(int *tab, unsigned int len);
 long double	ft_pow(long double nb, long double p);
 
 #endif

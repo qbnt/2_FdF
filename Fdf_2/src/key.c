@@ -6,16 +6,18 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 11:44:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 14:47:14 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/******************************************************************************/
+
 int	key_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_ESC)
-		exit(EXIT_SUCCESS);
+		ft_end_hook(fdf);
 	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT || keycode == KEY_UP
 		|| keycode == KEY_DOWN)
 		ft_key_move(fdf, keycode);
@@ -39,5 +41,17 @@ int	ft_expose_hook(t_fdf *fdf)
 	ft_draw(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.ptr, 0, 0);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
+	return (0);
+}
+
+int	ft_end_hook(t_fdf *fdf)
+{
+	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
+	mlx_destroy_display(fdf->mlx_ptr);
+	free(fdf->mlx_ptr);
+	ft_free_int_tab(fdf->map.map, fdf->map.nb_line);
+	ft_free_int_tab(fdf->map.color_map, fdf->map.nb_line);
+	free(fdf);
+	exit(EXIT_SUCCESS);
 	return (0);
 }

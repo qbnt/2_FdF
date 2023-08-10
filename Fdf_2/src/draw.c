@@ -6,25 +6,21 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 17:38:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 14:28:50 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-static void	ft_endian(t_fdf *fdf);
+//static void	ft_endian(t_fdf *fdf);
 
 /******************************************************************************/
-
 void	ft_draw(t_fdf *fdf)
 {
 	fdf += 0;
 	ft_printf("ft_draw\n");
-	while ()
-	{
-		
-	}
 }
+/*
 
 static void	ft_endian(t_fdf *fdf)
 {
@@ -43,3 +39,5 @@ static void	ft_endian(t_fdf *fdf)
 		fdf->img.data[fdf->img.i + 3] = (fdf->map.color_map >> 24);
 	}
 }
+
+*/

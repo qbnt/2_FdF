@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 12:15:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/10 14:45:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,20 @@ int	color(int cas, char *elem)
 	return (color);
 }
 
-void	ft_print_tab(long long **tab, int nb_line, int nb_colon)
+void	ft_free_int_tab(int **tab, int nb_line)
+{
+	int		i;
+
+	i = 0;
+	while (i < nb_line)
+	{
+		free(tab[i]);
+		i ++;
+	}
+	free(tab);
+}
+
+void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 {
 	int		i;
 	int		j;
