@@ -6,19 +6,20 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 17:10:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 17:51:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-static void	render_line(t_fdf *fdf, int start, int end);
+//static void	render_line(t_fdf *fdf, int start, int end);
 
 /******************************************************************************/
 
 void	ft_draw(t_fdf *fdf)
 {
-	clear_image(fdf, MAX_PIXEL * 4);
+	clear_image(fdf, MAX_PIXEL);
+	/*
 	fdf->map.x = 0;
 	while (fdf->map.x < fdf->map.nb_line)
 	{
@@ -35,10 +36,11 @@ void	ft_draw(t_fdf *fdf)
 		}
 		fdf->map.x++;
 	}
+	*/
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.ptr, 0, 0);
 	print_menu(fdf);
 }
-
+/*
 static void	render_line(t_fdf *fdf, int start, int end)
 {
 	fdf->point.z1 *= fdf->cam.scale_z;
@@ -50,3 +52,4 @@ static void	render_line(t_fdf *fdf, int start, int end)
 	transform(fdf);
 	bresenham(fdf);
 }
+*/

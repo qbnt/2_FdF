@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 17:11:47 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 18:14:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,6 @@
 # define ANG_45				0.78539816
 
 # define MAX_PIXEL			921600
+# define WINDOW_WIDTH		1200
+# define WINDOW_HEIGHT		900
 #endif

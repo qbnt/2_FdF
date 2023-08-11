@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 17:15:58 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 18:13:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include <math.h>
+# include <stdio.h>
 # include "libft.h"
 # include "mlx.h"
 # include "fdf_define.h"
