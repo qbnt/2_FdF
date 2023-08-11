@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 17:48:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 17:11:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,20 @@
 # define CO_PINK	0xFF00FF
 # define CO_ORANGY	0xFFA500
 # define CO_BLUEY	0x0492C2
+# define LINE_DEFAULT		CO_WHITE
+# define BACKGROUND_DEFAULT	CO_GREY
+# define C_TEXT				CO_WHITE
+
+/*Projections*/
+# define ISOMETRIC		1
+# define PERSPECTIVE	2
+# define TOP			3
+
+/*Conversion bases & useful angles in rad*/
+# define HEXADECIMAL_L_BASE	"0123456789abcdef"
+# define ANG_1				0.01745329
+# define ANG_30				0.52359877
+# define ANG_45				0.78539816
+
+# define MAX_PIXEL			921600
 #endif

@@ -6,53 +6,47 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/10 16:46:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 17:10:21 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-//static void	ft_endian(t_fdf *fdf);
+static void	render_line(t_fdf *fdf, int start, int end);
 
 /******************************************************************************/
 
 void	ft_draw(t_fdf *fdf)
 {
-	t_index	i;
-
-	ft_bzero(&i, sizeof(int) * 2);
-	while (i.x < fdf->map.nb_line)
+	clear_image(fdf, MAX_PIXEL * 4);
+	fdf->map.x = 0;
+	while (fdf->map.x < fdf->map.nb_line)
 	{
-		while (i.y < fdf->map.nb_colon)
+		fdf->map.y = 0;
+		while (fdf->map.y < fdf->map.nb_colon)
 		{
-			
+			if (fdf->map.x < fdf->map.nb_line - 1)
+				render_line(fdf, fdf->map.map[fdf->map.x][fdf->map.y],
+					fdf->map.map[fdf->map.x + 1][fdf->map.y]);
+			if (fdf->map.y < fdf->map.nb_colon - 1)
+				render_line(fdf, fdf->map.map[fdf->map.x][fdf->map.y],
+					fdf->map.map[fdf->map.x][fdf->map.y + 1]);
+			fdf->map.y++;
 		}
+		fdf->map.x++;
 	}
+	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.ptr, 0, 0);
+	print_menu(fdf);
 }
-/*
-static void	ft_endian(t_fdf *fdf)
+
+static void	render_line(t_fdf *fdf, int start, int end)
 {
-	if (fdf->img.endian == 1)
-	{
-		fdf->img.data[fdf->img.i + 0]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 24);
-		fdf->img.data[fdf->img.i + 1]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 16) & 0xFF;
-		fdf->img.data[fdf->img.i + 2]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 8) & 0xFF;
-		fdf->img.data[fdf->img.i + 3]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 0) & 0xFF;
-	}
-	else
-	{
-		fdf->img.data[fdf->img.i + 0]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 0) & 0xFF;
-		fdf->img.data[fdf->img.i + 1]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 8) & 0xFF;
-		fdf->img.data[fdf->img.i + 2]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 16) & 0xFF;
-		fdf->img.data[fdf->img.i + 3]
-			= (fdf->map.color_map[fdf->map.x][fdf->map.y] >> 24);
-	}
+	fdf->point.z1 *= fdf->cam.scale_z;
+	fdf->point.z2 *= fdf->cam.scale_z;
+	start += 0;
+	end += 0;
+	rotate(fdf);
+	project(fdf);
+	transform(fdf);
+	bresenham(fdf);
 }
-*/

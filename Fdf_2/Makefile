@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/10 14:27:08 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/11 16:55:11 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 MINILIBX_DIR = minilibx
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
-MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11
+MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm
 
 INCLUDES = -I includes -I $(LIBFT_DIR)/includes -I $(MINILIBX_DIR)
 
@@ -27,11 +27,17 @@ SRC_DIR = src
 SRC_FILES = main.c\
 			map_crea.c\
 			utile.c\
+			utile_2.c\
 			init.c\
 			key.c\
 			key_move.c\
 			draw.c\
-			point.c
+			bresenham.c\
+			projection.c\
+			rotate.c\
+			transform.c\
+			menu.c
+
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj

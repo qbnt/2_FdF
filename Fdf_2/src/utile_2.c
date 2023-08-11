@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   utile_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 14:27:08 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/07 18:22:16 by qbanet           ###   ########.fr       */
+/*   Created: 2023/08/11 15:26:22 by qbanet            #+#    #+#             */
+/*   Updated: 2023/08/11 15:38:52 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-void	ft_place_point_zero(t_fdf *fdf)
+float	nb_min(float a, float b)
 {
-	fdf += 0;
-	ft_printf("ft_place_point_zero\n");
+	if (a < b)
+		return (a);
+	else
+		return (b);
 }
 
-void	ft_place_next_point(t_fdf *fdf)
+float	nb_max(float a, float b)
 {
-	fdf += 0;
-	ft_printf("ft_place_next_point\n");
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+float	nb_absol(float a)
+{
+	if (a < 0)
+		return (-a);
+	else
+		return (a);
 }

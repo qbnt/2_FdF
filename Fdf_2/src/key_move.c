@@ -6,32 +6,58 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:28:30 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/09 11:46:22 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/11 15:32:20 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-void	ft_key_move(t_fdf *fdf, int keycode)
+void	key_translate(int keycode, t_fdf *fdf)
 {
-	fdf += 0;
-	ft_printf("move -> %d\n", keycode);
+	if (keycode == KEY_RIGHT)
+		fdf->cam.move_x += 10;
+	else if (keycode == KEY_LEFT)
+		fdf->cam.move_x -= 10;
+	else if (keycode == KEY_DOWN)
+		fdf->cam.move_y += 10;
+	else if (keycode == KEY_UP)
+		fdf->cam.move_y -= 10;
 }
 
-void	ft_key_zoom(t_fdf *fdf, int keycode)
+void	key_scale(int keycode, t_fdf *fdf)
 {
-	fdf += 0;
-	ft_printf("zoom -> %d\n", keycode);
+	if (keycode == KEY_PLUS)
+		fdf->cam.scale_factor += 1;
+	else if (keycode == KEY_MINUS)
+		fdf->cam.scale_factor -= 1;
+	else if (keycode == KEY_Z && fdf->cam.scale_z > -1)
+		fdf->cam.scale_z -= 0.1;
+	else if (keycode == KEY_X && fdf->cam.scale_z < 1)
+		fdf->cam.scale_z += 0.1;
 }
 
-void	ft_key_rot(t_fdf *fdf, int keycode)
+void	key_rotate(int keycode, t_fdf *fdf)
 {
-	fdf += 0;
-	ft_printf("rot -> %d\n", keycode);
+	if (keycode == KEY_S)
+		fdf->cam.alpha -= (5 * ANG_1);
+	else if (keycode == KEY_W)
+		fdf->cam.alpha += (5 * ANG_1);
+	else if (keycode == KEY_A)
+		fdf->cam.gamma -= (5 * ANG_1);
+	else if (keycode == KEY_D)
+		fdf->cam.gamma += (5 * ANG_1);
+	else if (keycode == KEY_Q)
+		fdf->cam.beta -= (5 * ANG_1);
+	else if (keycode == KEY_E)
+		fdf->cam.beta += (5 * ANG_1);
 }
 
-void	ft_key_proj(t_fdf *fdf, int keycode)
+void	key_project(int keycode, t_fdf *fdf)
 {
-	fdf += 0;
-	ft_printf("proj -> %d\n", keycode);
+	if (keycode == KEY_P)
+		fdf->cam.projection = PERSPECTIVE;
+	else if (keycode == KEY_I)
+		fdf->cam.projection = ISOMETRIC;
+	else if (keycode == KEY_O)
+		fdf->cam.projection = TOP;
 }
