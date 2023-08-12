@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/11 16:55:11 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/12 16:26:49 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,12 @@ SRC_FILES = main.c\
 			key.c\
 			key_move.c\
 			draw.c\
-			bresenham.c\
+			render.c\
 			projection.c\
 			rotate.c\
 			transform.c\
-			menu.c
+			menu.c\
+			color.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 

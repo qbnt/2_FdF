@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 18:13:05 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/12 16:34:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@
 void	create_map(t_map *map, char *s);
 
 /*draw.c*/
-void	ft_draw(t_fdf *fdf);
+void	ft_endian(t_fdf *fdf, int color);
+void	clear_image(t_fdf *fdf, int image_size);
+void	bresenham(t_fdf *fdf);
+
+/*color.c*/
+int		interpolate(int start, int end, double fraction);
+int		set_color(double fraction, int start_color, int end_color);
 
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);
@@ -54,9 +60,8 @@ void	transform(t_fdf *fdf);
 void	scale(t_fdf *fdf, int scale_factor);
 void	translate(t_fdf *fdf, int move_x, int move_y);
 
-/*bresenham.c*/
-void	bresenham(t_fdf *fdf);
-void	clear_image(t_fdf *fdf, int image_size);
+/*render.c*/
+void	render(t_fdf *fdf);
 
 /*utile.c*/
 int		color(int cas, char *c_color);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 16:04:08 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/12 16:04:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_map
 {
 	int					**map;
 	int					**color_map;
+	t_bool				color;
 	int					nb_line;
 	int					nb_colon;
 	int					pad;
@@ -75,8 +76,8 @@ typedef struct s_img
 
 typedef struct s_point
 {
-	float				x;
-	float				y;
+	int					x;
+	int					y;
 	float				z;
 	float				x1;
 	float				y1;
@@ -84,6 +85,14 @@ typedef struct s_point
 	float				y2;
 	float				z1;
 	float				z2;
+	int					err;
+	int					err2;
+	int					dx;
+	int					dy;
+	int					sx;
+	int					sy;
+	int					total_distance;
+	int					distance_done;
 	int					spc;
 }	t_point;
 

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 17:41:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/12 15:29:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ int	key_hook(int keycode, t_fdf *fdf)
 		key_project(keycode, fdf);
 	else if (keycode == KEY_R)
 		reset(fdf);
-	else
-		ft_printf("Touche inconnue: %d\n", keycode);
+	else if (keycode == KEY_SPACE)
+	{
+		if (fdf->cam.color_pallet == FALSE)
+			fdf->cam.color_pallet = TRUE;
+		else
+			fdf->cam.color_pallet = FALSE;
+	}
 	ft_expose_hook(fdf);
 	return (0);
 }
@@ -42,7 +47,7 @@ int	ft_expose_hook(t_fdf *fdf)
 	fdf->img.ptr = mlx_new_image(fdf->mlx_ptr, fdf->win_width, fdf->win_length);
 	fdf->img.data = mlx_get_data_addr(fdf->img.ptr, &fdf->img.bpp,
 			&fdf->img.size, &fdf->img.endian);
-	ft_draw(fdf);
+	render(fdf);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 18:15:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/12 15:22:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	system_init(t_fdf *fdf)
 	fdf->map.transform_z = nb_max((fdf->map.max - fdf->map.min),
 			nb_max(fdf->map.min, fdf->map.max));
 	fdf->cam.scale_z = 1;
+	fdf->cam.scale_factor = 1;
 	fdf->cam.projection = ISOMETRIC;
 }
 
