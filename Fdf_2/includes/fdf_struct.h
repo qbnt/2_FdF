@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:39:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 16:45:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ typedef struct s_img
 	int					i;
 }	t_img;
 
+typedef struct s_color
+{
+	int					start_color;
+	int					start_r;
+	int					start_g;
+	int					start_b;
+	int					end_color;
+	int					end_r;
+	int					end_g;
+	int					end_b;
+	int					delta_r;
+	int					delta_g;
+	int					delta_b;
+}	t_color;
+
 typedef struct s_point
 {
 	t_index				i;
@@ -62,21 +77,6 @@ typedef struct s_point
 	int					sx;
 	int					sy;
 }	t_point;
-
-typedef struct s_color
-{
-	int					start_color;
-	int					start_r;
-	int					start_g;
-	int					start_b;
-	int					end_color;
-	int					end_r;
-	int					end_g;
-	int					end_b;
-	int					delta_r;
-	int					delta_g;
-	int					delta_b;
-}	t_color;
 
 typedef struct s_cam
 {
