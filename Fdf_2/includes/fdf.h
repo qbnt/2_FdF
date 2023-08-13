@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/12 16:34:12 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 15:38:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	bresenham(t_fdf *fdf);
 
 /*color.c*/
 int		interpolate(int start, int end, double fraction);
-int		set_color(double fraction, int start_color, int end_color);
+int		set_curent_color(double fraction, int start_color, int end_color);
 
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);

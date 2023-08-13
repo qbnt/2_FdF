@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/12 14:26:07 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 15:54:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 
 /*Colors*/
 # define CO_WHITE	0xFFFFFF
-# define CO_GREY	0x303030
+# define CO_GREY	0x505050
 # define CO_RED		0xFF0000
 # define CO_GREEN	0x00FF00
 # define CO_BLUE	0x0000FF
@@ -69,9 +69,10 @@
 # define CO_PINK	0xFF00FF
 # define CO_ORANGY	0xFFA500
 # define CO_BLUEY	0x0492C2
+# define CO_GREENY	0x20C292
 # define LINE_DEFAULT		CO_WHITE
 # define BACKGROUND_DEFAULT	CO_GREY
-# define C_TEXT				CO_WHITE
+# define C_TEXT				CO_GREENY
 
 /*Projections*/
 # define ISOMETRIC		1

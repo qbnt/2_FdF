@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 16:53:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 16:56:51 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 15:57:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ void	print_menu(t_fdf *fdf)
 	win = fdf->win_ptr;
 	projection = get_projection_name(fdf);
 	mlx_string_put(mlx, win, 50, y += 50, C_TEXT, projection);
-	mlx_string_put(mlx, win, 50, y += 35, C_TEXT, "Press 'ESC' to close");
-	mlx_string_put(mlx, win, 50, y += 35, C_TEXT, "Zoom: press '-' or '+'");
+	mlx_string_put(mlx, win, 50, y += 45, C_TEXT, "Press 'ESC' to close");
+	mlx_string_put(mlx, win, 50, y += 30, C_TEXT, "Zoom: press '-' or '+'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Move: press arrow keys");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Rotate X: press 'S' or 'W'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Rotate Y: press 'Q' or 'E'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Rotate Z: press 'A' or 'D'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Scale Z: press 'Z' or 'X'");
-	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "(Z scale limited to 100%)");
 	mlx_string_put(mlx, win, 50, y += 35, C_TEXT, "To change projection view:");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Isometric: press 'I'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Perspective: press 'P'");

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/12 14:41:40 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 16:29:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ void	save_map(t_map *map, int fd)
 		line = get_next_line(fd);
 		if (line == 0)
 			break ;
-		map->map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
-		map->color_map[map->x] = ft_calloc(map->nb_colon, sizeof(int));
+		map->map[map->i.x] = ft_calloc(map->nb_colon, sizeof(int));
+		map->color_map[map->i.x] = ft_calloc(map->nb_colon, sizeof(int));
 		set_value(map, line);
 		free(line);
-		map->x ++;
+		map->i.x ++;
 	}
 	map->pad = map->max - map->min;
-	map->x = 0;
+	map->i.x = 0;
 	close(fd);
 }
 
@@ -77,24 +77,24 @@ void	set_value(t_map *map, char *str)
 	char	**elems;
 
 	elems = ft_split(str, ' ');
-	while (map->y < map->nb_colon)
+	while (map->i.y < map->nb_colon)
 	{
-		map->map[map->x][map->y] = ft_atoi(elems[map->y]);
-		if (!ft_strchr(elems[map->y], ','))
-			map->color_map[map->x][map->y] = color(1, "FFFFFF");
+		map->map[map->i.x][map->i.y] = ft_atoi(elems[map->i.y]);
+		if (!ft_strchr(elems[map->i.y], ','))
+			map->color_map[map->i.x][map->i.y] = color(1, "FFFFFF");
 		else
 		{
 			map->color = 1;
-			map->color_map[map->x][map->y] = color(0, elems[map->y]);
+			map->color_map[map->i.x][map->i.y] = color(0, elems[map->i.y]);
 		}
-		free(elems[map->y]);
-		map->y ++;
+		free(elems[map->i.y]);
+		map->i.y ++;
 	}
-	if (ft_max(map->map[map->x], map->nb_colon) > map->max)
-		map->max = ft_max(map->map[map->x], map->nb_colon);
-	if (ft_min(map->map[map->x], map->nb_colon) > map->min)
-		map->min = ft_min(map->map[map->x], map->nb_colon);
-	free(elems[map->y]);
+	if (ft_max(map->map[map->i.x], map->nb_colon) > map->max)
+		map->max = ft_max(map->map[map->i.x], map->nb_colon);
+	if (ft_min(map->map[map->i.x], map->nb_colon) > map->min)
+		map->min = ft_min(map->map[map->i.x], map->nb_colon);
+	free(elems[map->i.y]);
 	free(elems);
-	map->y = 0;
+	map->i.y = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/11 15:30:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/13 16:26:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,20 @@ void	ft_free_int_tab(int **tab, int nb_line)
 
 void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 {
-	int		i;
-	int		j;
+	t_index	i;
 
-	i = 0;
-	while (i < nb_line)
+	i.x = 0;
+	while (i.x < nb_line)
 	{
-		j = 0;
-		while (j < nb_colon)
+		i.y = 0;
+		while (i.y < nb_colon)
 		{
-			ft_putnbr_fd(tab[i][j], 1);
+			ft_putnbr_fd(tab[i.x][i.y], 1);
 			write(1, "|", 1);
-			j ++;
+			i.y ++;
 		}
 		ft_printf("\n");
-		i ++;
+		i.x ++;
 	}
 }
 
