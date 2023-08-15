@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 11:39:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 17:01:49 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ static void	bresen_atrib(t_line *line);
 void	bresenham(t_line *line, t_img *img)
 {
 	bresen_atrib(line);
-	printf("dx = %d, dy = %d, sx = %d et sy = %d\n", line->dx,
-		line->dy, line->sx, line->sy);
 	while (1)
 	{
+		printf("Bresenham\n");
 		ft_endian(&line->start, img);
 		if (line->start.x == line->end.x && line->start.y == line->end.y)
 			break ;

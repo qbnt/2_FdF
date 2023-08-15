@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:03:38 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 13:58:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 16:47:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	transform(t_line *line, t_cam *cam)
 {
-	scale(line, cam->scale_factor);
+//	scale(line, cam->scale_factor);
 	translate(line, cam->move_x, cam->move_y);
 }
 

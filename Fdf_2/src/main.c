@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:30:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 16:30:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	system_init(t_fdf *fdf)
 	fdf->win_length = WINDOW_HEIGHT;
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->win_width, fdf->win_length,
 			"Fil De Fer - qbanet");
-	fdf->cam.projection = ISOMETRIC;
+	fdf->cam.projection = TOP;
+	fdf->cam.scale_z = 1;
+	fdf->cam.scale_factor = 5;
 }
 
 int	main(int argc, char **argv)

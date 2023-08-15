@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 10:56:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 14:07:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ typedef struct s_fdf
 	int					win_length;
 	t_map				map;
 	t_img				img;
-	t_point				point;
+	t_line				line;
 	t_cam				cam;
 }	t_fdf;
 
