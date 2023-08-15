@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 13:56:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 20:21:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@
 # include "fdf_define.h"
 # include "fdf_struct.h"
 
+/*init.c*/
+t_fdf	*init_fdf(char *file);
+void	init_image(t_fdf *fdf);
+void	init_cam(t_fdf *fdf);
+
+/*error.c*/
+void	error(int exit_code);
+
 /*map_crea.c*/
 void	create_map(t_map *map, char *s);
 
 /*draw.c*/
 void	ft_endian(t_point *point, t_img *image);
-void	clear_image(t_fdf *fdf, int image_size);
+void	image_background(t_fdf *fdf, int image_size);
 void	bresenham(t_line *line, t_img *img);
 
 /*color.c*/
@@ -68,12 +76,13 @@ void	render_line(t_fdf *fdf);
 int		color(int cas, char *c_color);
 void	ft_print_tab(int **tab, int nb_line, int nb_colon);
 void	ft_free_int_tab(int **tab, int nb_line);
-float	scale_to_fit(t_fdf *fdf);
 void	reset(t_fdf *fdf);
+char	*win_name(char *str);
 
 /*utile_2.c*/
 float	nb_min(float a, float b);
 float	nb_max(float a, float b);
 float	nb_absol(float a);
+float	scale_to_fit(t_map *map);
 
 #endif

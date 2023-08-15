@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 17:01:49 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 20:50:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@ static void	bresen_atrib(t_line *line);
 
 void	bresenham(t_line *line, t_img *img)
 {
+	int	i;
+	int	max_steps;
+
 	bresen_atrib(line);
-	while (1)
+	i = 0;
+	max_steps = (int)nb_max(nb_absol(line->dx), nb_absol(line->dy));
+	while (i < max_steps)
 	{
-		printf("Bresenham\n");
-		ft_endian(&line->start, img);
-		if (line->start.x == line->end.x && line->start.y == line->end.y)
-			break ;
+		if (line->start.x > 0 && line->start.y > 0
+			&& line->start.x < WINDOW_WIDTH && line->start.y < WINDOW_HEIGHT)
+			ft_endian(&line->start, img);
 		line->err2 = line->err;
 		if (line->err2 > -line->dx)
 		{
@@ -36,6 +40,7 @@ void	bresenham(t_line *line, t_img *img)
 			line->err += line->dx;
 			line->start.y += line->sy;
 		}
+		i ++;
 	}
 }
 
@@ -78,13 +83,13 @@ void	ft_endian(t_point *point, t_img *image)
 	}
 }
 
-void	clear_image(t_fdf *fdf, int image_size)
+void	image_background(t_fdf *fdf, int image_size)
 {
 	t_point	oui;
 
 	ft_bzero(fdf->img.data, image_size * 4);
 	oui.y = 0;
-	while (oui.y < fdf->win_length)
+	while (oui.y < fdf->win_heigth)
 	{
 		oui.x = 0;
 		while (oui.x < fdf->win_width)

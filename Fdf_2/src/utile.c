@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:26:13 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 20:44:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,25 @@ void	ft_print_tab(int **tab, int nb_line, int nb_colon)
 	}
 }
 
-float	scale_to_fit(t_fdf *fdf)
+char	*win_name(char *str)
 {
-	float	scale_x;
-	float	scale_y;
-	float	scale_factor;
+	char	*res;
+	char	*file;
 
-	scale_x = fdf->win_width / fdf->map.nb_line;
-	scale_y = fdf->win_length / fdf->map.nb_colon;
-	scale_factor = nb_min(scale_x, scale_y);
-	if (scale_factor < 4)
-		return (2);
-	return (scale_factor / 2);
+	if (!str)
+		exit(EXIT_FAILURE);
+	res = ft_strdup("Fil de fer - ");
+	file = ft_strrchr(str, '/') + 1;
+	res = ft_strjoin(res, file);
+	return (res);
 }
 
 void	reset(t_fdf *fdf)
 {
-	fdf->cam.scale_factor = scale_to_fit(fdf);
+	fdf->cam.scale_factor = scale_to_fit(&fdf->map);
 	fdf->cam.scale_z = 1;
 	fdf->cam.move_x = fdf->win_width / 2;
-	fdf->cam.move_y = fdf->win_length / 2;
+	fdf->cam.move_y = fdf->win_heigth / 2;
 	fdf->cam.alpha = 0;
 	fdf->cam.beta = 0;
 	fdf->cam.gamma = 0;

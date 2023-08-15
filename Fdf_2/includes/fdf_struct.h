@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 14:07:42 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 20:18:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,12 @@ typedef struct s_map
 	int					**map;
 	int					**color_map;
 	t_bool				color;
-	int					nb_line;
-	int					nb_colon;
+	int					max_y;
+	int					max_x;
 	int					min;
 	int					max;
 	int					pad;
 }	t_map;
-
-typedef struct s_img
-{
-	void				*ptr;
-	char				*data;
-	int					bpp;
-	int					size;
-	int					endian;
-	int					i;
-}	t_img;
 
 typedef struct s_color
 {
@@ -81,6 +71,16 @@ typedef struct s_line
 	int					err2;
 }	t_line;
 
+typedef struct s_img
+{
+	void				*ptr;
+	char				*data;
+	int					bpp;
+	int					size;
+	int					endian;
+	t_line				line;
+}	t_img;
+
 typedef struct s_cam
 {
 	int					projection;
@@ -100,7 +100,7 @@ typedef struct s_fdf
 	void				*mlx_ptr;
 	void				*win_ptr;
 	int					win_width;
-	int					win_length;
+	int					win_heigth;
 	t_map				map;
 	t_img				img;
 	t_line				line;

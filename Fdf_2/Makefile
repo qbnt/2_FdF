@@ -6,7 +6,7 @@
 #    By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 13:26:13 by qbanet            #+#    #+#              #
-#    Updated: 2023/08/15 10:57:22 by qbanet           ###   ########.fr        #
+#    Updated: 2023/08/15 19:43:07 by qbanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC_FILES = main.c\
 			rotate.c\
 			transform.c\
 			menu.c\
-			color.c
+			color.c\
+			error.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
