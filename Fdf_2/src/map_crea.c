@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:29:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 10:49:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ void	set_value(t_map *map, char *line);
 void	create_map(t_map *map, char *s)
 {
 	mesure_map(map, open(s, O_RDONLY));
-	ft_printf("Mesures de la map : ");
-	ft_printf("Ligne = %d / Colonne = %d\n\n", map->nb_line, map->nb_colon);
 	save_map(map, open(s, O_RDONLY));
-	ft_printf("Visuel de la map :\n");
-	ft_print_tab(map->map, map->nb_line, map->nb_colon);
-	ft_printf("\n");
 }
 
 void	mesure_map(t_map *map, int fd)

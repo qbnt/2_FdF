@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:45:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 10:56:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct s_index
 {
 	int					x;
 	int					y;
-	int					z;
 }	t_index;
 
 typedef struct s_map
@@ -63,20 +62,24 @@ typedef struct s_color
 typedef struct s_point
 {
 	t_index				i;
+	float				x;
+	float				y;
+	float				z;
+	int					color;
+}	t_point;
+
+typedef struct s_line
+{
 	t_color				colors;
-	float				x1;
-	float				y1;
-	float				x2;
-	float				y2;
-	float				z1;
-	float				z2;
-	int					err;
-	int					err2;
+	t_point				start;
+	t_point				end;
 	int					dx;
 	int					dy;
 	int					sx;
 	int					sy;
-}	t_point;
+	int					err;
+	int					err2;
+}	t_line;
 
 typedef struct s_cam
 {
@@ -96,12 +99,12 @@ typedef struct s_fdf
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
+	int					win_width;
+	int					win_length;
 	t_map				map;
 	t_img				img;
 	t_point				point;
 	t_cam				cam;
-	int					win_width;
-	int					win_length;
 }	t_fdf;
 
 #endif

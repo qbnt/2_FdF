@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 15:54:32 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 08:39:12 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@
 # define CO_GREENY	0x20C292
 # define LINE_DEFAULT		CO_WHITE
 # define BACKGROUND_DEFAULT	CO_GREY
-# define C_TEXT				CO_GREENY
+# define C_TEXT				CO_GREY
 
 /*Projections*/
 # define ISOMETRIC		1
@@ -88,4 +88,6 @@
 # define MAX_PIXEL			892800
 # define WINDOW_WIDTH		1240
 # define WINDOW_HEIGHT		720
+# define MENU_WIDTH			245
+
 #endif

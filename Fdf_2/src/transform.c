@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:03:38 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:41:11 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 13:58:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 /******************************************************************************/
 
-void	transform(t_fdf *fdf)
+void	transform(t_line *line, t_cam *cam)
 {
-	scale(fdf, fdf->cam.scale_factor);
-	translate(fdf, fdf->cam.move_x, fdf->cam.move_y);
+	scale(line, cam->scale_factor);
+	translate(line, cam->move_x, cam->move_y);
 }
 
-void	scale(t_fdf *fdf, int scale_factor)
+void	scale(t_line *line, int scale_factor)
 {
-	fdf->point.x1 *= scale_factor;
-	fdf->point.y1 *= scale_factor;
-	fdf->point.x2 *= scale_factor;
-	fdf->point.y2 *= scale_factor;
+	line->start.x *= scale_factor;
+	line->start.y *= scale_factor;
+	line->end.x *= scale_factor;
+	line->end.y *= scale_factor;
 }
 
-void	translate(t_fdf *fdf, int move_x, int move_y)
+void	translate(t_line *line, int move_x, int move_y)
 {
-	fdf->point.x1 += move_x;
-	fdf->point.y1 += move_y;
-	fdf->point.x2 += move_x;
-	fdf->point.y2 += move_y;
+	line->start.x += move_x;
+	line->start.y += move_y;
+	line->end.x += move_x;
+	line->end.y += move_y;
 }

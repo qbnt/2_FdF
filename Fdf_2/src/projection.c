@@ -6,57 +6,56 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:33:13 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 16:41:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 13:56:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-static void	isometric(t_fdf *fdf);
-static void	perspective(t_fdf *fdf);
+static void	isometric(t_line *line);
+static void	perspective(t_line *line, t_cam *cam);
 
 /******************************************************************************/
 
-void	project(t_fdf *fdf)
+void	project(t_line *line, t_cam *cam)
 {
-	if (fdf->cam.projection == ISOMETRIC)
-		isometric(fdf);
-	else if (fdf->cam.projection == PERSPECTIVE)
-		perspective(fdf);
-	else if (fdf->cam.projection == TOP)
+	if (cam->projection == ISOMETRIC)
+		isometric(line);
+	else if (cam->projection == PERSPECTIVE)
+		perspective(line, cam);
+	else if (cam->projection == TOP)
 		return ;
 }
 
-static void	isometric(t_fdf *fdf)
+static void	isometric(t_line *line)
 {
-	t_point	point;
+	t_point	new_point;
 
-	point.i.x = (fdf->point.x1 - fdf->point.y1) * cos(ANG_30);
-	point.i.y = (fdf->point.x1 + fdf->point.y1) * sin(ANG_30) - fdf->point.z1;
-	fdf->point.x1 = point.i.x;
-	fdf->point.y1 = point.i.y;
-	point.i.x = (fdf->point.x2 - fdf->point.y2) * cos(ANG_30);
-	point.i.y = (fdf->point.x2 + fdf->point.y2) * sin(ANG_30) - fdf->point.z2;
-	fdf->point.x2 = point.i.x;
-	fdf->point.y2 = point.i.y;
+	new_point.x = (line->start.x - line->start.y) * cos(ANG_30);
+	new_point.y = (line->start.x + line->start.y) * sin(ANG_30) - line->start.z;
+	line->start.x = new_point.x;
+	line->start.y = new_point.y;
+	new_point.x = (line->end.x - line->end.y) * cos(ANG_30);
+	new_point.y = (line->end.x + line->end.y) * sin(ANG_30) - line->end.z;
+	line->end.x = new_point.x;
+	line->end.y = new_point.y;
 }
 
-static void	perspective(t_fdf *fdf)
+static void	perspective(t_line *line, t_cam *cam)
 {
-	t_point	new_start;
-	t_point	point;
-	double	z;
+	t_point	new_point;
+	float	z;
 
-	rotate_x(fdf, 3 * -ANG_45);
-	z = fdf->point.z1 + fdf->cam.transform_z;
-	new_start.i.x = fdf->point.x1 / z;
-	new_start.i.y = fdf->point.y1 / z;
-	fdf->point.x1 = new_start.i.x;
-	fdf->point.y1 = -new_start.i.y;
-	z = fdf->point.z2 + fdf->cam.transform_z;
-	point.i.x = fdf->point.x2 / z;
-	point.i.y = fdf->point.y2 / z;
-	fdf->point.x2 = point.i.x;
-	fdf->point.y2 = -point.i.y;
-	scale(fdf, fdf->cam.transform_z);
+	rotate_x(line, 3 * -ANG_45);
+	z = line->start.z + cam->transform_z;
+	new_point.x = line->start.x / z;
+	new_point.y = line->start.y / z;
+	line->start.x = new_point.x;
+	line->start.y = -new_point.y;
+	z = line->end.z + cam->transform_z;
+	new_point.x = line->end.x / z;
+	new_point.y = line->end.y / z;
+	line->end.x = new_point.x;
+	line->end.y = -new_point.y;
+	scale(line, cam->transform_z);
 }

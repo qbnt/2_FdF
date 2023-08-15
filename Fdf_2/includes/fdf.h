@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/13 15:38:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/15 13:56:19 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 void	create_map(t_map *map, char *s);
 
 /*draw.c*/
-void	ft_endian(t_fdf *fdf, int color);
+void	ft_endian(t_point *point, t_img *image);
 void	clear_image(t_fdf *fdf, int image_size);
-void	bresenham(t_fdf *fdf);
+void	bresenham(t_line *line, t_img *img);
 
 /*color.c*/
 int		interpolate(int start, int end, double fraction);
@@ -47,21 +47,22 @@ void	key_project(int keycode, t_fdf *fdf);
 void	print_menu(t_fdf *fdf);
 
 /*rotate.c*/
-void	rotate(t_fdf *fdf);
-void	rotate_x(t_fdf *fdf, double angle);
-void	rotate_y(t_fdf *fdf, double angle);
-void	rotate_z(t_fdf *fdf, double angle);
+void	rotate(t_line *line, t_cam *cam);
+void	rotate_x(t_line *line, double angle);
+void	rotate_y(t_line *line, double angle);
+void	rotate_z(t_line *line, double angle);
 
 /*projection.c*/
-void	project(t_fdf *fdf);
+void	project(t_line *line, t_cam *cam);
 
 /*transform.c*/
-void	transform(t_fdf *fdf);
-void	scale(t_fdf *fdf, int scale_factor);
-void	translate(t_fdf *fdf, int move_x, int move_y);
+void	transform(t_line *line, t_cam *cam);
+void	scale(t_line *line, int scale_factor);
+void	translate(t_line *line, int move_x, int move_y);
 
 /*render.c*/
 void	render(t_fdf *fdf);
+void	render_line(t_fdf *fdf);
 
 /*utile.c*/
 int		color(int cas, char *c_color);
