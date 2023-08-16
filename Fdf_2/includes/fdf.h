@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:21:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 12:28:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ void	key_project(int keycode, t_fdf *fdf);
 void	print_menu(t_fdf *fdf);
 
 /*rotate.c*/
-void	rotate(t_line *line, t_cam *cam);
-void	rotate_x(t_line *line, double angle);
-void	rotate_y(t_line *line, double angle);
-void	rotate_z(t_line *line, double angle);
+void	rotate(t_fdf *fdf, t_cam *cam);
+void	rotate_x(t_line *line, t_fdf *fdf, double angle);
+void	rotate_y(t_line *line, t_fdf *fdf, double angle);
+void	rotate_z(t_line *line, t_fdf *fdf, double angle);
 
 /*projection.c*/
-void	project(t_line *line, t_cam *cam);
+void	project(t_line *line, t_cam *cam, t_fdf *fdf);
 
 /*transform.c*/
-void	transform(t_line *line, t_cam *cam);
+void	transform(t_fdf *fdf, t_cam *cam);
 void	scale(t_line *line, int scale_factor);
-void	translate(t_line *line, int move_x, int move_y);
+void	translate(t_fdf *fdf, int move_x, int move_y, int scale_factor);
 
 /*render.c*/
 void	render(t_fdf *fdf);

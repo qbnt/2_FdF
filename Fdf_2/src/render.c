@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 08:26:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 13:49:24 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,8 @@ void	render_line(t_fdf *fdf)
 {
 	fdf->line.start.z *= fdf->cam.scale_z;
 	fdf->line.end.z *= fdf->cam.scale_z;
-	rotate(&fdf->line, &fdf->cam);
-	project(&fdf->line, &fdf->cam);
-	transform(&fdf->line, &fdf->cam);
+	transform(fdf, &fdf->cam);
+	project(&fdf->line, &fdf->cam, fdf);
+	rotate(fdf, &fdf->cam);
 	bresenham(&fdf->line, &fdf->img);
 }
-
-	/*
-	printf("start.x = %.1f, start.y = %.1f, start.z = %.1f\n",
-		fdf->line.start.x, fdf->line.start.y, fdf->line.start.z);
-	printf("end.x 	= %.1f,   end.y = %.1f,   end.z = %.1f\n\n",
-		fdf->line.end.x, fdf->line.end.y, fdf->line.end.z);
-	*/

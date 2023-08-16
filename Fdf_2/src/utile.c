@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:44:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 11:42:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ char	*win_name(char *str)
 void	reset(t_fdf *fdf)
 {
 	fdf->cam.scale_factor = scale_to_fit(&fdf->map);
-	fdf->cam.scale_z = 1;
-	fdf->cam.move_x = fdf->win_width / 2;
-	fdf->cam.move_y = fdf->win_heigth / 2;
+	fdf->cam.scale_z = 0.5;
+	fdf->cam.move_x = (WINDOW_WIDTH / 2) + MENU_WIDTH / 2;
+	fdf->cam.move_y = (WINDOW_HEIGHT / 2);
 	fdf->cam.alpha = 0;
 	fdf->cam.beta = 0;
 	fdf->cam.gamma = 0;

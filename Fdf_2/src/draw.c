@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 08:31:20 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 13:54:04 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static void	bresen_atrib(t_line *line);
 
 void	bresenham(t_line *line, t_img *img)
 {
-	int	i;
-	int	max_steps;
+	int		i;
+	float	max_steps;
 
 	bresen_atrib(line);
 	i = 0;
-	max_steps = (int)nb_max(nb_absol(line->dx), nb_absol(line->dy));
+	max_steps = nb_max(line->dx, line->dy);
 	while (i < max_steps)
 	{
 		if (line->start.x > 0 && line->start.y > 0
@@ -38,8 +38,8 @@ void	bresenham(t_line *line, t_img *img)
 
 static void	bresen_atrib(t_line *line)
 {
-	line->dx = nb_absol(line->end.x - line->start.x);
-	line->dy = nb_absol(line->end.y - line->start.y);
+	line->dx = line->end.x - line->start.x;
+	line->dy = line->end.y - line->start.y;
 	if (line->start.x < line->end.x)
 		line->sx = 1;
 	else
@@ -58,7 +58,7 @@ void	ft_endian(t_point *point, t_img *image)
 {
 	int	pix;
 
-	pix = (point->y * WINDOW_WIDTH + point->x) * 4;
+	pix = ((int)point->y * WINDOW_WIDTH + (int)point->x) * 4;
 	if (image->endian == 1)
 	{
 		image->data[pix + 0] = point->color >> 24;

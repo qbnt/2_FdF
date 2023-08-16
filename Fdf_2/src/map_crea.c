@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 19:31:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 12:14:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	mesure_map(t_map *map, int fd)
 		str = get_next_line(fd);
 		if (!str)
 			break ;
-		if (ft_count_wrd_sep(str, ' ') > map->max_x)
+		if (!map->max_x)
 			map->max_x = ft_count_wrd_sep(str, ' ');
 		map->max_y ++;
 		free(str);
