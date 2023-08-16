@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 12:28:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 21:50:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	image_background(t_fdf *fdf, int image_size);
 void	bresenham(t_line *line, t_img *img);
 
 /*color.c*/
-int		interpolate(int start, int end, double fraction);
-int		set_curent_color(double fraction, int start_color, int end_color);
+int	get_color(t_line *line, int i_line, int size);
+void	color_init(t_line *line);
 
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);
@@ -66,7 +66,7 @@ void	project(t_line *line, t_cam *cam, t_fdf *fdf);
 /*transform.c*/
 void	transform(t_fdf *fdf, t_cam *cam);
 void	scale(t_line *line, int scale_factor);
-void	translate(t_fdf *fdf, int move_x, int move_y, int scale_factor);
+void	translate(t_fdf *fdf, int move_x, int move_y);
 
 /*render.c*/
 void	render(t_fdf *fdf);

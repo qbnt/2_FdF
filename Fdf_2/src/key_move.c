@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:28:30 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 12:38:32 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 20:09:14 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	key_translate(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_RIGHT)
-		fdf->cam.move_x += 10;
-	else if (keycode == KEY_LEFT)
 		fdf->cam.move_x -= 10;
+	else if (keycode == KEY_LEFT)
+		fdf->cam.move_x += 10;
 	else if (keycode == KEY_DOWN)
-		fdf->cam.move_y += 10;
-	else if (keycode == KEY_UP)
 		fdf->cam.move_y -= 10;
+	else if (keycode == KEY_UP)
+		fdf->cam.move_y += 10;
 }
 
 void	key_scale(int keycode, t_fdf *fdf)

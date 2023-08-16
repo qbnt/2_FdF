@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:30:45 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 13:41:05 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 20:56:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	rotate_x(t_line *line, t_fdf *fdf, double angle)
 	t_point	new_end;
 
 	fdf += 0;
-	new_start.y = line->start.y * cos(angle) - line->start.x * sin(angle);
-	new_start.z = line->start.y * sin(angle) + line->start.x * cos(angle);
+	new_start.y = line->start.y * cos(angle) - line->start.z * sin(angle);
+	new_start.z = line->start.y * sin(angle) + line->start.z * cos(angle);
 	line->start.y = new_start.y;
 	line->start.z = new_start.z;
-	new_end.y = line->end.y * cos(angle) - line->end.x * sin(angle);
-	new_end.z = line->end.y * sin(angle) + line->end.x * cos(angle);
+	new_end.y = line->end.y * cos(angle) - line->end.z * sin(angle);
+	new_end.z = line->end.y * sin(angle) + line->end.z * cos(angle);
 	line->end.y = new_end.y;
 	line->end.z = new_end.z;
 }

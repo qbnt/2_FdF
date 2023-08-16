@@ -6,59 +6,45 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 13:54:04 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 21:50:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-static void	bresen_atrib(t_line *line);
-
 /******************************************************************************/
 
 void	bresenham(t_line *line, t_img *img)
 {
-	int		i;
-	float	max_steps;
+	float	x_step;
+	float	y_step;
+	int		max_steps;
+	int		i_line;
 
-	bresen_atrib(line);
-	i = 0;
-	max_steps = nb_max(line->dx, line->dy);
-	while (i < max_steps)
+	x_step = line->end.x - line->start.x;
+	y_step = line->end.y - line->start.y;
+	max_steps = (int)nb_max(nb_absol(x_step), nb_absol(y_step));
+	x_step /= max_steps;
+	y_step /= max_steps;
+	i_line = 0;
+	color_init(line);
+	while (i_line < max_steps)
 	{
+		line->start.color = get_color(line, i_line ++, max_steps);
 		if (line->start.x > 0 && line->start.y > 0
 			&& line->start.x < WINDOW_WIDTH && line->start.y < WINDOW_HEIGHT
 			&& line->start.x > MENU_WIDTH)
 			ft_endian(&line->start, img);
-		line->start.x += line->dx / max_steps;
-		line->start.y += line->dy / max_steps;
-		i ++;
+		line->start.x += x_step;
+		line->start.y += y_step;
 	}
-}
-
-static void	bresen_atrib(t_line *line)
-{
-	line->dx = line->end.x - line->start.x;
-	line->dy = line->end.y - line->start.y;
-	if (line->start.x < line->end.x)
-		line->sx = 1;
-	else
-		line->sx = -1;
-	if (line->start.y < line->end.y)
-		line->sy = 1;
-	else
-		line->sy = -1;
-	if (line->dx > line->dy)
-		line->err = line->dx / 2;
-	else
-		line->err = line->dy / 2;
 }
 
 void	ft_endian(t_point *point, t_img *image)
 {
 	int	pix;
 
-	pix = ((int)point->y * WINDOW_WIDTH + (int)point->x) * 4;
+	pix = ((int)point->y * image->size + ((int)point->x * 4));
 	if (image->endian == 1)
 	{
 		image->data[pix + 0] = point->color >> 24;

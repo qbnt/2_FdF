@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:33:13 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 16:56:48 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 21:35:53 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-static void	isometric(t_line *line);
+static void	isometric(t_line *line, t_fdf *fdf);
 static void	perspective(t_line *line, t_cam *cam, t_fdf *fdf);
 
 /******************************************************************************/
@@ -20,18 +20,19 @@ static void	perspective(t_line *line, t_cam *cam, t_fdf *fdf);
 void	project(t_line *line, t_cam *cam, t_fdf *fdf)
 {
 	if (cam->projection == ISOMETRIC)
-		isometric(line);
+		isometric(line, fdf);
 	else if (cam->projection == PERSPECTIVE)
 		perspective(line, cam, fdf);
 	else if (cam->projection == TOP)
 		return ;
 }
 
-static void	isometric(t_line *line)
+static void	isometric(t_line *line, t_fdf *fdf)
 {
 	t_point	new_start;
 	t_point	new_end;
 
+	fdf += 0;
 	new_start.x = (line->start.x - line->start.y) * cos(ANG_30);
 	new_start.y = (line->start.x + line->start.y) * sin(ANG_30) - line->start.z;
 	line->start.x = new_start.x;
@@ -46,7 +47,7 @@ static void	perspective(t_line *line, t_cam *cam, t_fdf *fdf)
 {
 	t_point	new_start;
 	t_point	new_end;
-	float	z;
+	double	z;
 
 	rotate_x(line, fdf, 3 * -ANG_45);
 	z = line->start.z + cam->transform_z;

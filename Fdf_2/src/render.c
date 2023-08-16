@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 13:49:24 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 21:32:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	render(t_fdf *fdf)
 
 static void	set_val_render_x(t_fdf *fdf)
 {
-	fdf->line.start.x = (float)fdf->map.i.x;
-	fdf->line.start.y = (float)fdf->map.i.y;
+	fdf->line.start.x = (float)fdf->map.i.x - fdf->map.max_x / 2;
+	fdf->line.start.y = (float)fdf->map.i.y - fdf->map.max_y / 2;
 	fdf->line.start.z = (float)fdf->map.map[fdf->map.i.y][fdf->map.i.x];
 	fdf->line.start.color = fdf->map.color_map[fdf->map.i.y][fdf->map.i.x];
-	fdf->line.end.x = (float)fdf->map.i.x + 1;
-	fdf->line.end.y = (float)fdf->map.i.y;
+	fdf->line.end.x = (float)fdf->map.i.x + 1 - fdf->map.max_x / 2;
+	fdf->line.end.y = (float)fdf->map.i.y - fdf->map.max_y / 2;
 	fdf->line.end.z = (float)fdf->map.map[fdf->map.i.y][fdf->map.i.x + 1];
 	fdf->line.end.color
 		= fdf->map.color_map[fdf->map.i.y][fdf->map.i.x + 1];
@@ -54,12 +54,12 @@ static void	set_val_render_x(t_fdf *fdf)
 
 static void	set_val_render_y(t_fdf *fdf)
 {
-	fdf->line.start.x = (float)fdf->map.i.x;
-	fdf->line.start.y = (float)fdf->map.i.y;
+	fdf->line.start.x = (float)fdf->map.i.x - fdf->map.max_x / 2;
+	fdf->line.start.y = (float)fdf->map.i.y - fdf->map.max_y / 2;
 	fdf->line.start.z = (float)fdf->map.map[fdf->map.i.y][fdf->map.i.x];
 	fdf->line.start.color = fdf->map.color_map[fdf->map.i.y][fdf->map.i.x];
-	fdf->line.end.x = (float)fdf->map.i.x;
-	fdf->line.end.y = (float)fdf->map.i.y + 1;
+	fdf->line.end.x = (float)fdf->map.i.x - fdf->map.max_x / 2;
+	fdf->line.end.y = (float)fdf->map.i.y + 1 - fdf->map.max_y / 2;
 	fdf->line.end.z = (float)fdf->map.map[fdf->map.i.y + 1][fdf->map.i.x];
 	fdf->line.end.color
 		= fdf->map.color_map[fdf->map.i.y + 1][fdf->map.i.x];
@@ -70,8 +70,8 @@ void	render_line(t_fdf *fdf)
 {
 	fdf->line.start.z *= fdf->cam.scale_z;
 	fdf->line.end.z *= fdf->cam.scale_z;
-	transform(fdf, &fdf->cam);
-	project(&fdf->line, &fdf->cam, fdf);
 	rotate(fdf, &fdf->cam);
+	project(&fdf->line, &fdf->cam, fdf);
+	transform(fdf, &fdf->cam);
 	bresenham(&fdf->line, &fdf->img);
 }
