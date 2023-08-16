@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:50:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 08:31:20 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,11 @@ void	bresenham(t_line *line, t_img *img)
 	while (i < max_steps)
 	{
 		if (line->start.x > 0 && line->start.y > 0
-			&& line->start.x < WINDOW_WIDTH && line->start.y < WINDOW_HEIGHT)
+			&& line->start.x < WINDOW_WIDTH && line->start.y < WINDOW_HEIGHT
+			&& line->start.x > MENU_WIDTH)
 			ft_endian(&line->start, img);
-		line->err2 = line->err;
-		if (line->err2 > -line->dx)
-		{
-			line->err -= line->dy;
-			line->start.x += line->sx;
-		}
-		if (line->err2 < line->dy)
-		{
-			line->err += line->dx;
-			line->start.y += line->sy;
-		}
+		line->start.x += line->dx / max_steps;
+		line->start.y += line->dy / max_steps;
 		i ++;
 	}
 }
@@ -94,8 +86,10 @@ void	image_background(t_fdf *fdf, int image_size)
 		oui.x = 0;
 		while (oui.x < fdf->win_width)
 		{
-			if (oui.x < MENU_WIDTH)
+			if (oui.x < MENU_WIDTH - 15)
 				oui.color = CO_GREENY;
+			else if (oui.x < MENU_WIDTH)
+				oui.color = CO_WHITE;
 			else
 				oui.color = BACKGROUND_DEFAULT;
 			ft_endian(&oui, &fdf->img);

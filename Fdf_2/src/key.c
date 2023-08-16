@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:25:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 07:25:14 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	key_hook(int keycode, t_fdf *fdf)
 {
-	ft_printf("keycode = %d\n\n", keycode);
 	if (keycode == KEY_ESC)
 		ft_end_hook(fdf);
 	else if (keycode == KEY_RIGHT || keycode == KEY_LEFT || keycode == KEY_UP

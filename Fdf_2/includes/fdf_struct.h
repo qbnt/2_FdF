@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:18:30 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 08:04:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct s_img
 
 typedef struct s_cam
 {
-	int					projection;
 	t_bool				color_pallet;
+	int					projection;
 	float				scale_factor;
 	float				transform_z;
 	float				scale_z;

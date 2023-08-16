@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:59:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 20:42:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 07:55:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	init_cam(t_fdf *fdf)
 	fdf->cam.projection = TOP;
 	fdf->cam.color_pallet = FALSE;
 	fdf->cam.scale_factor = scale_to_fit(&fdf->map);
-	fdf->cam.scale_z = 1;
+	fdf->cam.scale_z = 0.5;
 	fdf->cam.move_x = WINDOW_WIDTH / 2;
-	fdf->cam.move_y = WINDOW_HEIGHT / 2;
+	fdf->cam.move_y = WINDOW_HEIGHT / 4;
 	fdf->cam.alpha = 0;
 	fdf->cam.beta = 0;
 	fdf->cam.gamma = 0;
