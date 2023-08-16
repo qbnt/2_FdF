@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 21:50:32 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 00:45:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void	error(int exit_code);
 void	create_map(t_map *map, char *s);
 
 /*draw.c*/
-void	ft_endian(t_point *point, t_img *image);
+void	ft_endian(t_line *line, t_img *image, int color);
 void	image_background(t_fdf *fdf, int image_size);
 void	bresenham(t_line *line, t_img *img);
 
 /*color.c*/
-int	get_color(t_line *line, int i_line, int size);
+int		get_color(t_line *line, int i_line, int size);
 void	color_init(t_line *line);
+void	custom_color_init(int col1, int col2, t_fdf *fdf);
 
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 08:39:12 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/16 23:40:27 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@
 
 /*Colors*/
 # define CO_WHITE	0xFFFFFF
+# define CO_BLACK	0x000000
 # define CO_GREY	0x505050
 # define CO_RED		0xFF0000
 # define CO_GREEN	0x00FF00

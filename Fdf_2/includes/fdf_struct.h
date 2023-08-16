@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:41:22 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 10:24:45 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 00:19:45 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_line
 	int					sy;
 	float				err;
 	float				err2;
+	t_bool				color;
 }	t_line;
 
 typedef struct s_img

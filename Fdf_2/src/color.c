@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:44:03 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 21:50:22 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 00:42:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,22 @@ void	color_init(t_line *line)
 	line->colors.delta_r = (line->colors.end_r - line->colors.start_r);
 	line->colors.delta_g = (line->colors.end_g - line->colors.start_g);
 	line->colors.delta_b = (line->colors.end_b - line->colors.start_b);
+}
+
+void	custom_color_init(int col1, int col2, t_fdf *fdf)
+{
+	fdf->line.colors.start_color = col1;
+	fdf->line.colors.start_r = (CO_RED & col1) >> 16;
+	fdf->line.colors.start_g = (CO_GREEN & col1) >> 8;
+	fdf->line.colors.start_b = (CO_BLUE & col1);
+	fdf->line.colors.end_color = col2;
+	fdf->line.colors.end_r = (CO_RED & col2) >> 16;
+	fdf->line.colors.end_g = (CO_GREEN & col2) >> 8;
+	fdf->line.colors.end_b = (CO_BLUE & col2);
+	fdf->line.colors.delta_r = (fdf->line.colors.end_r
+			- fdf->line.colors.start_r);
+	fdf->line.colors.delta_g = (fdf->line.colors.end_g
+			- fdf->line.colors.start_g);
+	fdf->line.colors.delta_b = (fdf->line.colors.end_b
+			- fdf->line.colors.start_b);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 21:50:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 00:58:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,53 +34,53 @@ void	bresenham(t_line *line, t_img *img)
 		if (line->start.x > 0 && line->start.y > 0
 			&& line->start.x < WINDOW_WIDTH && line->start.y < WINDOW_HEIGHT
 			&& line->start.x > MENU_WIDTH)
-			ft_endian(&line->start, img);
+			ft_endian(line, img, line->start.color);
 		line->start.x += x_step;
 		line->start.y += y_step;
 	}
 }
 
-void	ft_endian(t_point *point, t_img *image)
+void	ft_endian(t_line *line, t_img *image, int color)
 {
 	int	pix;
 
-	pix = ((int)point->y * image->size + ((int)point->x * 4));
+	pix = ((int)line->start.y * image->size + ((int)line->start.x * 4));
 	if (image->endian == 1)
 	{
-		image->data[pix + 0] = point->color >> 24;
-		image->data[pix + 1] = point->color >> 16 & 0xFF;
-		image->data[pix + 2] = point->color >> 8 & 0xFF;
-		image->data[pix + 3] = point->color >> 0 & 0xFF;
+		image->data[pix + 0] = color >> 24;
+		image->data[pix + 1] = color >> 16 & 0xFF;
+		image->data[pix + 2] = color >> 8 & 0xFF;
+		image->data[pix + 3] = color >> 0 & 0xFF;
 	}
 	else
 	{
-		image->data[pix + 0] = point->color >> 0 & 0xFF;
-		image->data[pix + 1] = point->color >> 8 & 0xFF;
-		image->data[pix + 2] = point->color >> 16 & 0xFF;
-		image->data[pix + 3] = point->color >> 24;
+		image->data[pix + 0] = color >> 0 & 0xFF;
+		image->data[pix + 1] = color >> 8 & 0xFF;
+		image->data[pix + 2] = color >> 16 & 0xFF;
+		image->data[pix + 3] = color >> 24;
 	}
 }
 
 void	image_background(t_fdf *fdf, int image_size)
 {
-	t_point	oui;
+	t_line	oui;
 
 	ft_bzero(fdf->img.data, image_size * 4);
-	oui.y = 0;
-	while (oui.y < fdf->win_heigth)
+	oui.start.y = 0;
+	while (oui.start.y < fdf->win_heigth)
 	{
-		oui.x = 0;
-		while (oui.x < fdf->win_width)
+		oui.start.x = 0;
+		while (oui.start.x < fdf->win_width)
 		{
-			if (oui.x < MENU_WIDTH - 15)
-				oui.color = CO_GREENY;
-			else if (oui.x < MENU_WIDTH)
-				oui.color = CO_WHITE;
+			if (oui.start.x < MENU_WIDTH - 15)
+				oui.colors.start_color = CO_GREENY;
+			else if (oui.start.x < MENU_WIDTH)
+				oui.colors.start_color = CO_WHITE;
 			else
-				oui.color = BACKGROUND_DEFAULT;
-			ft_endian(&oui, &fdf->img);
-			oui.x++;
+				oui.colors.start_color = BACKGROUND_DEFAULT;
+			ft_endian(&oui, &fdf->img, oui.colors.start_color);
+			oui.start.x++;
 		}
-		oui.y++;
+		oui.start.y++;
 	}
 }
