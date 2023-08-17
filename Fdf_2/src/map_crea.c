@@ -6,20 +6,22 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 15:35:13 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 19:59:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-void	mesure_map(t_fdf *fdf, int fd);
-void	save_map(t_map *map, int fd);
-void	set_value(t_map *map, char *line);
+void			mesure_map(t_fdf *fdf, int fd);
+void			save_map(t_map *map, int fd);
+void			set_value(t_map *map, char *line);
+static int		count_unit(char *str);
 
 /***********************************************************/
 
 void	create_map(t_fdf *fdf, char *s)
 {
+	/*
 	int	fd;
 
 	fd = open(s, O_RDONLY);
@@ -29,7 +31,8 @@ void	create_map(t_fdf *fdf, char *s)
 		free(fdf);
 		exit(EXIT_FAILURE);
 	}
-	mesure_map(fdf, fd);
+	*/
+	mesure_map(fdf, open(s, O_RDONLY));
 	save_map(&fdf->map, open(s, O_RDONLY));
 }
 
@@ -43,7 +46,7 @@ void	mesure_map(t_fdf *fdf, int fd)
 		if (!str)
 			break ;
 		if (!fdf->map.max_x)
-			fdf->map.max_x = ft_count_wrd_sep(str, ' ');
+			fdf->map.max_x = count_unit(str);
 		fdf->map.max_y ++;
 		free(str);
 	}
@@ -99,4 +102,31 @@ void	set_value(t_map *map, char *str)
 	free(elems[map->i.x]);
 	free(elems);
 	map->i.x = 0;
+}
+
+static int	count_unit(char *str)
+{
+	int		count;
+	t_bool	in_word;
+
+	count = 0;
+	in_word = FALSE;
+	while (*str)
+	{
+		if (ft_isspace(*str))
+		{
+			if (in_word)
+				in_word = FALSE;
+		}
+		else
+		{
+			if (!in_word)
+			{
+				in_word = TRUE;
+				count++;
+			}
+		}
+		str++;
+	}
+	return (count);
 }
