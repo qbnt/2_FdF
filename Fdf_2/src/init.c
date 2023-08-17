@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:59:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 11:51:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 14:30:52 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	init_cam(t_fdf *fdf)
 	fdf->cam.projection = TOP;
 	fdf->cam.color_pallet = FALSE;
 	fdf->cam.scale_factor = scale_to_fit(&fdf->map);
-	printf("Max = %d\n", fdf->map.max);
 	if (fdf->map.max > 10)
 		fdf->cam.scale_z = 0.1;
 	if (fdf->map.max <= 10 && fdf->map.max > 5)

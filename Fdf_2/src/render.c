@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 12:26:59 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 13:54:38 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,6 @@ static void	select_color(t_fdf *fdf, t_point *point)
 	}
 	else
 	{
-		if (point->z >= 0)
-		{
-			custom_color_init(CO_GREENY, CO_BLUE, fdf);
-			point->color = get_color(&fdf->line, point->z,
-					fdf->map.max / fdf->cam.scale_factor);
-		}
-		else
-		{
-			custom_color_init(CO_GREENY, CO_RED, fdf);
-			point->color = get_color(&fdf->line, nb_absol(point->z),
-					fdf->map.max / fdf->cam.scale_factor);
-		}
+		set_pad_color(fdf, point);
 	}
 }

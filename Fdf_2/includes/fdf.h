@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 11:34:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 14:41:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,15 @@ void	bresenham(t_line *line, t_img *img);
 int		get_color(t_line *line, int i_line, int size);
 void	color_init(t_line *line);
 void	custom_color_init(int col1, int col2, t_fdf *fdf);
+void	set_pad_color(t_fdf *fdf, t_point *point);
 
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);
 int		ft_expose_hook(t_fdf *fdf);
 int		ft_end_hook(t_fdf *fdf);
+
+/*mouse.c*/
+int		mouse_hook(int mousecode, int x, int y, t_fdf *fdf);
 
 /*key_move.c*/
 void	key_translate(int keycode, t_fdf *fdf);

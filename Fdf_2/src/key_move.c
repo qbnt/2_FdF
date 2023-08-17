@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:28:30 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 20:09:14 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 14:26:58 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	key_scale(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_PLUS)
 		fdf->cam.scale_factor += 1;
-	else if (keycode == KEY_MINUS && fdf->cam.scale_factor > 1)
+	else if (keycode == KEY_MINUS && fdf->cam.scale_factor > 2)
 		fdf->cam.scale_factor -= 1;
 	else if (keycode == KEY_Z && fdf->cam.scale_z > -1)
 		fdf->cam.scale_z -= 0.1;

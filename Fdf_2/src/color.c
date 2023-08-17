@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:44:03 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 00:42:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 13:53:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,28 @@ void	custom_color_init(int col1, int col2, t_fdf *fdf)
 			- fdf->line.colors.start_g);
 	fdf->line.colors.delta_b = (fdf->line.colors.end_b
 			- fdf->line.colors.start_b);
+}
+
+void	set_pad_color(t_fdf *fdf, t_point *point)
+{
+	if (point->z >= 0)
+	{
+		custom_color_init(CO_GREENY, CO_BLUE, fdf);
+		if (fdf->map.pad > 20)
+			point->color = get_color(&fdf->line, point->z,
+					fdf->map.max / fdf->cam.scale_factor);
+		else
+			point->color = get_color(&fdf->line, point->z,
+					fdf->map.max);
+	}
+	else
+	{
+		custom_color_init(CO_GREENY, CO_RED, fdf);
+		if (fdf->map.pad > 20)
+			point->color = get_color(&fdf->line, nb_absol(point->z),
+					fdf->map.max / fdf->cam.scale_factor);
+		else
+			point->color = get_color(&fdf->line, nb_absol(point->z),
+					fdf->map.max);
+	}
 }
