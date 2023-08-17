@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:40:20 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:32:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:06:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(fdf->win_ptr, &key_hook, fdf);
 	mlx_mouse_hook(fdf->win_ptr, &mouse_hook, fdf);
 	mlx_expose_hook(fdf->win_ptr, &ft_expose_hook, fdf);
+	mlx_hook(fdf->win_ptr, 17, 0, &ft_end_hook, fdf);
 	mlx_loop(fdf->mlx_ptr);
 }
 

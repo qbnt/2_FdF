@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 16:53:35 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/15 08:32:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 14:59:59 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_menu(t_fdf *fdf)
 }
 
 static char	*get_projection_name(t_fdf *fdf)
-{	
+{
 	char	*projection;
 
 	projection = "";

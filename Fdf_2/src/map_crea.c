@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:30:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:10:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	set_value(t_map *map, char *str)
 		free(elems[map->i.x]);
 		map->i.x ++;
 	}
+	if (elems[map->i.x])
+		free(elems[map->i.x++]);
 	if (ft_max(map->map[map->i.y], map->max_x) > map->max)
 		map->max = ft_max(map->map[map->i.y], map->max_x);
 	if (ft_min(map->map[map->i.y], map->max_x) > map->min)
