@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 00:45:25 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 11:34:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	create_map(t_map *map, char *s);
 
 /*draw.c*/
 void	ft_endian(t_line *line, t_img *image, int color);
-void	image_background(t_fdf *fdf, int image_size);
+void	image_background(t_fdf *fdf);
 void	bresenham(t_line *line, t_img *img);
 
 /*color.c*/
@@ -85,5 +85,6 @@ float	nb_min(float a, float b);
 float	nb_max(float a, float b);
 float	nb_absol(float a);
 float	scale_to_fit(t_map *map);
+void	def_color(t_fdf *fdf, t_point *point);
 
 #endif

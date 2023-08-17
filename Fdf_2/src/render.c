@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 01:08:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 12:26:59 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	select_color(t_fdf *fdf, t_point *point);
 
 void	render(t_fdf *fdf)
 {
-	image_background(fdf, MAX_PIXEL);
+	image_background(fdf);
 	fdf->map.i.y = 0;
 	while (fdf->map.i.y < fdf->map.max_y)
 	{
@@ -69,8 +69,16 @@ static void	set_val_render_y(t_fdf *fdf)
 
 void	render_line(t_fdf *fdf)
 {
-	fdf->line.start.z *= fdf->cam.scale_z;
-	fdf->line.end.z *= fdf->cam.scale_z;
+	if (fdf->map.pad > 20)
+	{
+		fdf->line.start.z *= fdf->cam.scale_z / fdf->cam.scale_factor;
+		fdf->line.end.z *= fdf->cam.scale_z / fdf->cam.scale_factor;
+	}
+	else
+	{
+		fdf->line.start.z *= fdf->cam.scale_z;
+		fdf->line.end.z *= fdf->cam.scale_z;
+	}
 	select_color(fdf, &fdf->line.start);
 	select_color(fdf, &fdf->line.end);
 	rotate(fdf, &fdf->cam);
@@ -83,21 +91,22 @@ static void	select_color(t_fdf *fdf, t_point *point)
 {
 	if (fdf->cam.color_pallet == FALSE)
 	{
-		if (point->color == 0xFFFFFF)
-			point->color = LINE_DEFAULT;
+		if (!fdf->map.color)
+			def_color(fdf, point);
 	}
 	else
 	{
 		if (point->z >= 0)
 		{
 			custom_color_init(CO_GREENY, CO_BLUE, fdf);
-			point->color = get_color(&fdf->line, point->z, fdf->map.max);
+			point->color = get_color(&fdf->line, point->z,
+					fdf->map.max / fdf->cam.scale_factor);
 		}
 		else
 		{
 			custom_color_init(CO_GREENY, CO_RED, fdf);
 			point->color = get_color(&fdf->line, nb_absol(point->z),
-					fdf->map.max);
+					fdf->map.max / fdf->cam.scale_factor);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:05:29 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 11:42:34 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 11:21:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ char	*win_name(char *str)
 {
 	char	*res;
 	char	*file;
+	char	*buf;
 
 	if (!str)
 		exit(EXIT_FAILURE);
-	res = ft_strdup("Fil de fer - ");
+	buf = ft_strdup("Fil de fer - ");
 	file = ft_strrchr(str, '/') + 1;
-	res = ft_strjoin(res, file);
+	res = ft_strjoin(buf, file);
+	free(buf);
 	return (res);
 }
 

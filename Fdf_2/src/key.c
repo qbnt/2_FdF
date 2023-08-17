@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/16 23:19:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 11:37:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	key_hook(int keycode, t_fdf *fdf)
 
 int	ft_end_hook(t_fdf *fdf)
 {
+	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
 	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
 	mlx_destroy_display(fdf->mlx_ptr);
 	free(fdf->mlx_ptr);

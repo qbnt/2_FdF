@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 00:58:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 11:33:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ void	ft_endian(t_line *line, t_img *image, int color)
 	}
 }
 
-void	image_background(t_fdf *fdf, int image_size)
+void	image_background(t_fdf *fdf)
 {
 	t_line	oui;
 
-	ft_bzero(fdf->img.data, image_size * 4);
 	oui.start.y = 0;
 	while (oui.start.y < fdf->win_heigth)
 	{
