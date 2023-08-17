@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 20:01:01 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 20:08:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ void	set_pad_color(t_fdf *fdf, t_point *point);
 /*key.c*/
 int		key_hook(int keycode, t_fdf *fdf);
 int		ft_expose_hook(t_fdf *fdf);
-int		ft_end_hook(t_fdf *fdf);
-
-/*mouse.c*/
-int		mouse_hook(int mousecode, int x, int y, t_fdf *fdf);
 
 /*key_move.c*/
 void	key_translate(int keycode, t_fdf *fdf);
 void	key_scale(int keycode, t_fdf *fdf);
 void	key_rotate(int keycode, t_fdf *fdf);
 void	key_project(int keycode, t_fdf *fdf);
+int		ft_end_hook(t_fdf *fdf);
+
+/*mouse.c*/
+int		mouse_hook(int mousecode, int x, int y, t_fdf *fdf);
 
 /*menu.c*/
 void	print_menu(t_fdf *fdf);

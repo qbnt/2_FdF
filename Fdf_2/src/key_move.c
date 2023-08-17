@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:28:30 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:26:58 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 20:07:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,17 @@ void	key_project(int keycode, t_fdf *fdf)
 		fdf->cam.projection = ISOMETRIC;
 	else if (keycode == KEY_O)
 		fdf->cam.projection = TOP;
+}
+
+int	ft_end_hook(t_fdf *fdf)
+{
+	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
+	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
+	mlx_destroy_display(fdf->mlx_ptr);
+	free(fdf->mlx_ptr);
+	ft_free_int_tab(fdf->map.map, fdf->map.max_y);
+	ft_free_int_tab(fdf->map.color_map, fdf->map.max_y);
+	free(fdf);
+	exit(EXIT_SUCCESS);
+	return (0);
 }

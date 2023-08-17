@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:28 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:46:01 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 20:11:18 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define NUMKEY_8	56
 # define NUMKEY_9	57
 
+# define MID_CLIC	2
 # define PAD_UP		5
 # define PAD_DOWN	4
 # define PAD_LEFT	7

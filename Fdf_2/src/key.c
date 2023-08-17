@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:07:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 11:37:39 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 20:07:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,5 @@ int	key_hook(int keycode, t_fdf *fdf)
 			fdf->cam.color_pallet = FALSE;
 	}
 	ft_expose_hook(fdf);
-	return (0);
-}
-
-int	ft_end_hook(t_fdf *fdf)
-{
-	mlx_destroy_image(fdf->mlx_ptr, fdf->img.ptr);
-	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
-	mlx_destroy_display(fdf->mlx_ptr);
-	free(fdf->mlx_ptr);
-	ft_free_int_tab(fdf->map.map, fdf->map.max_y);
-	ft_free_int_tab(fdf->map.color_map, fdf->map.max_y);
-	free(fdf);
-	exit(EXIT_SUCCESS);
 	return (0);
 }
