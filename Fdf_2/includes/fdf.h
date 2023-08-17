@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:24:10 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:41:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:17:39 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_cam(t_fdf *fdf);
 void	error(int exit_code);
 
 /*map_crea.c*/
-void	create_map(t_map *map, char *s);
+void	create_map(t_fdf *fdf, char *s);
 
 /*draw.c*/
 void	ft_endian(t_line *line, t_img *image, int color);

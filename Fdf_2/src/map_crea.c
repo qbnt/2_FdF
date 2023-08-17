@@ -6,38 +6,45 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 15:10:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:35:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-void	mesure_map(t_map *map, int fd);
+void	mesure_map(t_fdf *fdf, int fd);
 void	save_map(t_map *map, int fd);
 void	set_value(t_map *map, char *line);
 
 /***********************************************************/
 
-void	create_map(t_map *map, char *s)
+void	create_map(t_fdf *fdf, char *s)
 {
-	mesure_map(map, open(s, O_RDONLY));
-	save_map(map, open(s, O_RDONLY));
+	int	fd;
+
+	fd = open(s, O_RDONLY);
+	if (fd == -1)
+	{
+		close(fd);
+		free(fdf);
+		exit(EXIT_FAILURE);
+	}
+	mesure_map(fdf, fd);
+	save_map(&fdf->map, open(s, O_RDONLY));
 }
 
-void	mesure_map(t_map *map, int fd)
+void	mesure_map(t_fdf *fdf, int fd)
 {
 	char	*str;
 
-	if (fd == -1)
-		exit(EXIT_FAILURE);
 	while (1)
 	{
 		str = get_next_line(fd);
 		if (!str)
 			break ;
-		if (!map->max_x)
-			map->max_x = ft_count_wrd_sep(str, ' ') - 1;
-		map->max_y ++;
+		if (!fdf->map.max_x)
+			fdf->map.max_x = ft_count_wrd_sep(str, ' ');
+		fdf->map.max_y ++;
 		free(str);
 	}
 	close(fd);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:59:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 14:30:52 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:20:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ t_fdf	*init_fdf(char *file)
 	t_fdf	*fdf;
 	char	*name;
 
-	name = win_name(file);
 	fdf = ft_calloc(1, sizeof(t_fdf));
 	if (!fdf)
 		error(3);
-	create_map(&fdf->map, file);
+	create_map(fdf, file);
+	name = win_name(file);
 	fdf->mlx_ptr = mlx_init();
 	fdf->win_width = WINDOW_WIDTH;
 	fdf->win_heigth = WINDOW_HEIGHT;
