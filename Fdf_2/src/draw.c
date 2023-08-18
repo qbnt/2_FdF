@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:00:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 11:33:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 10:09:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	bresenham(t_line *line, t_img *img)
 
 	x_step = line->end.x - line->start.x;
 	y_step = line->end.y - line->start.y;
-	max_steps = (int)nb_max(nb_absol(x_step), nb_absol(y_step));
+	max_steps = nb_max(nb_absol(x_step), nb_absol(y_step));
 	x_step /= max_steps;
 	y_step /= max_steps;
 	i_line = 0;

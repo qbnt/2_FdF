@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:22:26 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 13:54:38 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 09:40:46 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	render_line(t_fdf *fdf)
 {
 	if (fdf->map.pad > 20)
 	{
-		fdf->line.start.z *= fdf->cam.scale_z / fdf->cam.scale_factor;
-		fdf->line.end.z *= fdf->cam.scale_z / fdf->cam.scale_factor;
+		fdf->line.start.z *= fdf->cam.scale_z / (fdf->cam.scale_factor / 2);
+		fdf->line.end.z *= fdf->cam.scale_z / (fdf->cam.scale_factor / 2);
 	}
 	else
 	{

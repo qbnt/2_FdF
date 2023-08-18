@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:44:03 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 13:53:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 09:41:47 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	set_pad_color(t_fdf *fdf, t_point *point)
 		custom_color_init(CO_GREENY, CO_BLUE, fdf);
 		if (fdf->map.pad > 20)
 			point->color = get_color(&fdf->line, point->z,
-					fdf->map.max / fdf->cam.scale_factor);
+					fdf->map.max / (fdf->cam.scale_factor / 2));
 		else
 			point->color = get_color(&fdf->line, point->z,
 					fdf->map.max);
@@ -100,7 +100,7 @@ void	set_pad_color(t_fdf *fdf, t_point *point)
 		custom_color_init(CO_GREENY, CO_RED, fdf);
 		if (fdf->map.pad > 20)
 			point->color = get_color(&fdf->line, nb_absol(point->z),
-					fdf->map.max / fdf->cam.scale_factor);
+					fdf->map.max / (fdf->cam.scale_factor / 2));
 		else
 			point->color = get_color(&fdf->line, nb_absol(point->z),
 					fdf->map.max);

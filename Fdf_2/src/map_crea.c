@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:21:06 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 19:59:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/17 21:03:16 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,6 @@ static int		count_unit(char *str);
 
 void	create_map(t_fdf *fdf, char *s)
 {
-	/*
-	int	fd;
-
-	fd = open(s, O_RDONLY);
-	if (fd == -1)
-	{
-		close(fd);
-		free(fdf);
-		exit(EXIT_FAILURE);
-	}
-	*/
 	mesure_map(fdf, open(s, O_RDONLY));
 	save_map(&fdf->map, open(s, O_RDONLY));
 }

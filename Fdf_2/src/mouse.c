@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:08:50 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 20:13:13 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 10:44:04 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	mouse_hook(int mousecode, int x, int y, t_fdf *fdf)
 		else
 			fdf->cam.color_pallet = FALSE;
 	}
-	else
-		printf("Mousecode = %d\n", mousecode);
 	ft_expose_hook(fdf);
 	return (0);
 }

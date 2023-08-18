@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:59:53 by qbanet            #+#    #+#             */
-/*   Updated: 2023/08/17 20:00:35 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/08/18 09:45:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_image(t_fdf *fdf)
 
 void	init_cam(t_fdf *fdf)
 {
-	fdf->cam.projection = TOP;
+	fdf->cam.projection = ISOMETRIC;
 	fdf->cam.color_pallet = FALSE;
 	fdf->cam.scale_factor = scale_to_fit(&fdf->map);
 	if (fdf->map.max > 10)
