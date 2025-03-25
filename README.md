@@ -40,6 +40,16 @@ make
 ./fdf [chemin_du_fichier.fdf]
 ```
 
+## 🗺️ Map Format
+
+The map file is a plain text file where each line represents a row of elevation values (optionally with colors), e.g.:
+
+```
+0 0 0 0
+0 1 1 0
+0 0 0 0
+```
+
 Exemples de fichiers `.fdf` disponibles dans le dossier `maps`.
 
 - Contrôles :
